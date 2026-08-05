@@ -1,4 +1,4 @@
-# Material de la materia Control Clásico y por Variables de Estados 2025
+# Material de la materia Control Clásico y por Variables de Estados 2026
 
 En Página web encontraremos gran parte del material digital necesario para seguir el curso de Control Clásico y por Variables de  la carrera de Ingeniería Electrónica de la Universidad Nacional de Río Negro.
 
