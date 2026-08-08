@@ -1,2 +1,2 @@
-site en :
-https://juanodecc.github.io/ccyve_book/ccyve_sources/intro.html
+
+[link de la pagina con los apuntes](https://juanodecc.github.io/CCyVE_book/)
