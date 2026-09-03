@@ -335,7 +335,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control-book-sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +352,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control-book-sources/edit/master/sources/notebooks_sources/guía_instalación/guia_de_instalacion.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/guía_instalación/guia_de_instalacion.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control-book-sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/guía_instalación/guia_de_instalacion.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/guía_instalación/guia_de_instalacion.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -486,12 +486,13 @@ commentsRunWhenDOMLoaded(addUtterances);
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-del-tipo-de-sistema-operativo-32-o-64-bits">Verificación del tipo de sistema operativo (32 o 64 bits)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-11">En Windows 11</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-10-y-windows-8-1">En Windows 10 y Windows 8.1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-7">En Windows 7</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniconda-de-acuerdo-al-tipo-de-sistema-operativo">Descargar Miniconda de acuerdo al tipo de sistema operativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniconda">Instalar Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniforge-o-conda-forge-de-acuerdo-al-tipo-de-sistema-operativo">Descargar Miniforge o conda-forge de acuerdo al tipo de sistema operativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniforge">Instalar Miniforge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-las-herramientas-especificas-del-curso">Instalación de las herramientas especificas del curso</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retoques-a-la-herramientas-para-mayor-comodidad-de-uso">Retoques a la herramientas para mayor comodidad de uso</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks-en-spyder">Jupyter Notebooks en Spyder</a></li>
@@ -511,8 +512,13 @@ commentsRunWhenDOMLoaded(addUtterances);
                   
   <section class="tex2jax_ignore mathjax_ignore" id="guia-de-instalacion-de-las-herramientas-computacionales">
 <h1>Guía de instalación de las herramientas computacionales<a class="headerlink" href="#guia-de-instalacion-de-las-herramientas-computacionales" title="Link to this heading">#</a></h1>
+<p>Esta guía da un instructivo que permiten instalar las herramientas que estamos usando actualmente en la materia. Pueden buscar información extra en este <a class="reference external" href="https://conda-forge.org/download/">sitio</a> que mantengo.</p>
 <section id="verificacion-del-tipo-de-sistema-operativo-32-o-64-bits">
 <h2>Verificación del tipo de sistema operativo (32 o 64 bits)<a class="headerlink" href="#verificacion-del-tipo-de-sistema-operativo-32-o-64-bits" title="Link to this heading">#</a></h2>
+<section id="en-windows-11">
+<h3>En Windows 11<a class="headerlink" href="#en-windows-11" title="Link to this heading">#</a></h3>
+<p>Selecciona el botón Inicio (icono de «ventanita») y después, <code class="docutils literal notranslate"><span class="pre">Configuración</span> <span class="pre">&gt;</span> <span class="pre">Sistema</span></code>. Buscar en <code class="docutils literal notranslate"><span class="pre">Información</span></code>, consulta el tipo de sistema.</p>
+</section>
 <section id="en-windows-10-y-windows-8-1">
 <h3>En Windows 10 y Windows 8.1<a class="headerlink" href="#en-windows-10-y-windows-8-1" title="Link to this heading">#</a></h3>
 <p>Selecciona el botón Inicio y después, <code class="docutils literal notranslate"><span class="pre">Configuración</span> <span class="pre">&gt;</span> <span class="pre">Sistema</span> <span class="pre">&gt;</span> <span class="pre">Acerca</span> <span class="pre">de</span></code>. A la derecha, en Especificaciones del dispositivo, consulta Tipo de sistema.</p>
@@ -523,18 +529,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 <code class="docutils literal notranslate"><span class="pre">Equipo</span></code> y selecciona <code class="docutils literal notranslate"><span class="pre">Propiedades</span></code>. En <code class="docutils literal notranslate"><span class="pre">Sistema</span></code>, consulta el <code class="docutils literal notranslate"><span class="pre">tipo</span> <span class="pre">de</span> <span class="pre">sistema</span></code>.</p>
 </section>
 </section>
-<section id="descargar-miniconda-de-acuerdo-al-tipo-de-sistema-operativo">
-<h2>Descargar Miniconda de acuerdo al tipo de sistema operativo<a class="headerlink" href="#descargar-miniconda-de-acuerdo-al-tipo-de-sistema-operativo" title="Link to this heading">#</a></h2>
-<p>Seguir el enlace de <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> y elegir la versión de <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.X</span></code> (donde X es un número entero) que este acorde al tipo de sistema operativo instalado es su máquina según lo averiguado en el punto anterior.</p>
+<section id="descargar-miniforge-o-conda-forge-de-acuerdo-al-tipo-de-sistema-operativo">
+<h2>Descargar Miniforge o conda-forge de acuerdo al tipo de sistema operativo<a class="headerlink" href="#descargar-miniforge-o-conda-forge-de-acuerdo-al-tipo-de-sistema-operativo" title="Link to this heading">#</a></h2>
+<p>Seguir el enlace de <a class="reference external" href="https://conda-forge.org/download/">Miniforge</a> y elegir la última versión con <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code>, que este acorde al tipo de sistema operativo instalado en su máquina según lo averiguado en el punto anterior.</p>
 </section>
-<section id="instalar-miniconda">
-<h2>Instalar Miniconda<a class="headerlink" href="#instalar-miniconda" title="Link to this heading">#</a></h2>
-<p>Seguir las recomendaciones por defecto dadas por el instalador. Una vez terminada la instalación tendremos Python instalado en nuestro sistema. Además tendremos en el menú de inicio un ítem
-que se llama Anaconda Powershell Prompt, el cual abriremos para continuar con la instalación de las herramientas del curso.</p>
+<section id="instalar-miniforge">
+<h2>Instalar Miniforge<a class="headerlink" href="#instalar-miniforge" title="Link to this heading">#</a></h2>
+<p>Seguir las recomendaciones por defecto dadas por el instalador. Una vez terminada la instalación tendremos Python instalado en nuestro sistema. Además tendremos en el menú de inicio un ítem que se llama Miniforge Prompt, el cual abriremos para continuar con la instalación de las herramientas del curso.</p>
 </section>
 <section id="instalacion-de-las-herramientas-especificas-del-curso">
 <h2>Instalación de las herramientas especificas del curso<a class="headerlink" href="#instalacion-de-las-herramientas-especificas-del-curso" title="Link to this heading">#</a></h2>
-<p>Para continuar con la instalación necesitaremos descargar el archivo <a class="reference external" href="https://drive.google.com/file/d/1agx9I7KoTB2Fw9MO6_tuzQqRSai2iBgV/view?usp=sharing">dyc.yml</a> haciendo clock sobre el enlace anterior. Una vez descargado, dirigirse con la consola de Anaconda Powershell Prompt abierta a la carpeta de descargas donde se encuentra el archivo <code class="docutils literal notranslate"><span class="pre">dyc.yml</span></code> descargado anteriormente. En general, para dirigirse a esta carpeta debemos tipear</p>
+<p>Para continuar con la instalación necesitaremos descargar el archivo <a class="reference external" href="https://drive.google.com/file/d/1wd7Bfa-4b7AoGzGAKgYS6sTK2EOgQfWs/view?usp=share_link">dyc.yml</a> haciendo clock sobre el enlace anterior. Una vez descargado, dirigirse con la consola de Anaconda Powershell Prompt abierta a la carpeta de descargas donde se encuentra el archivo <code class="docutils literal notranslate"><span class="pre">dyc.yml</span></code> descargado anteriormente. En general, para dirigirse a esta carpeta debemos tipear</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~<span class="se">\D</span>ownloads<span class="se">\</span>
 </pre></div>
 </div>
@@ -543,8 +548,8 @@ que se llama Anaconda Powershell Prompt, el cual abriremos para continuar con la
 </pre></div>
 </div>
 <p>Si nos encontramos en la carpeta donde está el archivo este deberá aparecer luego del comando anterior.</p>
-<p>Finalmente para instalar todas las herramientas necesarias en el curso debemos ejecutar en este comando:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>dyc.yml
+<p>Finalmente para instalar todas las herramientas necesarias en el curso debemos ejecutar en este comando (es preferible usar mamba, sino usar conda):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>dyc.yml
 </pre></div>
 </div>
 <p>Una vez terminado este paso tendremos instaladas todas las herramientas necesarias para la materia. Este paso puede tardar un tiempo largo dependiendo de la velocidad de conexión. Si la instalación fué exitosa encontraremos dos ítems en el menú de inicio que son los que utilizaremos:</p>
@@ -653,12 +658,13 @@ que se llama Anaconda Powershell Prompt, el cual abriremos para continuar con la
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-del-tipo-de-sistema-operativo-32-o-64-bits">Verificación del tipo de sistema operativo (32 o 64 bits)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-11">En Windows 11</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-10-y-windows-8-1">En Windows 10 y Windows 8.1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#en-windows-7">En Windows 7</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniconda-de-acuerdo-al-tipo-de-sistema-operativo">Descargar Miniconda de acuerdo al tipo de sistema operativo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniconda">Instalar Miniconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniforge-o-conda-forge-de-acuerdo-al-tipo-de-sistema-operativo">Descargar Miniforge o conda-forge de acuerdo al tipo de sistema operativo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniforge">Instalar Miniforge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-las-herramientas-especificas-del-curso">Instalación de las herramientas especificas del curso</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retoques-a-la-herramientas-para-mayor-comodidad-de-uso">Retoques a la herramientas para mayor comodidad de uso</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks-en-spyder">Jupyter Notebooks en Spyder</a></li>
