@@ -20,7 +20,7 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/juanodecc/control_book_sources  # Online location of your book
+  url: https://github.com/juanodecc/control_book_source  # Online location of your book
   # path_to_book: book  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
@@ -57,13 +57,22 @@ parse:
     # - smartquotes
     - substitution
 
+
 #
 sphinx:
+  extra_extensions:
+    - sphinxcontrib.mermaid
   config:
     language: es
+    mermaid_d3_zoom: true
+    mermaid_init_js: |
+      mermaid.initialize({
+        startOnLoad: true,
+        flowchart: { useMaxWidth: false, htmlLabels: true },
+        themeVariables: { fontSize: "16px" }
+      });
     nb_custom_formats:
         .py:
             - jupytext.reads
             - fmt: py
-execute:
-  execute_notebooks: cache
+

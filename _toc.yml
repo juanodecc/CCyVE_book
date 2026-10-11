@@ -45,6 +45,7 @@ parts:
   - file: sources/notebooks_sources/modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia
 - caption: "Dise\xF1o de compensadores"
   chapters:
+  - file: sources/notebooks_sources/modulo5/diseno_controladores_intro
   - file: sources/notebooks_sources/modulo5/compensadores
   - file: sources/notebooks_sources/modulo5/problema_levitador
   - file: sources/notebooks_sources/modulo5/tipo1_lead
