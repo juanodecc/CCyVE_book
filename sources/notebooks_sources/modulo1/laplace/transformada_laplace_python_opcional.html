@@ -258,6 +258,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -337,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +386,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +403,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo1/laplace/transformada_laplace_python_opcional.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -614,9 +615,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Vamos a definir algunos símbolos para trabajar. Aquí usamos <code class="docutils literal notranslate"><span class="pre">Symbol</span></code> para poder especificar los dominios y las restricciones en los símbolos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'a'</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -630,7 +631,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/19b370a6608513ff2389da639e9f99a593e5444884711dce484ce4e5f8ac0dfe.png" src="../../../../_images/19b370a6608513ff2389da639e9f99a593e5444884711dce484ce4e5f8ac0dfe.png" />
+<img alt="../../../../_images/dfb25ab24d0ca98e17e17fe6a5b45233980b8113d36db4fc91be4115289077b9.png" src="../../../../_images/dfb25ab24d0ca98e17e17fe6a5b45233980b8113d36db4fc91be4115289077b9.png" />
 </div>
 </div>
 <p>Podemos evaluar la integral directamente usando <code class="docutils literal notranslate"><span class="pre">integrate</span></code>:</p>
@@ -654,7 +655,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/6df125af37a44feaf8b0cf2d7c5cf609d2d2b2812d7a67b882d9abbf6156c8cf.png" src="../../../../_images/6df125af37a44feaf8b0cf2d7c5cf609d2d2b2812d7a67b882d9abbf6156c8cf.png" />
+<img alt="../../../../_images/db774e8f39d8ba9426a51bd93ffd0170f034247a35a44500b9fa023824e92993.png" src="../../../../_images/db774e8f39d8ba9426a51bd93ffd0170f034247a35a44500b9fa023824e92993.png" />
 </div>
 </div>
 <p>Si queremos solo la función, podemos especificar <code class="docutils literal notranslate"><span class="pre">noconds</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
@@ -666,7 +667,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/23668974dfa1db1341a40639368c322a59a7dae2963336a19e5b231f98b171ae.png" src="../../../../_images/23668974dfa1db1341a40639368c322a59a7dae2963336a19e5b231f98b171ae.png" />
+<img alt="../../../../_images/f3b9c1ceeb247b6f176e1a80289658cd2357274118726fa615e8f2a450b7ea14.png" src="../../../../_images/f3b9c1ceeb247b6f176e1a80289658cd2357274118726fa615e8f2a450b7ea14.png" />
 </div>
 </div>
 <p>Nos resultará útil definir una versión más rápida de esto:</p>
@@ -694,7 +695,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/667c5397a130daa646a5cf9fa694132401e732e8e097a2c923463734f2042e1e.png" src="../../../../_images/667c5397a130daa646a5cf9fa694132401e732e8e097a2c923463734f2042e1e.png" />
+<img alt="../../../../_images/00fafa0539fc0e7ac11f669bd9ecad2560b2b02fa67c29a3a80dd2020d58f46a.png" src="../../../../_images/00fafa0539fc0e7ac11f669bd9ecad2560b2b02fa67c29a3a80dd2020d58f46a.png" />
 </div>
 </div>
 <p>La función de escalón unitario también se conoce también como Heaviside. Veremos esta función a menudo en transformaciones inversas de Laplace. Es nombrada como <span class="math notranslate nohighlight">\(\theta(t)\)</span> por sympy.</p>
@@ -705,7 +706,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/4d91504c73b8ba32ff4445c7ff0d11f8d024743d1e34a2baa6627f2ff5b3c5fa.png" src="../../../../_images/4d91504c73b8ba32ff4445c7ff0d11f8d024743d1e34a2baa6627f2ff5b3c5fa.png" />
+<img alt="../../../../_images/852c89fbc05caee207c9ed857ed4e67592a4e57a72c1f8ea6e1bc837febccc94.png" src="../../../../_images/852c89fbc05caee207c9ed857ed4e67592a4e57a72c1f8ea6e1bc837febccc94.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -715,7 +716,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/14274afc68f08c247431658832d10fe67f1ab2ac753581050ed38eff675c799e.png" src="../../../../_images/14274afc68f08c247431658832d10fe67f1ab2ac753581050ed38eff675c799e.png" />
+<img alt="../../../../_images/a9786390d86a94e57e0c54d993b486e2db5db486ac1a7769655d055e12d47df9.png" src="../../../../_images/a9786390d86a94e57e0c54d993b486e2db5db486ac1a7769655d055e12d47df9.png" />
 </div>
 </div>
 <p>Mire la diferencia entre <span class="math notranslate nohighlight">\(f\)</span> y la transformada inversa de lugar que obtuvimos, que contiene el paso unitario para forzarlo a cero antes de <span class="math notranslate nohighlight">\(t=0\)</span>.</p>
@@ -726,28 +727,28 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/7fc6cf6f83f2448924f23be5de6b54736cebcc7d370acae0d842c33bf8dc7a31.png" src="../../../../_images/7fc6cf6f83f2448924f23be5de6b54736cebcc7d370acae0d842c33bf8dc7a31.png" />
+<img alt="../../../../_images/ab42442ce0902711a84f0f09bc3ddc8af3ce15f0662d190e19d158d978ea71a5.png" src="../../../../_images/ab42442ce0902711a84f0f09bc3ddc8af3ce15f0662d190e19d158d978ea71a5.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">a</span><span class="p">:</span> <span class="mi">2</span><span class="p">}),</span> <span class="n">invL</span><span class="p">(</span><span class="n">F</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">a</span><span class="p">:</span> <span class="mi">2</span><span class="p">}),</span> 
                <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+<span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="s1">'red'</span>
 <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">line_color</span>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/2033eb88a60a417c7af9fd01e1648f94ed250db090693e6963b4ce519ad7acbc.png" src="../../../../_images/2033eb88a60a417c7af9fd01e1648f94ed250db090693e6963b4ce519ad7acbc.png" />
+<img alt="../../../../_images/76da8949fa287bed18e3fba796d4bc192821833a92c8631da84f585b7ffffcf4.png" src="../../../../_images/76da8949fa287bed18e3fba796d4bc192821833a92c8631da84f585b7ffffcf4.png" />
 </div>
 </div>
 <p>A ver si podemos igualar las funciones en la tabla.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;omega&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">omega</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'omega'</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">exp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">exp</span>
 <span class="n">sin</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sin</span>
 <span class="n">cos</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">cos</span>
@@ -768,7 +769,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/236f8daaeeec52067b515ac5b1a66d65077ec63dac0c35485c5b6de8e6cb775f.png" src="../../../../_images/236f8daaeeec52067b515ac5b1a66d65077ec63dac0c35485c5b6de8e6cb775f.png" />
+<img alt="../../../../_images/6a41c18faad89d0e91510807d48fa572632bd6133e2a8b87f105bb31b477b95c.png" src="../../../../_images/6a41c18faad89d0e91510807d48fa572632bd6133e2a8b87f105bb31b477b95c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -779,7 +780,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/7d43ae62b059859a89ca89a0c970ebe340d682272f100d13aa5b14d18806fce7.png" src="../../../../_images/7d43ae62b059859a89ca89a0c970ebe340d682272f100d13aa5b14d18806fce7.png" />
+<img alt="../../../../_images/917b4e1c80771b9fd5bb323422b7c74967afc96324dbf4f3660e7a7e65e7b9c0.png" src="../../../../_images/917b4e1c80771b9fd5bb323422b7c74967afc96324dbf4f3660e7a7e65e7b9c0.png" />
 </div>
 </div>
 <p>Podemos ver que la última no la escribo exactamente de la misma manera, pero que es lo misma función transformada de Laplace que figura en la table.</p>
@@ -795,7 +796,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/65a68abbcf4ee2ce9f2e5abb2b1c956e1c163ef0462edd1ce2af1132bc33d162.png" src="../../../../_images/65a68abbcf4ee2ce9f2e5abb2b1c956e1c163ef0462edd1ce2af1132bc33d162.png" />
+<img alt="../../../../_images/f39cc45994400c710824c3fb9886af3fa4c06b9cc25796be3ac72c239b16fa6d.png" src="../../../../_images/f39cc45994400c710824c3fb9886af3fa4c06b9cc25796be3ac72c239b16fa6d.png" />
 </div>
 </div>
 <p>Podemos hacer fracciones simples:</p>
@@ -806,7 +807,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/32ea7612077885cbc2ed88de44a5dd646c6dca4b6c3a24f0b5d46ff9cae2fa37.png" src="../../../../_images/32ea7612077885cbc2ed88de44a5dd646c6dca4b6c3a24f0b5d46ff9cae2fa37.png" />
+<img alt="../../../../_images/aafb1286623de5dcb82b0c12c757cba4c9dec692b9d856e631e18d6a006cb935.png" src="../../../../_images/aafb1286623de5dcb82b0c12c757cba4c9dec692b9d856e631e18d6a006cb935.png" />
 </div>
 </div>
 <p>Incluso sympy puede beneficiarse con un poco de ayuda a veces. Cuando intentamos calcular el inverso de <span class="math notranslate nohighlight">\(F\)</span> obtenemos una respuesta un tanto desagradable:</p>
@@ -817,7 +818,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" src="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" />
+<img alt="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" src="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" />
 </div>
 </div>
 <p>¿Tal vez se vea mejor si simplificamos?</p>
@@ -828,7 +829,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" src="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" />
+<img alt="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" src="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" />
 </div>
 </div>
 <p>No, todavía presenta una transformada laplace «desconocida». Pero, si hacemos primero la expansión de fracciones parciales, obtenemos una respuesta limpia:</p>
@@ -839,7 +840,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" src="../../../../_images/565d7e32944f7d5c95324a3fc3c41b48a15d104f2da0f0f89ee127eac12e7939.png" />
+<img alt="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" src="../../../../_images/07a48c98da56596f1696e79032f0a06275086d442e0af7bb3fc2b99c437b364f.png" />
 </div>
 </div>
 </section>

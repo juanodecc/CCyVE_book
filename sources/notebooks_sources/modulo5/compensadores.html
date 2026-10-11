@@ -102,7 +102,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
     <link rel="next" title="Problema de levitador magnético" href="problema_levitador.html" />
-    <link rel="prev" title="Estabilidad en Frecuencia" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html" />
+    <link rel="prev" title="Diseño de controladores" href="diseno_controladores_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -258,6 +258,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -337,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/modulo5/compensadores.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/modulo5/compensadores.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +386,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/modulo5/compensadores.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/modulo5/compensadores.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +403,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo5/compensadores.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo5/compensadores.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -788,20 +789,20 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Comparación de los diferentes criterios&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;bisectriz&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Anular 2do&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PD&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Comparación de los diferentes criterios"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"bisectriz"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Anular 2do"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"PD"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo [s]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Salida [m]&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Salida [m]'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/b39e2d81ac54f68cf0bc882df8c1efde82c50206f5bd1b6ec9b119941dcd6549.png" src="../../../_images/b39e2d81ac54f68cf0bc882df8c1efde82c50206f5bd1b6ec9b119941dcd6549.png" />
+<img alt="../../../_images/73a0d05d1de015d9c7f9ae2cc21f01352a138b5c7fa72a78e510e3c06588ed44.png" src="../../../_images/73a0d05d1de015d9c7f9ae2cc21f01352a138b5c7fa72a78e510e3c06588ed44.png" />
 </div>
 </div>
 </section>
@@ -855,7 +856,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <p>Para iniciar el proceso de diseño, a menudo es útil observar las características del sistema con realimentación proporcional, es decir, el compensador <span class="math notranslate nohighlight">\(D(s) = 1\)</span>. Los comandos para crear el lugar de raíces con respecto a <span class="math notranslate nohighlight">\(K\)</span> y una respuesta de tiempo para el caso de realimentación proporcional con <span class="math notranslate nohighlight">\(K = 0.3\)</span> son las siguientes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="s1">'s'</span><span class="p">)</span>
 <span class="n">sysG</span> <span class="o">=</span> <span class="p">(</span><span class="mi">160</span><span class="o">*</span> <span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mf">2.5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mf">0.7</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mf">0.03</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="mf">0.06</span><span class="p">))</span>
 <span class="n">_</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">sysG</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># el guión bajo es para no tener las puntos de las raíces y las ganancias como salidas por pantalla</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -866,7 +867,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
 </pre></div>
 </div>
-<img alt="../../../_images/ec457682fbaf2d71814dac868f4fb7a6656c648ed772e734b52d685aad0be822.png" src="../../../_images/ec457682fbaf2d71814dac868f4fb7a6656c648ed772e734b52d685aad0be822.png" />
+<img alt="../../../_images/5927b7e4f78d9a5f57e637761d127f0ad93d42eb9ccf8b0bae02b34e15228ef3.png" src="../../../_images/5927b7e4f78d9a5f57e637761d127f0ad93d42eb9ccf8b0bae02b34e15228ef3.png" />
 </div>
 </div>
 <p>Podemos ver que para lograr el tiempo de respuesta con las dos raíces rápidas deseadas como mínimo tenemos que darle una ganancia de 0.3. Sin embargo para esta ganancia el sobrevalor va a dar más grande ya que que coeficiente de amortiguamiento es de 0.19 que es menor 0.6 requerido.</p>
@@ -882,12 +883,12 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <p>Defino una función en python para no tener que andar escribiendo siempre lo mismo o evitar el peligroso «copiar/pegar»</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graficar_respuesta_escalon</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Respuesta al escalón&#39;</span><span class="p">):</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graficar_respuesta_escalon</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Respuesta al escalón'</span><span class="p">):</span> 
     <span class="n">t</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">step_response</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo"</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -901,7 +902,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/0f7d03a50af1a2855fcf01f62efc4330e37097bbe85aabeaf5905cce4fa21f49.png" src="../../../_images/0f7d03a50af1a2855fcf01f62efc4330e37097bbe85aabeaf5905cce4fa21f49.png" />
+<img alt="../../../_images/fad686049df53d70a94faf7a6db6a3746de1f97b130f94ece2bdc6a8aed34dc5.png" src="../../../_images/fad686049df53d70a94faf7a6db6a3746de1f97b130f94ece2bdc6a8aed34dc5.png" />
 </div>
 </div>
 <p>Vimos anteriormente que la compensación de lead hace que el lugar se desplace hacia la izquierda. Aquí es necesario un compensador de este para aumentar el amortiguamiento y para el <span class="math notranslate nohighlight">\(\omega_n\)</span> requerido. Se requerirá alguna prueba y error para llegar a la ubicación de un polo y cero adecuado. Valores de <span class="math notranslate nohighlight">\(z = 3\)</span> y <span class="math notranslate nohighlight">\(p = 20\)</span> en la ecuación tienen un efecto sustancial al mover las ramas rápidas del lugar hacia la izquierda; así resultaría:
@@ -920,7 +921,7 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
 </pre></div>
 </div>
-<img alt="../../../_images/c2a789dd112d70bb50364ad1fc5242aafe524362fb6bad1bd5bd0ba7be27006d.png" src="../../../_images/c2a789dd112d70bb50364ad1fc5242aafe524362fb6bad1bd5bd0ba7be27006d.png" />
+<img alt="../../../_images/6694e534749b969cc35362ce4d7ec4e7b4e781de39e368b918c07e86f652c8f1.png" src="../../../_images/6694e534749b969cc35362ce4d7ec4e7b4e781de39e368b918c07e86f652c8f1.png" />
 </div>
 </div>
 <p>Entonces probamos con esta ganancia de <span class="math notranslate nohighlight">\(K=1.5\)</span></p>
@@ -934,7 +935,7 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/94e03d6b086123d557b42eafead74ed79d463fa44c63d665e3ea14a3730b0651.png" src="../../../_images/94e03d6b086123d557b42eafead74ed79d463fa44c63d665e3ea14a3730b0651.png" />
+<img alt="../../../_images/2c92375a805d6e4ff5a726c3bc07efcb103321de9687339271f81ca2b23846e7.png" src="../../../_images/2c92375a805d6e4ff5a726c3bc07efcb103321de9687339271f81ca2b23846e7.png" />
 </div>
 </div>
 <p>Hay que tener en cuenta que el amortiguamiento debido a las raíces rápidas que corresponde a <span class="math notranslate nohighlight">\(K = 1.5\)</span> es <span class="math notranslate nohighlight">\(\zeta = 0.52\)</span>, que es ligeramente menor de lo que nos gustaría; Además, la frecuencia natural es <span class="math notranslate nohighlight">\(\omega_n= 15\)</span> rad/seg, mucho más rápido de lo que necesitamos. Sin embargo, estos valores son lo suficientemente cercanos como para cumplir con las pautas para sugerir un vistazo a la respuesta temporal. De hecho, la respuesta temporal que <span class="math notranslate nohighlight">\(t_r \approx 1.1\)</span> seg y <span class="math notranslate nohighlight">\(M_p \approx 8\%\)</span>, que están muy cerca de cumplir especificaciones.</p>
@@ -947,15 +948,15 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;RiseTime&#39;: 0.12012012012012012,
- &#39;SettlingTime&#39;: 5.205205205205205,
- &#39;SettlingMin&#39;: 0.7521738729990605,
- &#39;SettlingMax&#39;: 1.0465819498526232,
- &#39;Overshoot&#39;: 8.645173841843743,
- &#39;Undershoot&#39;: 0.0,
- &#39;Peak&#39;: 1.0465819498526232,
- &#39;PeakTime&#39;: 2.4324324324324325,
- &#39;SteadyStateValue&#39;: 0.963302752293578}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 0.12012012012012012,
+ 'SettlingTime': 5.205205205205205,
+ 'SettlingMin': 0.7521738729990605,
+ 'SettlingMax': 1.0465819498526232,
+ 'Overshoot': 8.645173841843743,
+ 'Undershoot': 0.0,
+ 'Peak': 1.0465819498526232,
+ 'PeakTime': 2.4324324324324325,
+ 'SteadyStateValue': 0.963302752293578}
 </pre></div>
 </div>
 </div>
@@ -971,15 +972,15 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;RiseTime&#39;: 0.10277692351445898,
- &#39;SettlingTime&#39;: 4.815832987534649,
- &#39;SettlingMin&#39;: 0.7767298504310532,
- &#39;SettlingMax&#39;: 1.0395168591973891,
- &#39;Overshoot&#39;: 7.078052413565643,
- &#39;Undershoot&#39;: 0.0,
- &#39;Peak&#39;: 1.0395168591973891,
- &#39;PeakTime&#39;: 2.3051395702528654,
- &#39;SteadyStateValue&#39;: 0.9708029197080292}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 0.10277692351445898,
+ 'SettlingTime': 4.815832987534649,
+ 'SettlingMin': 0.7767298504310532,
+ 'SettlingMax': 1.0395168591973891,
+ 'Overshoot': 7.078052413565643,
+ 'Undershoot': 0.0,
+ 'Peak': 1.0395168591973891,
+ 'PeakTime': 2.3051395702528654,
+ 'SteadyStateValue': 0.9708029197080292}
 </pre></div>
 </div>
 </div>
@@ -1012,7 +1013,7 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
 </pre></div>
 </div>
-<img alt="../../../_images/eae6e6ac59ff65224fdcbd66388f951ed5ab46d3d0362d4bc53fbb508996cfc9.png" src="../../../_images/eae6e6ac59ff65224fdcbd66388f951ed5ab46d3d0362d4bc53fbb508996cfc9.png" />
+<img alt="../../../_images/a41cce80a943386b417daa7c040c1f73f7eefff909cae9ba9357c47da0f01819.png" src="../../../_images/a41cce80a943386b417daa7c040c1f73f7eefff909cae9ba9357c47da0f01819.png" />
 </div>
 </div>
 <p>La segunda figura es la ampliación de lo que está sucediendo con los polos lentos. Podemos ver que están todos muy cerca de ceros por lo que la influencia neta que tendrán en la respuesta será muy pequeña.</p>
@@ -1040,7 +1041,7 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/88acec5bb517a3fdc4dea31c63b74a946f2f1172eda04ba530d09f3f0a3ca198.png" src="../../../_images/88acec5bb517a3fdc4dea31c63b74a946f2f1172eda04ba530d09f3f0a3ca198.png" />
+<img alt="../../../_images/766440c1d6a8cb48fd161df80e8b3167f7f2329ed3ca6d75b189d4e433e9f519.png" src="../../../_images/766440c1d6a8cb48fd161df80e8b3167f7f2329ed3ca6d75b189d4e433e9f519.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1051,7 +1052,7 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/337dd6a5e7fe2b93aec0e04efb78a8af6003f29b0a933e2afb02e2d2f5d6854e.png" src="../../../_images/337dd6a5e7fe2b93aec0e04efb78a8af6003f29b0a933e2afb02e2d2f5d6854e.png" />
+<img alt="../../../_images/d0f655a2d96fe81481faec1fecf1dcdb928aad168c439ac210df855105a42a41.png" src="../../../_images/d0f655a2d96fe81481faec1fecf1dcdb928aad168c439ac210df855105a42a41.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1061,15 +1062,15 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;RiseTime&#39;: 2.5957216515746,
- &#39;SettlingTime&#39;: 23.11814595933628,
- &#39;SettlingMin&#39;: 0.9106676824507043,
- &#39;SettlingMax&#39;: 1.1159845187563322,
- &#39;Overshoot&#39;: 11.59845187563322,
- &#39;Undershoot&#39;: 0.0,
- &#39;Peak&#39;: 1.1159845187563322,
- &#39;PeakTime&#39;: 7.13823454183015,
- &#39;SteadyStateValue&#39;: 1.0}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 2.5957216515746,
+ 'SettlingTime': 23.11814595933628,
+ 'SettlingMin': 0.9106676824507043,
+ 'SettlingMax': 1.1159845187563322,
+ 'Overshoot': 11.59845187563322,
+ 'Undershoot': 0.0,
+ 'Peak': 1.1159845187563322,
+ 'PeakTime': 7.13823454183015,
+ 'SteadyStateValue': 1.0}
 </pre></div>
 </div>
 </div>
@@ -1083,7 +1084,7 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/a08ba968301462604831fffb5baa85ac067860005731140e015caa7a962040a5.png" src="../../../_images/a08ba968301462604831fffb5baa85ac067860005731140e015caa7a962040a5.png" />
+<img alt="../../../_images/e11bed1dd5d27afff4c57ea454c24c01d0f5878ed154b92accd3f080af27d3d1.png" src="../../../_images/e11bed1dd5d27afff4c57ea454c24c01d0f5878ed154b92accd3f080af27d3d1.png" />
 </div>
 </div>
 </section>
@@ -1121,12 +1122,12 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html"
+       href="diseno_controladores_intro.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Estabilidad en Frecuencia</p>
+        <p class="prev-next-title">Diseño de controladores</p>
       </div>
     </a>
     <a class="right-next"

@@ -258,6 +258,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -337,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/intro_python/intro_sympy.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/intro_python/intro_sympy.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +386,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/intro_python/intro_sympy.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/intro_python/intro_sympy.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +403,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/intro_python/intro_sympy.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/intro_python/intro_sympy.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -572,13 +573,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Luego, ya para comenzar con la operatorio simbólica, necesitamos crear un símbolo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
 <span class="n">x</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/84c3e7a2928c9e34670c640eaacf8f7869da885e04e7e44fffadd679823043e5.png" src="../../../_images/84c3e7a2928c9e34670c640eaacf8f7869da885e04e7e44fffadd679823043e5.png" />
+<img alt="../../../_images/5f96ea1f83276d259c4d808ecf4503a5ee3a29f7b460b8ddf9a267213d0617bd.png" src="../../../_images/5f96ea1f83276d259c4d808ecf4503a5ee3a29f7b460b8ddf9a267213d0617bd.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code> nos permite hacer muchas operaciones matemáticas que serían tediosas a
@@ -591,7 +592,7 @@ mano. Por ejemplo, podemos expandir un polinomio:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/09b79d89407d410b6303f71ef64ddbe196447caca6d83d903beb143bafb4851b.png" src="../../../_images/09b79d89407d410b6303f71ef64ddbe196447caca6d83d903beb143bafb4851b.png" />
+<img alt="../../../_images/ea8f55d38d6e140604c79e1e5ebdd7795f834f2528771aa378dbcf7da0e6683e.png" src="../../../_images/ea8f55d38d6e140604c79e1e5ebdd7795f834f2528771aa378dbcf7da0e6683e.png" />
 </div>
 </div>
 <p>Observe lo que sucedió: definimos un nuevo nombre llamado <code class="docutils literal notranslate"><span class="pre">polynomial</span></code>
@@ -621,7 +622,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/3ffa58f95f5c542c5dd35272862dcbdcf19085edc6194f86af05b35455bcea9f.png" src="../../../_images/3ffa58f95f5c542c5dd35272862dcbdcf19085edc6194f86af05b35455bcea9f.png" />
+<img alt="../../../_images/5416b0aa5d827e446acf22fb754a33a45dc95c2b7b5a04da20e8bfd667fc9c15.png" src="../../../_images/5416b0aa5d827e446acf22fb754a33a45dc95c2b7b5a04da20e8bfd667fc9c15.png" />
 </div>
 </div>
 <section id="calculo">
@@ -634,7 +635,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/1257bb125ab3bc021c991b4b3ba49fa8fd9cd68fe22f172ed15cc27702ff9981.png" src="../../../_images/1257bb125ab3bc021c991b4b3ba49fa8fd9cd68fe22f172ed15cc27702ff9981.png" />
+<img alt="../../../_images/7189fa154f03a3e34d2520cda65fa3557919f629f79431023566c46c1b2397ee.png" src="../../../_images/7189fa154f03a3e34d2520cda65fa3557919f629f79431023566c46c1b2397ee.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -644,7 +645,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/383042aa88fcfa5443a05569ff567c8eee1a490dba65cf60bf97cc9d0153e497.png" src="../../../_images/383042aa88fcfa5443a05569ff567c8eee1a490dba65cf60bf97cc9d0153e497.png" />
+<img alt="../../../_images/123bc18366d477567df4357cd4048c9ffb4526f392cbf19b62acf8874047c831.png" src="../../../_images/123bc18366d477567df4357cd4048c9ffb4526f392cbf19b62acf8874047c831.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -655,7 +656,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/56b1433b6190810fcc058930c71d072b60012a5b8d926919a3088618778961a5.png" src="../../../_images/56b1433b6190810fcc058930c71d072b60012a5b8d926919a3088618778961a5.png" />
+<img alt="../../../_images/fdc8ac86da8d9c924e028a0f470e991595eb3214c92c79836c0a01f6fa3301ee.png" src="../../../_images/fdc8ac86da8d9c924e028a0f470e991595eb3214c92c79836c0a01f6fa3301ee.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -667,7 +668,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/ab20b546af2f45b6ef6240daf898f45b7c74194822db15a0a0b1a00fa62da5a4.png" src="../../../_images/ab20b546af2f45b6ef6240daf898f45b7c74194822db15a0a0b1a00fa62da5a4.png" />
+<img alt="../../../_images/046a412c2ff39514acf6fcef45e5da9cbaa362262e0c65bb9721daff769ee935.png" src="../../../_images/046a412c2ff39514acf6fcef45e5da9cbaa362262e0c65bb9721daff769ee935.png" />
 </div>
 </div>
 </section>
@@ -682,7 +683,7 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/d3ebb88cc5703fd355f4136847bd026eeb39785eceb8a4214fec14a3873d38a3.png" src="../../../_images/d3ebb88cc5703fd355f4136847bd026eeb39785eceb8a4214fec14a3873d38a3.png" />
+<img alt="../../../_images/32bbcdf72ef9cfcc755af34dd44e6f0bb8a8a4132ce29079194b1dc4d396215d.png" src="../../../_images/32bbcdf72ef9cfcc755af34dd44e6f0bb8a8a4132ce29079194b1dc4d396215d.png" />
 </div>
 </div>
 </section>
@@ -699,7 +700,7 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/e3a52a80bcfa2c9a81ddb75776375f9efb54b339442054c11358a79b03e2e99f.png" src="../../../_images/e3a52a80bcfa2c9a81ddb75776375f9efb54b339442054c11358a79b03e2e99f.png" />
+<img alt="../../../_images/91fed3e1527acea1bf3118718334561a67012af52a3ae843af124162277e98fe.png" src="../../../_images/91fed3e1527acea1bf3118718334561a67012af52a3ae843af124162277e98fe.png" />
 </div>
 </div>
 <p>Para eliminar el término de perdida use <code class="docutils literal notranslate"><span class="pre">.removeO()</span></code></p>
@@ -711,7 +712,7 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/bfa678afa2761ef34d420379a40ffc6125129d5d4fbb6ad6b11b3ad2b4ef047c.png" src="../../../_images/bfa678afa2761ef34d420379a40ffc6125129d5d4fbb6ad6b11b3ad2b4ef047c.png" />
+<img alt="../../../_images/663825563f0bf3a44f7ba14f4dc372b7da65160a65c5e2a7a6fe4480204ca0f2.png" src="../../../_images/663825563f0bf3a44f7ba14f4dc372b7da65160a65c5e2a7a6fe4480204ca0f2.png" />
 </div>
 </div>
 <p>También notará que el comportamiento predeterminado de <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> es retener
@@ -724,7 +725,7 @@ representaciones exactas de ciertos números:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/cb173941bcea12102f9cb7687e5ee46a824f3557086c423666bd250267f719ae.png" src="../../../_images/cb173941bcea12102f9cb7687e5ee46a824f3557086c423666bd250267f719ae.png" />
+<img alt="../../../_images/426135c72e652ea60958eed6e43f792587fd0df8f512df2f2da3cfebda6ac3d0.png" src="../../../_images/426135c72e652ea60958eed6e43f792587fd0df8f512df2f2da3cfebda6ac3d0.png" />
 </div>
 </div>
 <p>Para convertir las representaciones exactas de arriba en representaciones
@@ -741,7 +742,7 @@ con programas que no son de <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/133a50606c31312e5532eb80e06fcb2dcdb9065a08caa9514bdcfa8b589a7def.png" src="../../../_images/133a50606c31312e5532eb80e06fcb2dcdb9065a08caa9514bdcfa8b589a7def.png" />
+<img alt="../../../_images/3917c2669ca21c7093cd830c2b9a01d86bb842a227bbc6b1e9048bad475cd661.png" src="../../../_images/3917c2669ca21c7093cd830c2b9a01d86bb842a227bbc6b1e9048bad475cd661.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -751,7 +752,7 @@ con programas que no son de <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/3429c0aa780962b4aacd055cbcba809b52fb532e3667a08ba4a4b0e56264642e.png" src="../../../_images/3429c0aa780962b4aacd055cbcba809b52fb532e3667a08ba4a4b0e56264642e.png" />
+<img alt="../../../_images/9892677c4993957632c591add4f2e7eb54a3b6b4003518a485459026e0b1eb3f.png" src="../../../_images/9892677c4993957632c591add4f2e7eb54a3b6b4003518a485459026e0b1eb3f.png" />
 </div>
 </div>
 </section>
@@ -776,7 +777,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/0aa5ea684ceabedfdf1090c74753c038380bc8c71e822ee988c5e59514b7fad9.png" src="../../../_images/0aa5ea684ceabedfdf1090c74753c038380bc8c71e822ee988c5e59514b7fad9.png" />
+<img alt="../../../_images/ff5afd985b0ab5e664aba4840e3a38f2d9535eeee3ac73cbd08fdd6f415eaef4.png" src="../../../_images/ff5afd985b0ab5e664aba4840e3a38f2d9535eeee3ac73cbd08fdd6f415eaef4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -786,7 +787,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/f62c1e7bba215dad28b9e017be7dc2fb6950f7a2f771abb6c66e2ef3cd61d95c.png" src="../../../_images/f62c1e7bba215dad28b9e017be7dc2fb6950f7a2f771abb6c66e2ef3cd61d95c.png" />
+<img alt="../../../_images/33e40332b1f31cb65c441acb9459a6181675680f77378a05d661e50814396277.png" src="../../../_images/33e40332b1f31cb65c441acb9459a6181675680f77378a05d661e50814396277.png" />
 </div>
 </div>
 <p>También podemos usar <code class="docutils literal notranslate"><span class="pre">sp.Eq</span></code> para construir ecuaciones</p>
@@ -798,7 +799,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/694ebcd6106ae6b24e860cecf35d72e5ef4ba2b9deffa260e95505497922e2fb.png" src="../../../_images/694ebcd6106ae6b24e860cecf35d72e5ef4ba2b9deffa260e95505497922e2fb.png" />
+<img alt="../../../_images/b476e673b283bfdddc922c31ad00bd37fc975cd24115b353aa4530219767fa2e.png" src="../../../_images/b476e673b283bfdddc922c31ad00bd37fc975cd24115b353aa4530219767fa2e.png" />
 </div>
 </div>
 <p>La función roots nos dará también la multiplicidad de las raíces.</p>
@@ -810,7 +811,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/af62be29131b94eb12d6d205afd9d8963a19ad65a6f148e1a2847c23febca24b.png" src="../../../_images/af62be29131b94eb12d6d205afd9d8963a19ad65a6f148e1a2847c23febca24b.png" />
+<img alt="../../../_images/d1f6063909f7b387dd0b77f1c9ee486063d71b6eadce5d9849983439cab1d40a.png" src="../../../_images/d1f6063909f7b387dd0b77f1c9ee486063d71b6eadce5d9849983439cab1d40a.png" />
 </div>
 </div>
 <p>Esto no dice que la ecuación anterior tiene una solución -1 y otra solución
@@ -819,20 +820,20 @@ igual 1.</p>
 ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'x, y'</span><span class="p">)</span>
 <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
           <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/bfca5059795bcf80a9b9101badf631eb8e3193fd0d392db5296d47fcfff9a0ed.png" src="../../../_images/bfca5059795bcf80a9b9101badf631eb8e3193fd0d392db5296d47fcfff9a0ed.png" />
+<img alt="../../../_images/0d8880cb7030edc531040ae39124060c0e1c608d146b0f53c10a501daaf24865.png" src="../../../_images/0d8880cb7030edc531040ae39124060c0e1c608d146b0f53c10a501daaf24865.png" />
 </div>
 </div>
 <p>Esto incluso funciona con variables simbólicas en las ecuaciones.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">&#39;a, b, c&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s1">'a, b, c'</span><span class="p">)</span>
 <span class="n">solution</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
                      <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">c</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
 <span class="n">solution</span>
@@ -840,7 +841,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/a663597ca1d51b838a8380eaed39410f4ea8863d049e44741fff53af77bf5620.png" src="../../../_images/a663597ca1d51b838a8380eaed39410f4ea8863d049e44741fff53af77bf5620.png" />
+<img alt="../../../_images/d9343d8783185f2a3bc67ba6cb4a6d1f7f754a28b1b2521b4b81857ae7e8ae54.png" src="../../../_images/d9343d8783185f2a3bc67ba6cb4a6d1f7f754a28b1b2521b4b81857ae7e8ae54.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -869,7 +870,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/3afb9d01acb27bbca73c24123483a62be995acbf9744a008c04b1b73792abc0d.png" src="../../../_images/3afb9d01acb27bbca73c24123483a62be995acbf9744a008c04b1b73792abc0d.png" />
+<img alt="../../../_images/1a15b38e586fdb0d275b4727e0db39516813234d83923061c11d8957d4f1c40c.png" src="../../../_images/1a15b38e586fdb0d275b4727e0db39516813234d83923061c11d8957d4f1c40c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -879,7 +880,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/2c51a938aee6153c371217cded4ebe66a6cb3d9389691a36cb07cd2ba1c8c169.png" src="../../../_images/2c51a938aee6153c371217cded4ebe66a6cb3d9389691a36cb07cd2ba1c8c169.png" />
+<img alt="../../../_images/5f03a92a4297e41c81f296b99f6788b9f7866586055ae9199e0b677b77bb5489.png" src="../../../_images/5f03a92a4297e41c81f296b99f6788b9f7866586055ae9199e0b677b77bb5489.png" />
 </div>
 </div>
 </section>

@@ -258,6 +258,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -337,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/modulo_ve/polos_ceros_EE.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/modulo_ve/polos_ceros_EE.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +386,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/modulo_ve/polos_ceros_EE.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/modulo_ve/polos_ceros_EE.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +403,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo_ve/polos_ceros_EE.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo_ve/polos_ceros_EE.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -635,7 +636,7 @@ $$</div></div>
 <p>Vamos a escribir en <code class="docutils literal notranslate"><span class="pre">sympy</span></code> el problema a resolver. Para eso primero defino los simbolos a utilizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span><span class="p">,</span> <span class="n">x01</span><span class="p">,</span> <span class="n">x02</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;pi, x01, x02&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span><span class="p">,</span> <span class="n">x01</span><span class="p">,</span> <span class="n">x02</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'pi, x01, x02'</span><span class="p">)</span>
 <span class="n">x0</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">x01</span><span class="p">,</span> <span class="n">x02</span><span class="p">])</span>
 <span class="n">Asp</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">polos</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">det</span><span class="p">((</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Asp</span><span class="p">)),</span> <span class="n">pi</span><span class="p">)</span> <span class="c1"># resuelvp det(piI-A)=0 variando pi</span>
@@ -695,11 +696,11 @@ $$</div></div>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;estado 1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;verificación estado 1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;estado 2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;verificación estado 2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Verificación del polo en -2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 1'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 1'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 2'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 2'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Verificación del polo en -2'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
 </pre></div>
@@ -707,7 +708,7 @@ $$</div></div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/45dfa8dce9d0fe71d3e6c2f166b1163afe66f1f1132527878a0a395c1ce3eb01.png" src="../../../_images/45dfa8dce9d0fe71d3e6c2f166b1163afe66f1f1132527878a0a395c1ce3eb01.png" />
+<img alt="../../../_images/6dbfb3abd4fa6f1bb0c627a012e02f30b701e18e19ecb0978c8e1d7db06477a9.png" src="../../../_images/6dbfb3abd4fa6f1bb0c627a012e02f30b701e18e19ecb0978c8e1d7db06477a9.png" />
 </div>
 </div>
 <p>Podemos ver que la respuesta de los estados (y por ende la salida) se corrsponden con una dinámica en el modo -2.</p>
@@ -724,11 +725,11 @@ $$</div></div>
 <span class="n">x01</span><span class="o">=</span><span class="n">x02</span>
 <span class="n">tp1</span><span class="p">,</span><span class="n">yp1</span><span class="p">,</span><span class="n">xp1</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">initial_response</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">X0</span><span class="o">=</span><span class="p">[</span><span class="n">x01</span><span class="p">,</span> <span class="n">x02</span><span class="p">],</span> <span class="n">return_x</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;estado 1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;verificación estado 1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;estado 2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;verificación estado 2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Verificación del polo en -1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 1'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 1'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 2'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 2'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Verificación del polo en -1'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
 </pre></div>
@@ -736,7 +737,7 @@ $$</div></div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/0c8742011ea3840d0e266b54c8c0e0b36d026c3ad1928e3a527f8ac97b169aca.png" src="../../../_images/0c8742011ea3840d0e266b54c8c0e0b36d026c3ad1928e3a527f8ac97b169aca.png" />
+<img alt="../../../_images/1132a755e057f3ef9b0b551dfd36e48d8b2fd1b7fb5ff70311a7550da1d85b77.png" src="../../../_images/1132a755e057f3ef9b0b551dfd36e48d8b2fd1b7fb5ff70311a7550da1d85b77.png" />
 </div>
 </div>
 <p>Notar que el problema de autovalores y autovectores lo hemos resuleto usando <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Sin embargo, en la práctica es más sencillo resolver este problema numericamente usando <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Es decir:</p>
@@ -813,7 +814,7 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <p>Para resolver este problema de forma simbólica utilizaré <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Por lo tanto lo primer que haré será escribir todas las matrices en en modulo de <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;zi&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'zi'</span><span class="p">)</span>
 <span class="n">Asp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="n">Bsp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
 <span class="n">Csp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
@@ -859,9 +860,9 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <p>Asumimos <span class="math notranslate nohighlight">\(u_0=1\)</span> y resolvemos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x10, x20&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'x10, x20'</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">abcd</span><span class="o">*</span><span class="n">x0</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="s1">&#39;zi&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">},</span> <span class="n">x0</span><span class="p">))</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">abcd</span><span class="o">*</span><span class="n">x0</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="s1">'zi'</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">},</span> <span class="n">x0</span><span class="p">))</span>
 <span class="n">sol</span>
 </pre></div>
 </div>
@@ -908,13 +909,13 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tz</span><span class="p">,</span><span class="n">yz</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.01</span><span class="p">,</span><span class="mf">0.01</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo[s]&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo[s]'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/48f32b5289f796b07d2d46248df2df1364ee42d0b5b64311e9c02af34c902379.png" src="../../../_images/48f32b5289f796b07d2d46248df2df1364ee42d0b5b64311e9c02af34c902379.png" />
+<img alt="../../../_images/25bdc7aa26e1e42e3fd9c9df7e134840ebd9a4bea5960413e1c34289e28e2708.png" src="../../../_images/25bdc7aa26e1e42e3fd9c9df7e134840ebd9a4bea5960413e1c34289e28e2708.png" />
 </div>
 </div>
 <p>Finalmente, para verificar que todos los cáculos realizados son correctos podemos obtener la función transferencia del sistema en espacio de estados.</p>
@@ -953,7 +954,7 @@ $$\dfrac{s + 3}{s^2 + 3 s + 2}$$</div></div>
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sys</span><span class="o">.</span><span class="n">pole</span><span class="p">(),</span> <span class="n">sys</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
 
-<span class="ne">AttributeError</span>: &#39;StateSpace&#39; object has no attribute &#39;pole&#39;
+<span class="ne">AttributeError</span>: 'StateSpace' object has no attribute 'pole'
 </pre></div>
 </div>
 </div>

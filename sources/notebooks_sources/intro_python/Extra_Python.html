@@ -256,6 +256,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -335,7 +336,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/intro_python/Extra_Python.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/intro_python/Extra_Python.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +367,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +384,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/intro_python/Extra_Python.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/intro_python/Extra_Python.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +401,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/intro_python/Extra_Python.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/intro_python/Extra_Python.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -643,14 +644,14 @@ siguiente manera:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La variable num toma el siguiente valor: &#39;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La variable num es del tipo: &#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'La variable num toma el siguiente valor: '</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'La variable num es del tipo: '</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La variable num toma el siguiente valor:  (1+2j)
-La variable num es del tipo:  &lt;class &#39;complex&#39;&gt;
+La variable num es del tipo:  &lt;class 'complex'&gt;
 </pre></div>
 </div>
 </div>
@@ -660,7 +661,7 @@ La variable num es del tipo:  &lt;class &#39;complex&#39;&gt;
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">5.8</span><span class="n">j</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; La suma de a + b es: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">' La suma de a + b es: '</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +673,7 @@ La variable num es del tipo:  &lt;class &#39;complex&#39;&gt;
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;El conjugado de a vale: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'El conjugado de a vale: '</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -685,7 +686,7 @@ La variable num es del tipo:  &lt;class &#39;complex&#39;&gt;
 <p>Fácilmente podemos obtener la parte real e imaginaria</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La parte real de a es &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="s1">&#39; y la parte imaginaria es &#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'La parte real de a es '</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="s1">' y la parte imaginaria es '</span><span class="p">,</span>
       <span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -770,8 +771,8 @@ ser mucho más generales, no solo números, sino cadenas o variables de
 cualquier tipo, como por ejemplo <code class="docutils literal notranslate"><span class="pre">sympy</span></code> (y una gran cantidad de otros tipos)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">dic</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dic</span><span class="p">[</span><span class="s1">'a'</span><span class="p">],</span> <span class="n">dic</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -964,7 +965,7 @@ inmutables (no se pueden cambiar «inplace»)</p>
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;tuple&#39; object has no attribute &#39;append&#39;
+<span class="ne">AttributeError</span>: 'tuple' object has no attribute 'append'
 </pre></div>
 </div>
 </div>
@@ -1019,7 +1020,7 @@ de numpy son iterables.</p>
 <p>Para una lista:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_variada</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">&quot;hola&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_variada</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">"hola"</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">lista_variada</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
@@ -1037,7 +1038,7 @@ hola
 <p>Para un diccionario,  va a devolver en cada iteración la <code class="docutils literal notranslate"><span class="pre">key</span></code> es decir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_diccionario</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;el_1&quot;</span><span class="p">:</span> <span class="s2">&quot;Primer item&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;segundo item&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="o">*</span><span class="mf">3.2</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_diccionario</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"el_1"</span><span class="p">:</span> <span class="s2">"Primer item"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"segundo item"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">:</span> <span class="mi">45</span><span class="o">*</span><span class="mf">3.2</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1045,19 +1046,19 @@ hola
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mi_diccionario</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La key es de tipo &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">&quot;y es &quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El items de tipo &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">mi_diccionario</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span>
-          <span class="s2">&quot;y es &quot;</span><span class="p">,</span> <span class="n">mi_diccionario</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"La key es de tipo "</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s2">"y es "</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"El items de tipo "</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">mi_diccionario</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span>
+          <span class="s2">"y es "</span><span class="p">,</span> <span class="n">mi_diccionario</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La key es de tipo  &lt;class &#39;str&#39;&gt; y es  el_1
-El items de tipo  &lt;class &#39;str&#39;&gt; y es  Primer item
-La key es de tipo  &lt;class &#39;int&#39;&gt; y es  2
-El items de tipo  &lt;class &#39;str&#39;&gt; y es  segundo item
-La key es de tipo  &lt;class &#39;str&#39;&gt; y es  3
-El items de tipo  &lt;class &#39;float&#39;&gt; y es  144.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La key es de tipo  &lt;class 'str'&gt; y es  el_1
+El items de tipo  &lt;class 'str'&gt; y es  Primer item
+La key es de tipo  &lt;class 'int'&gt; y es  2
+El items de tipo  &lt;class 'str'&gt; y es  segundo item
+La key es de tipo  &lt;class 'str'&gt; y es  3
+El items de tipo  &lt;class 'float'&gt; y es  144.0
 </pre></div>
 </div>
 </div>
@@ -1070,7 +1071,7 @@ array</p>
 
 <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elemento al cuadrado&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Elemento al cuadrado"</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1176,7 +1177,7 @@ función de la siguiente manera:</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">cambio_de_escala</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">x3</span><span class="p">)</span>
 
-<span class="ne">TypeError</span>: cambio_de_escala() missing 1 required positional argument: &#39;x&#39;
+<span class="ne">TypeError</span>: cambio_de_escala() missing 1 required positional argument: 'x'
 </pre></div>
 </div>
 </div>

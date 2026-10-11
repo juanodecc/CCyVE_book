@@ -258,6 +258,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo5/diseno_controladores_intro.html">Diseño de controladores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/problema_levitador.html">Problema de levitador magnético</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modulo5/tipo1_lead.html">Problema con sistema de tipo 1</a></li>
@@ -337,7 +338,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_sources/blob/master/sources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +369,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Repositorio de origen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +386,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/edit/master/sources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.md" target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -402,7 +403,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/juanodecc/control_book_sources/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo1/ejemplos_sistemas/resorte_no_lineal.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -587,7 +588,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Ahora definimos los símbolos que estará presentes en las ecuaciones y luego las ecuaciones usando estos símbolos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>  <span class="n">g</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;F, m,  g, K, b, x1, x2&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span>  <span class="n">g</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'F, m,  g, K, b, x1, x2'</span><span class="p">)</span>
 <span class="n">dx1</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">x1</span><span class="o">-</span><span class="n">K</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">x2</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">F</span><span class="o">/</span><span class="n">m</span><span class="o">+</span><span class="n">g</span>
 <span class="n">dx2</span> <span class="o">=</span> <span class="n">x1</span>
 </pre></div>
@@ -602,7 +603,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/0537368c2c455d573897cd16fdb9ce6f01026036e1289d96842ca1aadab42ac0.png" src="../../../../_images/0537368c2c455d573897cd16fdb9ce6f01026036e1289d96842ca1aadab42ac0.png" />
+<img alt="../../../../_images/97092b492eeb37f386646d247e4d583d20afd4a36c6ac5e744af26252aa922bc.png" src="../../../../_images/97092b492eeb37f386646d247e4d583d20afd4a36c6ac5e744af26252aa922bc.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -656,7 +657,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/4918870352f2e16cc14194513c703cf8aa0b7421db3968ff9153e1868c3fd1d1.png" src="../../../../_images/4918870352f2e16cc14194513c703cf8aa0b7421db3968ff9153e1868c3fd1d1.png" />
+<img alt="../../../../_images/71a45255e4ffe903d3cf3653b462f0c6efa5412dc4d92b468c20fd44b1bfa09a.png" src="../../../../_images/71a45255e4ffe903d3cf3653b462f0c6efa5412dc4d92b468c20fd44b1bfa09a.png" />
 </div>
 </div>
 <p>Me quedo solo con la solución real, por ser la única con sentido físico</p>
@@ -668,7 +669,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/f121e60c5df6dc5aa9798ec8f84c5465596205540696ae3046cceca3e39882fe.png" src="../../../../_images/f121e60c5df6dc5aa9798ec8f84c5465596205540696ae3046cceca3e39882fe.png" />
+<img alt="../../../../_images/b01674e3d36ad39e963ffa3107b79929c4f6541d8aa7a3ab6f0ff1f9e9e5bb67.png" src="../../../../_images/b01674e3d36ad39e963ffa3107b79929c4f6541d8aa7a3ab6f0ff1f9e9e5bb67.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -693,7 +694,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/b2907bb1b564752459d2bf76dbed384d671763b5a498b15f5d390395cf746fa2.png" src="../../../../_images/b2907bb1b564752459d2bf76dbed384d671763b5a498b15f5d390395cf746fa2.png" />
+<img alt="../../../../_images/52b831e5b0590a194f6073f1aab6f848f044e2254ecc3ab688859d7c27630590.png" src="../../../../_images/52b831e5b0590a194f6073f1aab6f848f044e2254ecc3ab688859d7c27630590.png" />
 </div>
 </div>
 <p>Me quedo con la única solución real posible que es la primera (recodar que python indexa de 0).</p>
@@ -823,16 +824,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Respuesta al escalón&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo [s]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Posición $x$&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Posición $x$'</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/eb22836523b066d9fd6db3211dd6559b3b5342724acf8bb46746a1b1eeca9c49.png" src="../../../../_images/eb22836523b066d9fd6db3211dd6559b3b5342724acf8bb46746a1b1eeca9c49.png" />
+<img alt="../../../../_images/b1266307d6169d727f137c27f32aaafc2ad28b02cfd1854e1d388087255daa69.png" src="../../../../_images/b1266307d6169d727f137c27f32aaafc2ad28b02cfd1854e1d388087255daa69.png" />
 </div>
 </div>
 </section>
@@ -861,7 +862,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/a3633752a6d8e1d42c8f0d89e400945a1d46974f2af22a0b064ae48f79de26e7.png" src="../../../../_images/a3633752a6d8e1d42c8f0d89e400945a1d46974f2af22a0b064ae48f79de26e7.png" />
+<img alt="../../../../_images/87986f8c675a811955082929d7a8d2471a03ccb7ec7d2053e8a068a7f1934c5c.png" src="../../../../_images/87986f8c675a811955082929d7a8d2471a03ccb7ec7d2053e8a068a7f1934c5c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -889,10 +890,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Respuesta al escalón&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo [s]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Posición $x$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'$x$'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Posición $x$'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
 </pre></div>
@@ -900,7 +901,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/308272a3502f21e56cc2070b3f0746203a0d824fe65ef0cc030c8961a3d7bfd4.png" src="../../../../_images/308272a3502f21e56cc2070b3f0746203a0d824fe65ef0cc030c8961a3d7bfd4.png" />
+<img alt="../../../../_images/386ec3041e310fd8e9d7808dc45d72988a2ef4451edb355050c96630dff9834b.png" src="../../../../_images/386ec3041e310fd8e9d7808dc45d72988a2ef4451edb355050c96630dff9834b.png" />
 </div>
 </div>
 <p>Para poder evaluar las diferencias me falta agregarle a la salida del sistema lineal el valor de equilibrio.</p>
@@ -920,11 +921,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">yc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$x$ del sistema linealizado&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$x$ del sistema no lienal&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Respuesta al escalón&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo [s]&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Posición $x$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">yc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$x$ del sistema linealizado'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$x$ del sistema no lienal'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Posición $x$'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
 </pre></div>
@@ -932,7 +933,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../../_images/40cc49c93d88b9c893a47cb561f71bbb5c9c68ae2f022a5d17ba587da12d1808.png" src="../../../../_images/40cc49c93d88b9c893a47cb561f71bbb5c9c68ae2f022a5d17ba587da12d1808.png" />
+<img alt="../../../../_images/58d2a875496f08d62ea8b8d579bbd8ec701f2f5124a28aabd20e93a02963d326.png" src="../../../../_images/58d2a875496f08d62ea8b8d579bbd8ec701f2f5124a28aabd20e93a02963d326.png" />
 </div>
 </div>
 <p>Podemos ver que la respuesta al escalón del sistema lineal y del sistema no lineal dan bastante parecidos.</p>
