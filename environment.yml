@@ -14,5 +14,6 @@ dependencies:
   - tornado
   - jupyter-book<2
   - jupytext
+  - sphinxcontrib-mermaid
   
   
