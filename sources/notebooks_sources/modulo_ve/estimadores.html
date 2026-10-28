@@ -95,13 +95,13 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo_ve/estimadores';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/estimadores.html" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Diseño para un motor de continua" href="ejemplo_A_ve_motor_cc.html" />
+    <link rel="next" title="Ejemplos VE" href="../../../ccyve_sources/ejemplos_ve.html" />
     <link rel="prev" title="Elección de la ubicación de los polos a lazo cerrado" href="LSR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -255,6 +255,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
@@ -269,16 +270,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -538,9 +539,9 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-orden-completo">Estimador de orden completo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-orden-reducido">Estimador de orden reducido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retomamos-el-ejemplo-de-pendulo">Retomamos el ejemplo de péndulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retomamos-el-ejemplo-del-pendulo">Retomamos el ejemplo del péndulo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-completo">Cálculo del observador completo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-reducido">Calculo del observador reducido</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-reducido">Cálculo del observador reducido</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-completo-y-ley-de-control">Estimador completo y ley de control</a></li>
@@ -558,44 +559,43 @@ commentsRunWhenDOMLoaded(addUtterances);
                   
   <section class="tex2jax_ignore mathjax_ignore" id="diseno-de-estimadores">
 <h1>Diseño de estimadores<a class="headerlink" href="#diseno-de-estimadores" title="Link to this heading">#</a></h1>
-<p>Hasta ahora aprendimos a obtener la ley de control suponiendo conocido el vector de estados. En general en control no se mido de forma completa todos lo estados del sistema. Por lo tanto será necesario construir un sistema que nos permita <strong>estimar</strong> los estados de la planta que queremos controlar a partir de lsa variables que conocemos. En general las variables que conocemos son las <em>salidas</em> (mediciones) y las <em>entradas</em> que son las variables que no da nuestro controlador y que serán entradas de los actuadores de la planta.</p>
+<p>Hasta ahora aprendimos a obtener la ley de control suponiendo conocido el vector de estados. En general, en control no se miden todos los estados del sistema. Por lo tanto será necesario construir un sistema que nos permita <strong>estimar</strong> los estados de la planta que queremos controlar a partir de las variables que conocemos. En general, las variables que conocemos son las <em>salidas</em> (mediciones) y las <em>entradas</em>, que son las variables que nos da nuestro controlador y que serán entradas de los actuadores de la planta.</p>
 <section id="estimador-de-orden-completo">
 <h2>Estimador de orden completo<a class="headerlink" href="#estimador-de-orden-completo" title="Link to this heading">#</a></h2>
-<p>Con el modelo de la planta, suponiendo que es fiel a la realidad, uno podría pensar en darle las mismas entradas que tiene la planta y de obtener los estados del modelo directamente. Sin embargo esto choca con dos problemas:</p>
+<p>Con el modelo de la planta, suponiendo que es fiel a la realidad, uno podría pensar en darle las mismas entradas que tiene la planta y obtener los estados del modelo directamente. Sin embargo, esto choca con dos problemas:</p>
 <ul class="simple">
-<li><p>se debe conocer las condiciones iniciales en todo momento, sino el sistema tardará lo que corresponda para  según sus modos para obtener una estimación correcta.</p></li>
-<li><p>cualquier error en el modelado pueda hacer divergir las estimaciones respecto al valor de los estados reales sin ningún control de las mismas.</p></li>
+<li><p>se deben conocer las condiciones iniciales; si no, el error de estimación tardará en desaparecer lo que dicten los modos de la planta (y si la planta es inestable, no desaparecerá nunca).</p></li>
+<li><p>cualquier error en el modelado puede hacer divergir las estimaciones respecto al valor de los estados reales, sin ninguna corrección.</p></li>
 </ul>
 <p>Por estos problemas, es que se hace lo que mejor hacemos en control, <strong>REALIMENTAR</strong>.</p>
 <p>La idea es utilizar lo que sabemos de la salida tanto del modelo como de la planta para obtener una estimación de los estados.</p>
-<p>Llamando <span class="math notranslate nohighlight">\(\mathbf {\hat x}\)</span> a la estimación de <span class="math notranslate nohighlight">\(\mathbf x\)</span> lo que se propone es un estimador que siga la siguiente ecuaciones:</p>
+<p>Llamando <span class="math notranslate nohighlight">\(\mathbf {\hat x}\)</span> a la estimación de <span class="math notranslate nohighlight">\(\mathbf x\)</span>, lo que se propone es un estimador que siga la siguiente ecuación:</p>
 <div class="math notranslate nohighlight">
 \[\dot{ \hat{ \mathbf{x}}}=\mathbf A\hat{\mathbf{x}}+\mathbf B u+\mathbf L(y-\mathbf C \hat{\mathbf{x}})\]</div>
-<p>Definimos entonces error de estimación como:</p>
+<p>Definimos entonces el error de estimación como:</p>
 <div class="math notranslate nohighlight">
 \[\tilde{\mathbf x} = \mathbf x -  \mathbf {\hat {\mathbf x}}\]</div>
 <p>Por lo tanto la dinámica del error de estimación resulta:</p>
 <div class="math notranslate nohighlight">
 \[\dot {\tilde {\mathbf{ x}}} = (\mathbf A - \mathbf{LC})\tilde {\mathbf x}\]</div>
-<p>La ecuación característica del error de estimación entonces e:</p>
+<p>La ecuación característica del error de estimación es entonces:</p>
 <div class="math notranslate nohighlight">
-\[\det\left[s\mathbf I -(\mathbf{A-LC}\right)]=0\]</div>
-<p>Esta ecuación no esta diciendo que podemos elegir un <span class="math notranslate nohighlight">\(\mathbf L\)</span> de forma tal que la dinámica del error sea la que queramos.</p>
+\[\det\left[s\mathbf I -(\mathbf{A-LC})\right]=0\]</div>
+<p>Esta ecuación nos está diciendo que podemos elegir un <span class="math notranslate nohighlight">\(\mathbf L\)</span> de forma tal que la dinámica del error sea la que queramos.</p>
 <p>Si se compara con la de la ley de control:</p>
 <div class="math notranslate nohighlight">
-\[\det\left[s\mathbf I -(\mathbf{A-BK}\right)]=0\]</div>
+\[\det\left[s\mathbf I -(\mathbf{A-BK})\right]=0\]</div>
 <p>podemos ver ciertas similitudes o semejanzas.</p>
-<p>Por ejemplo, si transponemos la ecuación característica del observador resulta:</p>
+<p>Por ejemplo, si transponemos la matriz de la ecuación característica del observador (el determinante no cambia) resulta:</p>
 <div class="math notranslate nohighlight">
-\[\det\left[s\mathbf I -(\mathbf{A'-C'L'}\right)]=0\]</div>
-<p>De esta ecuación podemos ver que <span class="math notranslate nohighlight">\(\mathbf L\)</span> de forma análoga a como obtenemos <span class="math notranslate nohighlight">\(\mathbf K\)</span>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">(</span><span class="n">acker</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-
+\[\det\left[s\mathbf I -(\mathbf{A^T-C^TL^T})\right]=0\]</div>
+<p>De esta ecuación podemos ver que <span class="math notranslate nohighlight">\(\mathbf L\)</span> se obtiene de forma análoga a como obtenemos <span class="math notranslate nohighlight">\(\mathbf K\)</span>, usando <span class="math notranslate nohighlight">\(\mathbf{A}^T\)</span> y <span class="math notranslate nohighlight">\(\mathbf{C}^T\)</span> en lugar de <span class="math notranslate nohighlight">\(\mathbf A\)</span> y <span class="math notranslate nohighlight">\(\mathbf B\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">polos_estimador</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Importante</p>
-<p>De forma análoga a la ley de control, podemos decir que solo podremos tener una única <span class="math notranslate nohighlight">\(L\)</span> que no permite ubicar los polos de la dinámica del error de estimación si y solo si el sistema es observable</p>
+<p>De forma análoga a la ley de control, existe una <span class="math notranslate nohighlight">\(\mathbf L\)</span> que permite ubicar arbitrariamente los polos de la dinámica del error de estimación si y solo si el sistema es observable.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Consejo</p>
@@ -610,7 +610,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Estimador de orden reducido<a class="headerlink" href="#estimador-de-orden-reducido" title="Link to this heading">#</a></h2>
 <p>La idea de este estimador es reducir el orden del mismo.
 Para esto lo que se busca es no estimar las variables que se conocen de antemano, es decir las mediciones.</p>
-<p>Escribamos el sistema como:</p>
+<p>Escribamos el sistema separando el estado medido <span class="math notranslate nohighlight">\(x_a\)</span> de los no medidos <span class="math notranslate nohighlight">\(\mathbf x_b\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
 \dot {x_a} \\
@@ -618,7 +618,9 @@ Para esto lo que se busca es no estimar las variables que se conocen de antemano
 \begin{bmatrix} A_{aa}&amp;\mathbf A_{ab}\\
 \mathbf A_{ba} &amp; \mathbf{A}_{bb}\end{bmatrix}\begin{bmatrix}
 x_a \\
-\mathbf x_b\end{bmatrix}\end{split}\]</div>
+\mathbf x_b\end{bmatrix} +
+\begin{bmatrix} B_a \\
+\mathbf B_b\end{bmatrix}u\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}y=[1 \quad\mathbf 0]\begin{bmatrix} x_a \\ \mathbf{x}_b\end{bmatrix}\end{split}\]</div>
 <p>La dinámica de las variables no medidas está dada por:</p>
@@ -628,7 +630,7 @@ x_a \\
 <div class="math notranslate nohighlight">
 \[\underbrace{\dot y - A_{aa}y - B_au}_{\text{mediciones conocidas}} =\mathbf A_{ab}\mathbf{x}_b\]</div>
 <p>De esta manera podemos hacer un equivalente con el estimador de orden completo.</p>
-<p>La primer ecuación la podemos comparar con la ecuación de la dinámica del estimador y la segunda ecuación la podemos comparar con la ecuación de salida, ambas del trabajo realizado para el estimador completo.</p>
+<p>La primera ecuación la podemos comparar con la ecuación de estados y la segunda con la ecuación de salida, ambas del desarrollo realizado para el estimador completo.</p>
 <p>Haciendo esto tenemos que:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
@@ -662,25 +664,25 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 \[\mathbf{\dot{\tilde{x}}}_b=(\mathbf A_{bb} -\mathbf L \mathbf A_{ab})\mathbf{\tilde{x}}_b\]</div>
 <p>y la ecuación característica resulta:</p>
 <div class="math notranslate nohighlight">
-\[\det\left[s\mathbf I -(\mathbf{A}_{bb}-\mathbf {LA}_{ab}\right)]=0\]</div>
-<p>El problema que tiene el estimador es que depende de la derivada de <span class="math notranslate nohighlight">\(y\)</span>: uno mide <span class="math notranslate nohighlight">\(y\)</span> y a partir de esta variable resuelve <span class="math notranslate nohighlight">\(\dot y\)</span>, lo cual implica amplificar cualquier ruido presente en la medición:</p>
+\[\det\left[s\mathbf I -(\mathbf{A}_{bb}-\mathbf {LA}_{ab})\right]=0\]</div>
+<p>El problema que tiene este estimador es que depende de la derivada de <span class="math notranslate nohighlight">\(y\)</span>: uno mide <span class="math notranslate nohighlight">\(y\)</span> y a partir de esta variable calcula <span class="math notranslate nohighlight">\(\dot y\)</span>, lo cual implica amplificar cualquier ruido presente en la medición:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf {\dot {\hat x}}_b = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{\hat{x}}_b + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u +\mathbf L \dot y \]</div>
 <p>Para poder obtener una ecuación del estimador sin la derivada de la medición, lo que se puede hacer es redefinir la variable de estado como:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf x_c \overset{\Delta}{=}\mathbf{\hat{x}_b}-\mathbf Ly\]</div>
-<p>Entonces la dinámica del este estimador resulta:</p>
+<p>Entonces la dinámica de este estimador resulta:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf {\dot {\hat x}}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{\hat{x}}_b + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u \]</div>
-<p>Para dejarlo todo en función de <span class="math notranslate nohighlight">\(\mathbf{x}_c\)</span>:</p>
+\[\mathbf {\dot x}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{\hat{x}}_b + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u \]</div>
+<p>Para dejarlo todo en función de <span class="math notranslate nohighlight">\(\mathbf{x}_c\)</span>, reemplazamos <span class="math notranslate nohighlight">\(\mathbf{\hat{x}}_b = \mathbf{x}_c+\mathbf Ly\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf {\dot {\hat x}}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})(\mathbf{x}_c+\mathbf Ly) + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u \]</div>
+\[\mathbf {\dot x}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})(\mathbf{x}_c+\mathbf Ly) + (\mathbf{A}_{ba}-\mathbf L A_{aa})y + (\mathbf B_b- \mathbf L B_a)u \]</div>
 <div class="math notranslate nohighlight">
-\[\mathbf {\dot {\hat x}}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{x}_c + (\mathbf{A}_{ba}-\mathbf L A_{aa} + \mathbf {A}_{bb} \mathbf L-\mathbf L\mathbf A_{ab}\mathbf L)y + (\mathbf B_b- \mathbf L B_a)u \]</div>
+\[\mathbf {\dot x}_c = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf{x}_c + (\mathbf{A}_{ba}-\mathbf L A_{aa} + \mathbf {A}_{bb} \mathbf L-\mathbf L\mathbf A_{ab}\mathbf L)y + (\mathbf B_b- \mathbf L B_a)u \]</div>
 </section>
-<section id="retomamos-el-ejemplo-de-pendulo">
-<h2>Retomamos el ejemplo de péndulo<a class="headerlink" href="#retomamos-el-ejemplo-de-pendulo" title="Link to this heading">#</a></h2>
-<p>Obtener el estimador completo para el péndulo. Ubicar los polos del error del estimador en <span class="math notranslate nohighlight">\(10\omega_0\)</span>. Es decir 5 veces más rápido que los que ubicamos los polos de la ley de control.</p>
+<section id="retomamos-el-ejemplo-del-pendulo">
+<h2>Retomamos el ejemplo del péndulo<a class="headerlink" href="#retomamos-el-ejemplo-del-pendulo" title="Link to this heading">#</a></h2>
+<p>Obtener los estimadores completo y reducido para el péndulo. Ubicar los polos del error del estimador en <span class="math notranslate nohighlight">\(-10\omega_0\)</span>, es decir, 5 veces más rápidos que los polos de la ley de control (ubicados en <span class="math notranslate nohighlight">\(-2\omega_0\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w0</span><span class="o">=</span><span class="mi">2</span>
@@ -697,25 +699,28 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 <h3>Cálculo del observador completo<a class="headerlink" href="#calculo-del-observador-completo" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,[</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># acker devuelve un vector 1-D: lo pasamos a matriz fila antes de transponer</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">L</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-40., 396.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 40.],
+       [396.]])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Usamos <code class="docutils literal notranslate"><span class="pre">acker</span></code> porque los dos polos están en el mismo lugar; <code class="docutils literal notranslate"><span class="pre">place</span></code> no permite ubicar polos repetidos.</p>
 </section>
 <section id="calculo-del-observador-reducido">
-<h3>Calculo del observador reducido<a class="headerlink" href="#calculo-del-observador-reducido" title="Link to this heading">#</a></h3>
+<h3>Cálculo del observador reducido<a class="headerlink" href="#calculo-del-observador-reducido" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">Aaa</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Aab</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">Aab</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span>
 <span class="n">Aba</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Abb</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:]</span>
 <span class="n">Ba</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
@@ -726,13 +731,13 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lred</span><span class="o">=</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">Abb</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Aab</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span> <span class="c1"># notar que se tata de ubicar un solo polo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">Abb</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Aab</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># se trata de ubicar un solo polo</span>
 <span class="n">Lred</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([20.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[20.]])
 </pre></div>
 </div>
 </div>
@@ -745,12 +750,12 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 <p>Recordemos la ecuación del estimador completo:</p>
 <div class="math notranslate nohighlight">
 \[\dot{ \hat{ \mathbf{x}}}(t)=\mathbf A\hat{\mathbf{x}}(t)+\mathbf B u(t)+\mathbf L(y(t)-\mathbf C \hat{\mathbf{x}}(t))\]</div>
-<p>y la ecuación de la ley de control es:</p>
+<p>y la ecuación de la ley de control, que ahora usa los estados estimados, es:</p>
 <div class="math notranslate nohighlight">
-\[u(t)=-\mathbf{Kx}(t).\]</div>
+\[u(t)=-\mathbf{K\hat x}(t).\]</div>
 <p>Reemplazando la ecuación de la ley de control en la del estimador:</p>
 <div class="math notranslate nohighlight">
-\[\dot{ \hat{ \mathbf{x}}}(t)=\mathbf A\hat{\mathbf{x}}(t)-\mathbf{BKx}(t)+\mathbf L(y(t)-\mathbf C \hat{\mathbf{x}}(t))\]</div>
+\[\dot{ \hat{ \mathbf{x}}}(t)=\mathbf A\hat{\mathbf{x}}(t)-\mathbf{BK\hat x}(t)+\mathbf L(y(t)-\mathbf C \hat{\mathbf{x}}(t))\]</div>
 <p>Y reagrupando tenemos:</p>
 <div class="math notranslate nohighlight">
 \[\dot{ \hat{ \mathbf{x}}}(t)=(\mathbf A-\mathbf{BK-LC)\hat{x}}(t)+\mathbf L y(t)\]</div>
@@ -758,26 +763,26 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 <div class="math notranslate nohighlight">
 \[\dot{ \hat{ \mathbf{x}}}(t)= \underbrace{(\mathbf A-\mathbf{BK-LC)}}_{\mathbf{A}_C} \hat{\mathbf x}(t)+\underbrace{\mathbf L }_{\mathbf B_C}y(t)\]</div>
 <div class="math notranslate nohighlight">
-\[u(t)=\underbrace{-\mathbf{K}}_{\mathbf C_C}\mathbf{x}(t) + \underbrace {\mathbf 0}_{\mathbf D} u(t)\]</div>
-<p>Estas ecuaciones describen a un sistema controlador donde se estiman los estados con un estimador de orden completo y los polos de la planta se deciden con la ley de control. Más adelante se mostrará como se agregan las referencias a este sistema.</p>
+\[u(t)=\underbrace{-\mathbf{K}}_{\mathbf C_C}\hat{\mathbf{x}}(t) + \underbrace {0}_{D_C}\, y(t)\]</div>
+<p>Estas ecuaciones describen a un sistema controlador donde se estiman los estados con un estimador de orden completo y los polos del lazo cerrado se deciden con la ley de control. Más adelante se mostrará cómo se agregan las referencias a este sistema.</p>
 </section>
 <section id="estimador-de-orden-reducido-y-ley-de-control">
 <h2>Estimador de orden reducido y ley de control<a class="headerlink" href="#estimador-de-orden-reducido-y-ley-de-control" title="Link to this heading">#</a></h2>
-<p>Análogamente a lo hecho con el controlador de orden completo, tenmos que</p>
+<p>Análogamente a lo hecho con el estimador de orden completo, tenemos que</p>
 <div class="math notranslate nohighlight">
 \[\mathbf {\dot {x}}_c(t) = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})(\mathbf{x}_c(t)+\mathbf Ly(t)) + (\mathbf{A}_{ba}-\mathbf L A_{aa})y(t) + (\mathbf B_b- \mathbf L B_a)u(t).\]</div>
-<p>Podemos ahora dividir la <span class="math notranslate nohighlight">\(\mathbf K\)</span> entre las partes que son mediciones y las que conocemos, entonces:</p>
+<p>Podemos ahora dividir <span class="math notranslate nohighlight">\(\mathbf K\)</span> entre la parte que multiplica al estado medido y la que multiplica a los estados estimados:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf K = [K_a \quad |\quad \mathbf K_b]\]</div>
-<p>La ecuación de salida la podemos del controlador la podemos escribir de la  siguiente manera entonces:</p>
+<p>La ecuación de salida del controlador la podemos escribir entonces de la siguiente manera:</p>
 <div class="math notranslate nohighlight">
-\[u(t) = -K_a y(t) - \mathbf K _b \hat {\mathbf x}_B(t)= -K_a y(t) - \mathbf K _b \mathbf x_C(t) - \mathbf K _b \mathbf L y(t) =\underbrace{-\mathbf K _b}_{\mathbf C_r}\mathbf x_C(t) +\underbrace{(-K_a - \mathbf K _b \mathbf L)}_{\mathbf D_r} y(t)   \]</div>
-<p>Reemplanzando en la ecuación del estimador anterior y reagrupando tenemos que:</p>
+\[u(t) = -K_a y(t) - \mathbf K _b \hat {\mathbf x}_b(t)= -K_a y(t) - \mathbf K _b \mathbf x_c(t) - \mathbf K _b \mathbf L y(t) =\underbrace{-\mathbf K _b}_{\mathbf C_r}\mathbf x_c(t) +\underbrace{(-K_a - \mathbf K _b \mathbf L)}_{\mathbf D_r} y(t)\]</div>
+<p>Reemplazando en la ecuación del estimador anterior y reagrupando tenemos que:</p>
 <div class="math notranslate nohighlight">
-\[\dot{\mathbf x}_C = \underbrace{((\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B )}_{\mathbf A_r}\mathbf x_C +\underbrace{[ (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf L +  (\mathbf {A}_{ba}-\mathbf L\mathbf A_{aa}) - (\mathbf B_b- \mathbf L B_a) (K_a + \mathbf K _b \mathbf L) ]}_{\mathbf B_r} y(t)\]</div>
+\[\dot{\mathbf x}_c = \underbrace{((\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_b )}_{\mathbf A_r}\mathbf x_c +\underbrace{[ (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})\mathbf L +  (\mathbf {A}_{ba}-\mathbf L\mathbf A_{aa}) - (\mathbf B_b- \mathbf L B_a) (K_a + \mathbf K _b \mathbf L) ]}_{\mathbf B_r} y(t)\]</div>
 <p>Examinando las ecuaciones anteriores, podemos definir las ecuaciones que describen este compensador en espacio de estados como:</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf A_r = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_B \]</div>
+\[ \mathbf A_r = (\mathbf {A}_{bb}-\mathbf L\mathbf A_{ab})-(\mathbf B_b- \mathbf L B_a)\mathbf K_b \]</div>
 <div class="math notranslate nohighlight">
 \[ \mathbf B_r = \mathbf {A}_r \mathbf L +\mathbf A_{ba}-\mathbf L \mathbf A_{aa} - (\mathbf B_b- \mathbf L B_a) K_a\]</div>
 <div class="math notranslate nohighlight">
@@ -786,9 +791,9 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
 \[\mathbf D_r = -K_a -\mathbf K_b \mathbf L\]</div>
 <p>Por lo tanto las ecuaciones del sistema compensador son:</p>
 <div class="math notranslate nohighlight">
-\[ \dot{\mathbf x}_C = \mathbf A_r \mathbf x_C + \mathbf B_r y(t)\]</div>
+\[ \dot{\mathbf x}_c = \mathbf A_r \mathbf x_c + \mathbf B_r y(t)\]</div>
 <div class="math notranslate nohighlight">
-\[u(t) = \mathbf C_r \mathbf x_C  + \mathbf D_r y(t)\]</div>
+\[u(t) = \mathbf C_r \mathbf x_c  + \mathbf D_r y(t)\]</div>
 </section>
 </section>
 
@@ -832,11 +837,11 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
       </div>
     </a>
     <a class="right-next"
-       href="ejemplo_A_ve_motor_cc.html"
+       href="../../../ccyve_sources/ejemplos_ve.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Diseño para un motor de continua</p>
+        <p class="prev-next-title">Ejemplos VE</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -859,9 +864,9 @@ y &amp;\leftarrow \dot y - A_{aa}y-\mathbf B_{a}u\\
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-orden-completo">Estimador de orden completo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-orden-reducido">Estimador de orden reducido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retomamos-el-ejemplo-de-pendulo">Retomamos el ejemplo de péndulo</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retomamos-el-ejemplo-del-pendulo">Retomamos el ejemplo del péndulo</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-completo">Cálculo del observador completo</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-reducido">Calculo del observador reducido</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-del-observador-reducido">Cálculo del observador reducido</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-completo-y-ley-de-control">Estimador completo y ley de control</a></li>

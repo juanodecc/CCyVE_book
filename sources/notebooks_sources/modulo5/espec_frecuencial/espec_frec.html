@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas &#8212; Sistemas de Control</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "juanodecc/CCyVE_book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../../../_static/translations.js?v=efdbd0b9"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec';</script>
+    <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.html" />
+    <link rel="index" title="Índice" href="../../../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../../../search.html" />
+    <link rel="next" title="Diseño de controladores" href="../diseno_controladores_intro.html" />
+    <link rel="prev" title="Estabilidad en Frecuencia" href="../../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../ccyve_sources/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/page_icon.png" class="logo__image only-light" alt="Sistemas de Control - Home"/>
+    <img src="../../../../_static/page_icon.png" class="logo__image only-dark pst-js-only" alt="Sistemas de Control - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../ccyve_sources/intro.html">
+                    Material de la materia Control Clásico y por Variables de Estados 2026
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../gu%C3%ADa_instalaci%C3%B3n/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Introducci%C3%B3n%20a%20los%20notebooks%20de%20Jupyter.html">Introducción a los cuadernos de Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Extra_Python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/Intro-Matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro_python/intro_sympy.html">Introducción a SymPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sistemas Dinámicos y Modelado</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/intro_sys_sen/intro_sis_y_sen.html">Definiciones de Sistemas y Señales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/laplace/transformada_laplace_python_opcional.html">Transformada de Laplace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/laplace/funcion_transferencia.html">Función transferencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/diagrama_bloques/diagrama_de_bloques.html">Diagramas de bloques</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modulo1/espacio_estado/espacio_de_estados.html">Representación de sistemas dinámicos en espacio de estados</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/espacio_estado/modelado_ss.html">Modelado en espacio de estados</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo1/linealizacion/linealizacion.html">Linealización de sistemas no-lineales</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/ejemplos_sistemas.html">Ejemplos de modelos de sistemas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/resorte_no_lineal.html">Sistema masa resorte amortiguador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/CineticaPuntual.html">Ecuaciones de Cinética Puntual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/Nonlinear%20CSTR.html">Sistema CSTR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo1/ejemplos_sistemas/Ejemplo_Presa_Depredador.html">Sistema presa depredador (Lotka-Volterra)</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de la respuesta temporal</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo2/estabilidad/estabilidad.html">Estabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo2/respuesta%20temporal/Respuesta%20Temporal.html">Respuesta temporal de sistemas dinámicos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo2/polos%20y%20ceros%20adicionales/Efecto%20Polos%20y%20Ceros%20Adicionales.html">Efecto de los polos adicionales y de los ceros</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Análisis de estado estacionario</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/realimentacion/carateristicas%20de%20la%20realimentacion.html">Características de la realimentación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/sensibilidad/Sensibilidad.html">Sensibilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo3/errores/Errores.html">Errores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lugar de las raíces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/lugar%20de%20las%20raices.html">Lugar de las raíces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/Pasos%20para%20el%20trazado.html">Pasos para trazar el lugar geométrico de las raíces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo4/Lugar%20de%20la%20raices%20con%20Python.html">Lugar de las raíces usando Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Respuesta en frecuencia</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../diseno_controladores_intro.html">Diseño de controladores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compensadores.html">Compensadores de adelanto y de retraso de fase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problema_levitador.html">Problema de levitador magnético</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tipo1_lead.html">Problema con sistema de tipo 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lead_lag_design.html">Ecuaciones útiles para el diseño del Lead por análisis en frecuencia</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Moderno</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/referencia.html">Inserción de referencias</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulo_ve/estimadores.html">Diseño de estimadores</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo_ve/ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo_ve/ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modulo_ve/ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/juanodecc/control_book_source/blob/master/sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/juanodecc/control_book_source" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/juanodecc/control_book_source/edit/master/sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/juanodecc/control_book_source/issues/new?title=Issue%20on%20page%20%2Fsources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../_sources/sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../../../_sources/sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-y-sensibilidad-complementaria">Sensibilidad y sensibilidad complementaria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-perfecto">Control «perfecto»</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-lazo-cerrado">Características de lazo cerrado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-lazo-abierto">Características de lazo abierto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-un-sistema-de-control">Objetivos de un sistema de control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificaciones-sobre-las-sensibilidades">Especificaciones sobre las sensibilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificaciones-sobre-la-funcion-de-transferencia-a-lazo-abierto-l-s">Especificaciones sobre la función de transferencia a lazo abierto <span class="math notranslate nohighlight">\(L(s)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-controladores-en-el-dominio-frecuencial">Diseño de controladores en el dominio frecuencial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="especificaciones-de-sistemas-de-control-en-el-dominio-de-la-frecuencia-y-otras-yerbas">
+<h1>Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas<a class="headerlink" href="#especificaciones-de-sistemas-de-control-en-el-dominio-de-la-frecuencia-y-otras-yerbas" title="Link to this heading">#</a></h1>
+<p>El contenido de este capítulo se basa en los apuntes del Departamento de Ingeniería de Sistemas y Automática de la Universidad de Valladolid <span id="id1">[<a class="reference internal" href="#id7" title="Departamento de Ingeniería de Sistemas y Automática. Especificación de sistemas de control en el dominio de la frecuencia. Apuntes de cátedra, Escuela Técnica Superior de Ingenieros Industriales (ETSII), Universidad de Valladolid.">DepartamentodIngenieriadSyAutomatica</a>]</span> y en el capítulo 2 de <span id="id2">[<a class="reference internal" href="#id6" title="Sigurd Skogestad and Ian Postlethwaite. Multivariable Feedback Control: Analysis and Design. John Wiley &amp; Sons, 2nd edition, 2005. ISBN 978-0-470-01168-3.">SP05</a>]</span>.</p>
+<section id="sensibilidad-y-sensibilidad-complementaria">
+<h2>Sensibilidad y sensibilidad complementaria<a class="headerlink" href="#sensibilidad-y-sensibilidad-complementaria" title="Link to this heading">#</a></h2>
+<p>Sea el sistema de control de la <a class="reference internal" href="#espec-frec-fig1"><span class="std std-numref">Figura 96</span></a>.
+Donde <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(\eta\)</span> son las entradas de referencia, perturbaciones y de ruido, respectivamente. Por otro lado, las variables de interés, son fundamentalmente <span class="math notranslate nohighlight">\(y\)</span>, la variable física que queremos controlar, pero también la señal <span class="math notranslate nohighlight">\(u\)</span> que es la acción de control y el error, definido como <span class="math notranslate nohighlight">\(e=r-y\)</span>, es el error de seguimiento de la variable física que deseamos controlar. Observar, que la señal que ingresa al controlador es <span class="math notranslate nohighlight">\(r-y_m\)</span>, que incluye el ruido de medición <span class="math notranslate nohighlight">\(\eta\)</span>.</p>
+<figure class="align-center" id="espec-frec-fig1">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig1_err.png"><img alt="sistema realimentado donde K(s) es el compensador G(s) es la planta y G_d(s) es la TF de la perturbación" src="../../../../_images/espec_frec_fig1_err.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 96 </span><span class="caption-text">Sistema realimentado genérico, con el error medido como <span class="math notranslate nohighlight">\(e=r-y\)</span></span><a class="headerlink" href="#espec-frec-fig1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Su función de transferencia de lazo es <span class="math notranslate nohighlight">\(L=GK\)</span> y las relaciones de lazo cerrado son:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+e &amp;= r - y = S(s) r - G_d(s) S(s) d + T(s)\eta
+\\
+u &amp;= S(s) K(s) [r-G_d(s)d-\eta]
+\\
+y &amp;= G_d(s) S(s) d+T(s) r - T(s)\eta
+\end{align}
+\end{split}\]</div>
+<p>Las dos funciones de transferencia más importantes son:</p>
+<p><strong>La sensibilidad <span class="math notranslate nohighlight">\(S(s)\)</span>:</strong> Es la función de transferencia entre la entrada de referencia <span class="math notranslate nohighlight">\(r\)</span> y el error <span class="math notranslate nohighlight">\(e\)</span> (en ausencia de perturbaciones). También es la función de transferencia entre la perturbación <span class="math notranslate nohighlight">\(d\)</span> y la salida <span class="math notranslate nohighlight">\(y\)</span> con <span class="math notranslate nohighlight">\(G_d=1\)</span> cuando la referencia <span class="math notranslate nohighlight">\(r\)</span> es cero.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+S=\frac{1}{1+L}
+\end{align}
+\]</div>
+<p><strong>La sensibilidad complementaria <span class="math notranslate nohighlight">\(T(s)\)</span>:</strong> Es la función de transferencia entre la referencia <span class="math notranslate nohighlight">\(r\)</span> y la salida <span class="math notranslate nohighlight">\(y\)</span> (en ausencia de perturbaciones).</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+T=\frac{L}{1+L}
+\end{align}
+\]</div>
+<p>se cumple que: <span class="math notranslate nohighlight">\(S+T=1, \Rightarrow  T=1-S\)</span></p>
+<ul class="simple">
+<li><p>Las referencias, perturbaciones y ruidos que afectan a un sistema de control tienen una frecuencia característica, que no suele ser fácil de representar o modelar.</p></li>
+<li><p>La capacidad de <strong>rechazar perturbaciones o de seguir referencias</strong> puede especificarse <strong>mejor en el dominio frecuencial</strong> que en el plano-<span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+</ul>
+</section>
+<section id="control-perfecto">
+<h2>Control «perfecto»<a class="headerlink" href="#control-perfecto" title="Link to this heading">#</a></h2>
+<p>Uno de los intereses fundamentales del control es mantener el error de seguimiento <span class="math notranslate nohighlight">\(e=r-y\)</span> en valores acotados:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+e=r-y=S(s)r-G_d(s)S(s)d+T(s)\eta
+\end{align}
+\]</div>
+<p>En particular, <strong>control perfecto</strong> significa que <span class="math notranslate nohighlight">\(e \approx 0\)</span>. Para que esto suceda, es necesario que <span class="math notranslate nohighlight">\(S\approx 0\)</span>, para que los términos <span class="math notranslate nohighlight">\(Sr\approx 0\)</span> y <span class="math notranslate nohighlight">\(G_dSd\approx 0\)</span>, y que <span class="math notranslate nohighlight">\(T \approx 0\)</span>, para que <span class="math notranslate nohighlight">\(T\eta \approx 0\)</span>. Como <span class="math notranslate nohighlight">\(S+T=1\)</span>, ambas condiciones no pueden cumplirse a la misma frecuencia, sólo en bandas de frecuencia distintas. Por lo tanto, si las referencias <span class="math notranslate nohighlight">\(r\)</span> y perturbaciones <span class="math notranslate nohighlight">\(d\)</span> se encuentran en la zona de frecuencias donde <span class="math notranslate nohighlight">\(S \approx 0\)</span> y el ruido <span class="math notranslate nohighlight">\(\eta\)</span> en la zona de frecuencias donde <span class="math notranslate nohighlight">\(T\approx 0\)</span>, es posible lograr control perfecto.</p>
+</section>
+<section id="caracteristicas-de-lazo-cerrado">
+<h2>Características de lazo cerrado<a class="headerlink" href="#caracteristicas-de-lazo-cerrado" title="Link to this heading">#</a></h2>
+<p>Las sensibilidades <span class="math notranslate nohighlight">\(S\)</span> y <span class="math notranslate nohighlight">\(T\)</span> especifican la capacidad de seguimiento de referencias o de atenuación de perturbaciones y ruidos de un sistema de control.</p>
+<p>Características sobre <span class="math notranslate nohighlight">\(T\)</span>:</p>
+<ul class="simple">
+<li><p><em>Ancho de Banda</em> (<span class="math notranslate nohighlight">\(\omega_{BW}^T\)</span>): Establece la banda de frecuencias desde <span class="math notranslate nohighlight">\((0,\omega_{BW}^T)\)</span> en la que las referencias <span class="math notranslate nohighlight">\(r\)</span> pueden ser seguidas.</p></li>
+<li><p><em>Pico de resonancia</em> (<span class="math notranslate nohighlight">\(M_p^T\)</span>): Es la máxima amplificación de ganancia.</p></li>
+<li><p><em>Frecuencia de pico</em> (<span class="math notranslate nohighlight">\(\omega_p^T\)</span>): Es la frecuencia a la que ocurre el pico resonante.</p></li>
+</ul>
+<figure class="align-center" id="espec-frec-fig2b">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig2b.png"><img alt="Módulo de la función de sensibilidad complementaria T" src="../../../../_images/espec_frec_fig2b.png" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 97 </span><span class="caption-text">Módulo de la función de sensibilidad complementaria <span class="math notranslate nohighlight">\(T(j\omega)\)</span></span><a class="headerlink" href="#espec-frec-fig2b" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Características sobre <span class="math notranslate nohighlight">\(S\)</span>:</p>
+<ul class="simple">
+<li><p><em>Ancho de Banda</em> (<span class="math notranslate nohighlight">\(\omega_{BW}^S\)</span>): Frecuencia a la que <span class="math notranslate nohighlight">\(|S|\)</span> cruza por primera vez <span class="math notranslate nohighlight">\(-3dB\)</span> desde abajo. Las perturbaciones <span class="math notranslate nohighlight">\(d\)</span> se atenúan en el rango de <span class="math notranslate nohighlight">\((0, \omega_{BW}^S)\)</span> y no se atenúan en <span class="math notranslate nohighlight">\((\omega_{BW}^S, \infty)\)</span>.</p></li>
+<li><p><em>Pico de resonancia</em> (<span class="math notranslate nohighlight">\(M_p^S\)</span>): Es la máxima amplificación de ganancia.</p></li>
+<li><p><em>Frecuencia de pico</em> (<span class="math notranslate nohighlight">\(\omega_p^S\)</span>): Es la frecuencia a la que ocurre el pico resonante.</p></li>
+</ul>
+<figure class="align-center" id="espec-frec-fig2a">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig2a.png"><img alt="Módulo de la función de transferencia S(s)" src="../../../../_images/espec_frec_fig2a.png" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 98 </span><span class="caption-text">Módulo de la función de sensibilidad <span class="math notranslate nohighlight">\(S(j\omega)\)</span></span><a class="headerlink" href="#espec-frec-fig2a" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="caracteristicas-de-lazo-abierto">
+<h2>Características de lazo abierto<a class="headerlink" href="#caracteristicas-de-lazo-abierto" title="Link to this heading">#</a></h2>
+<p>Como hemos visto en análisis, las principales características que se obtienen de la función de transferencia a lazo abierto <span class="math notranslate nohighlight">\(L\)</span> son:</p>
+<ul class="simple">
+<li><p><em>Margen de ganancia</em> <span class="math notranslate nohighlight">\(MG\)</span>: factor en que puede aumentarse la ganancia del lazo antes de perder la estabilidad, <span class="math notranslate nohighlight">\(MG = 1/|L(j\omega_{180})|\)</span>, donde <span class="math notranslate nohighlight">\(\omega_{180}\)</span> es la frecuencia a la que la fase de <span class="math notranslate nohighlight">\(L\)</span> vale <span class="math notranslate nohighlight">\(-180°\)</span>. En decibeles, <span class="math notranslate nohighlight">\(MG_{dB} = -|L(j\omega_{180})|_{dB}\)</span>.</p></li>
+<li><p><em>Margen de fase</em> <span class="math notranslate nohighlight">\(MF\)</span>: la fase sobre los <span class="math notranslate nohighlight">\(-180°\)</span> a la frecuencia <span class="math notranslate nohighlight">\(\omega_c\)</span>, <span class="math notranslate nohighlight">\(MF = 180° + \angle L(j\omega_c)\)</span>.</p></li>
+<li><p><em>Frecuencia de corte</em> <span class="math notranslate nohighlight">\(\omega_c\)</span>: es la frecuencia en la cual <span class="math notranslate nohighlight">\(|L(j\omega)|= 1\)</span>  o <span class="math notranslate nohighlight">\(0dB\)</span>.</p></li>
+</ul>
+<p>La pendiente de <span class="math notranslate nohighlight">\(|L|\)</span> en el entorno de la frecuencia de corte <span class="math notranslate nohighlight">\(\omega_c\)</span> no debe ser muy elevada para que los márgenes de estabilidad sean razonables.</p>
+<figure class="align-center" id="espec-frec-fig3">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig3.png"><img alt="Márgenes de fase y de ganancia en el diagrama de Bode de la función de lazo L" src="../../../../_images/espec_frec_fig3.png" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 99 </span><span class="caption-text">Márgenes de fase y ganancia del sistema</span><a class="headerlink" href="#espec-frec-fig3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="objetivos-de-un-sistema-de-control">
+<h2>Objetivos de un sistema de control<a class="headerlink" href="#objetivos-de-un-sistema-de-control" title="Link to this heading">#</a></h2>
+<p>Sea el sistema de control de la <a class="reference internal" href="#espec-frec-fig4"><span class="std std-numref">Figura 100</span></a>, donde además se agrega una perturbación <span class="math notranslate nohighlight">\(l\)</span> a la entrada de la planta.</p>
+<figure class="align-center" id="espec-frec-fig4">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig4_err.png"><img alt="sistema de control genérico" src="../../../../_images/espec_frec_fig4_err.png" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 100 </span><span class="caption-text">Sistema de control genérico con perturbación a la entrada de la planta</span><a class="headerlink" href="#espec-frec-fig4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Las relaciones entre todas las variables importantes del sistema son:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+y &amp;= T(s)r+G_d(s)S(s)d-T(s)\eta+S(s)G(s)l,
+\\
+e &amp;= S(s)r-G_d(s)S(s)d-T(s)\eta-S(s)G(s)l,
+\\
+u &amp;= S(s)K(s)r-G_d(s)S(s)K(s)d-S(s)K(s)\eta+S(s)l
+\end{align}
+\end{split}\]</div>
+<p>siendo <span class="math notranslate nohighlight">\(T=\frac{L}{1+L}\)</span>, la sensibilidad complementaria. Se supone además que <span class="math notranslate nohighlight">\(L\)</span> es estrictamente propia (orden del numerador &lt; que el deniminador), es decir <span class="math notranslate nohighlight">\(\lim_{\omega\rightarrow \infty}|L(j\omega)|=0\)</span>, por lo que  <span class="math notranslate nohighlight">\(\lim_{\omega\rightarrow \infty}|S(j\omega)|=1\)</span> y <span class="math notranslate nohighlight">\(\lim_{\omega\rightarrow \infty}|T(j\omega)|=0\)</span>.</p>
+<p>Las relaciones anteriores quedan completamente determinadas por las seis funciones de transferencia de sensibilidad: <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(G_dS\)</span>, <span class="math notranslate nohighlight">\(SG\)</span>, <span class="math notranslate nohighlight">\(SK\)</span> y <span class="math notranslate nohighlight">\(G_dSK\)</span>, que deben diseñarse para atenuar el efecto de las señales exógenas <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(l\)</span>, <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(\eta\)</span> sobre el lazo de control.</p>
+<p>Los objetivos de control son:</p>
+<ol class="arabic simple">
+<li><p>Las sensibilidades <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(G_dS\)</span>, <span class="math notranslate nohighlight">\(SG\)</span>, <span class="math notranslate nohighlight">\(SK\)</span> y <span class="math notranslate nohighlight">\(G_dSK\)</span> deben ser estables (estabilidad interna).</p></li>
+<li><p>Para conseguir seguimiento asintótico perfecto (es decir <span class="math notranslate nohighlight">\(y=r\)</span> en estado estacionario), en ausencia de perturbaciones, ante escalones en la referencia <span class="math notranslate nohighlight">\(r\)</span>, debe cumplirse <span class="math notranslate nohighlight">\(T(0)=1\)</span>, es decir <span class="math notranslate nohighlight">\(|L(j\omega)|\rightarrow\infty\)</span> cuando <span class="math notranslate nohighlight">\(\omega\rightarrow 0\)</span>: <span class="math notranslate nohighlight">\(L\)</span> debe contener un integrador. En general, <span class="math notranslate nohighlight">\(|T(j\omega)|\approx 1\)</span> en bajas frecuencias requiere que <span class="math notranslate nohighlight">\(|L(j\omega)|\)</span> sea grande.</p></li>
+<li><p>Además, el efecto de las perturbaciones <span class="math notranslate nohighlight">\(l\)</span>, <span class="math notranslate nohighlight">\(d\)</span> y <span class="math notranslate nohighlight">\(\eta\)</span> sobre el lazo de control debe ser pequeño. Para ello:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|S|\)</span> debe ser pequeño en la banda de frecuencias de las perturbaciones <span class="math notranslate nohighlight">\(d\)</span>, para no deteriorar la señal de salida <span class="math notranslate nohighlight">\(y\)</span>. Es decir <span class="math notranslate nohighlight">\(|L|\)</span> debe ser grande para dicha zona de frecuencias.</p></li>
+<li><p>Para no deteriorar el error de seguimiento <span class="math notranslate nohighlight">\(r-y\)</span>, <span class="math notranslate nohighlight">\(|S|\)</span> debe ser pequeño en la banda de frecuencias de <span class="math notranslate nohighlight">\(r\)</span> y <span class="math notranslate nohighlight">\(d\)</span>, <span class="math notranslate nohighlight">\(|T|\)</span> debe ser pequeño para las frecuencias características del ruido <span class="math notranslate nohighlight">\(\eta\)</span> y <span class="math notranslate nohighlight">\(|SG|\)</span> debe ser pequeño en la banda de frecuencias de la perturbación <span class="math notranslate nohighlight">\(l\)</span>.</p></li>
+<li><p>Finalmente, para que el esfuerzo de control <span class="math notranslate nohighlight">\(u\)</span> sea moderado, <span class="math notranslate nohighlight">\(|SK|\)</span> debe ser moderado. Esto es especialmente importante por encima de <span class="math notranslate nohighlight">\(\omega_c\)</span>, donde <span class="math notranslate nohighlight">\(|L|&lt;1\)</span> y por lo tanto <span class="math notranslate nohighlight">\(SK\approx K\)</span>: un controlador con mucha ganancia en alta frecuencia amplifica el ruido <span class="math notranslate nohighlight">\(\eta\)</span> sobre <span class="math notranslate nohighlight">\(u\)</span>. En caso contrario podrían saturarse los actuadores que generan <span class="math notranslate nohighlight">\(u\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="especificaciones-sobre-las-sensibilidades">
+<h2>Especificaciones sobre las sensibilidades<a class="headerlink" href="#especificaciones-sobre-las-sensibilidades" title="Link to this heading">#</a></h2>
+<p>Los objetivos de control parecen ser contradictorios, ya que al ser <span class="math notranslate nohighlight">\(S+T=1\)</span>, si la sensibilidad <span class="math notranslate nohighlight">\(S\)</span> debe ser pequeña, <span class="math notranslate nohighlight">\(|S|\ll 1\)</span>, es decir <span class="math notranslate nohighlight">\(|L|\gg 1\)</span>, entonces <span class="math notranslate nohighlight">\(|T|=\left|\frac{L}{1+L}\right|\approx 1\)</span> no puede ser también pequeña. Esto genera una relación de compromiso para <span class="math notranslate nohighlight">\(|L|\)</span>.</p>
+<ul class="simple">
+<li><p>La solución de la paradoja está en que las frecuencias características de cada señal exógena son diferentes (en el mejor de los casos).</p></li>
+<li><p>Las señales de referencia <span class="math notranslate nohighlight">\(r\)</span> y las perturbaciones <span class="math notranslate nohighlight">\(l\)</span> y <span class="math notranslate nohighlight">\(d\)</span> son típicamente de baja frecuencia, menores que <span class="math notranslate nohighlight">\(\omega_1\)</span>, es decir <span class="math notranslate nohighlight">\(\omega \leq \omega_1\)</span>.</p></li>
+<li><p>Las señales de ruido en los sensores <span class="math notranslate nohighlight">\(\eta\)</span> son de alta frecuencia,mayores que <span class="math notranslate nohighlight">\(\omega_2\)</span>, es decir <span class="math notranslate nohighlight">\(\omega \geq \omega_2\)</span>.</p></li>
+</ul>
+<p>Por tanto: <span class="math notranslate nohighlight">\(|S|\ll 1\)</span> en una banda de frecuencias <span class="math notranslate nohighlight">\((0, \omega_1]\)</span> y <span class="math notranslate nohighlight">\(|T|\ll 1\)</span> en una banda de frecuencias <span class="math notranslate nohighlight">\([\omega_2,\infty)\)</span>, con <span class="math notranslate nohighlight">\(\omega_1&lt;\omega_2\)</span>.</p>
+<p>La atenuación se especifica en decibeles mediante las cantidades positivas <span class="math notranslate nohighlight">\(M_a\)</span> y <span class="math notranslate nohighlight">\(M_b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+|S(j\omega)|_{dB}&lt;-M_b \text{ para }\omega \leq \omega_1\text{, } \qquad |T(j\omega)|_{dB}&lt;-M_a \text{ para } \omega \geq \omega_2
+\]</div>
+<p>Las frecuencias <span class="math notranslate nohighlight">\(\omega_1\)</span> y <span class="math notranslate nohighlight">\(\omega_2\)</span>, y los factores de atenuación <span class="math notranslate nohighlight">\(M_a\)</span> y <span class="math notranslate nohighlight">\(M_b\)</span> dependen de cada problema específico.</p>
+</section>
+<section id="especificaciones-sobre-la-funcion-de-transferencia-a-lazo-abierto-l-s">
+<h2>Especificaciones sobre la función de transferencia a lazo abierto <span class="math notranslate nohighlight">\(L(s)\)</span><a class="headerlink" href="#especificaciones-sobre-la-funcion-de-transferencia-a-lazo-abierto-l-s" title="Link to this heading">#</a></h2>
+<p>Las especificaciones sobre <span class="math notranslate nohighlight">\(|S|\)</span> y <span class="math notranslate nohighlight">\(|T|\)</span> pueden ponerse en función de <span class="math notranslate nohighlight">\(|L|\)</span> teniendo en cuenta que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{Siendo } S=\frac{1}{1+L} \text{, } |S|\ll 1   \Rightarrow |L|\gg 1 \text{ y } |S|\approx \frac{1}{|L|}
+\\
+\text{Siendo } T=\frac{L}{1+L} \text{, } |T|\ll 1   \Rightarrow |L|\ll 1 \text{ y } |T|\approx |L|
+\end{align}
+\end{split}\]</div>
+<figure class="align-center" id="espec-frec-fig5">
+<a class="reference internal image-reference" href="../../../../_images/espec_frec_fig5.png"><img alt="zonas de frecuencia para L(s)" src="../../../../_images/espec_frec_fig5.png" style="height: 300px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Figura 101 </span><span class="caption-text">Forma deseada de <span class="math notranslate nohighlight">\(|L|\)</span> (loop-shaping) y zonas de especificación. Ejemplo con <span class="math notranslate nohighlight">\(L(s)=\frac{3}{s(s+2)}\)</span>. Adaptada de <span id="id3">[<a class="reference internal" href="#id6" title="Sigurd Skogestad and Ian Postlethwaite. Multivariable Feedback Control: Analysis and Design. John Wiley &amp; Sons, 2nd edition, 2005. ISBN 978-0-470-01168-3.">SP05</a>, <a class="reference internal" href="#id7" title="Departamento de Ingeniería de Sistemas y Automática. Especificación de sistemas de control en el dominio de la frecuencia. Apuntes de cátedra, Escuela Técnica Superior de Ingenieros Industriales (ETSII), Universidad de Valladolid.">DepartamentodIngenieriadSyAutomatica</a>]</span>.</span><a class="headerlink" href="#espec-frec-fig5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>En baja frecuencia (Zona B):</strong> Atenuación de perturbaciones de proceso.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\omega \leq \omega_1 \text{ : } |S(j\omega)|_{dB}&lt;-M_b \Rightarrow |L(j\omega)|_{dB}&gt;M_b
+\end{align}
+\]</div>
+<p><strong>En alta frecuencia (Zona A):</strong> Atenuación de ruido en los sensores.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\omega \geq \omega_2 \text{ : } |T(j\omega)|_{dB}&lt;-M_a \Rightarrow |L(j\omega)|_{dB}&lt;-M_a
+\end{align}
+\]</div>
+<p><strong>En media frecuencia (Zona C):</strong> Se busca buena estabilidad relativa.</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\omega_1 &lt; \omega_{BW}^S &lt; \omega_c &lt; \omega_{BW}^T&lt;\omega_2 \text{, con } |L(j\omega_c)|=1(=0dB)
+\end{align}
+\]</div>
+<p>En términos de los márgenes de estabilidad es necesario margen de fase <span class="math notranslate nohighlight">\(MF&gt;50°\)</span>, margen de ganancia <span class="math notranslate nohighlight">\(MG&gt;12dB\)</span> y margen de sensibilidad o radio de estabilidad <span class="math notranslate nohighlight">\(RS\geq 0.5\)</span>, por lo que <span class="math notranslate nohighlight">\(\max_\omega|S(j\omega)|\leq 1/RS=2\)</span>. La pregunta que todos nos hacemos es, ¿De donde salen estos valores?… y yo que sé!!!… Te la hago corta, estos márgenes seudo-empírico permiten tener una respuesta temporal aceptable.</p>
+<p>Relacionado con lo anterior, la pendiente de <span class="math notranslate nohighlight">\(|L(j\omega)|\)</span> en las proximidades de la frecuencia de corte debe rondar los <span class="math notranslate nohighlight">\(-20dB/dec\)</span>, sin ser más pronunciada, para conseguir estabilidad relativa.</p>
+</section>
+<section id="diseno-de-controladores-en-el-dominio-frecuencial">
+<h2>Diseño de controladores en el dominio frecuencial<a class="headerlink" href="#diseno-de-controladores-en-el-dominio-frecuencial" title="Link to this heading">#</a></h2>
+<p>Especificaciones de diseño:</p>
+<ul class="simple">
+<li><p><strong>Estabilidad:</strong> Se especifican los márgenes mínimos de fase, ganancia y sensibilidad. (De no tener requerimientos claros, se puede usar la recomendación anterior como punto de partida deseable).</p></li>
+<li><p><strong>Ancho de Banda:</strong> Se especifican los anchos de banda deseados para la sensibilidades <span class="math notranslate nohighlight">\(S\)</span> y <span class="math notranslate nohighlight">\(T\)</span>. (Como punto de partida definir <span class="math notranslate nohighlight">\(\omega_{BW}^T \approx \omega_c\)</span>).</p></li>
+<li><p><strong>Atenuación de perturbaciones:</strong> Se especifican los factores de atenuación <span class="math notranslate nohighlight">\(M_a\)</span> y <span class="math notranslate nohighlight">\(M_b\)</span> y las frecuencias <span class="math notranslate nohighlight">\(\omega_1\)</span> y <span class="math notranslate nohighlight">\(\omega_2\)</span> que van a caracterizar las zonas de frecuencia. (Esto no es trivial, hay que conocer muy bien el ruido que se desea atenuar y las perturbaciones que hay que rechazar).</p></li>
+<li><p><strong>Esfuerzo de control limitado:</strong> Se especifica una cota <span class="math notranslate nohighlight">\(M_c\)</span> tal que <span class="math notranslate nohighlight">\(|SK(j\omega)|&lt;M_c\)</span>, en especial para <span class="math notranslate nohighlight">\(\omega &gt; \omega_c\)</span>, donde <span class="math notranslate nohighlight">\(SK\approx K\)</span>. (Para esto hay que conocer el actuador que se pretende usar, esto tampoco es trivial).</p></li>
+</ul>
+<p>Procedimiento para obtener el controlador <span class="math notranslate nohighlight">\(K(s)\)</span> (Loopshaping):</p>
+<ol class="arabic simple">
+<li><p>Se elige la frecuencia de cruce de ganancia (frecuencia de corte) <span class="math notranslate nohighlight">\(\omega_c\)</span>, con <span class="math notranslate nohighlight">\(\omega_{BW}^S&lt;\omega_c&lt;\omega_{BW}^T\)</span>.</p></li>
+<li><p>Se elige una función de transferencia de lazo abierto <span class="math notranslate nohighlight">\(L\)</span> estrictamente propia que contenga todos los polos y ceros de la planta <span class="math notranslate nohighlight">\(G\)</span> que no tienen parte real negativa (y sus retardos), y tal que <span class="math notranslate nohighlight">\(|L|\)</span> satisface:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(|L(j\omega)|_{dB}&gt;M_b\)</span> para <span class="math notranslate nohighlight">\(\omega\leq\omega_1\)</span> (zona B), incluyendo un integrador si se requiere error nulo ante escalones;</p></li>
+<li><p><span class="math notranslate nohighlight">\(|L(j\omega)|_{dB}&lt;-M_a\)</span> para <span class="math notranslate nohighlight">\(\omega\geq\omega_2\)</span> (zona A);</p></li>
+<li><p><span class="math notranslate nohighlight">\(|L(j\omega_c)|=1\)</span> con pendiente cercana a <span class="math notranslate nohighlight">\(-20dB/dec\)</span> en torno a <span class="math notranslate nohighlight">\(\omega_c\)</span> (zona C), de modo de obtener los márgenes de estabilidad pedidos.</p></li>
+</ul>
+</li>
+<li><p>Se obtiene el controlador como <span class="math notranslate nohighlight">\(K(s) = L(s)\,G(s)^{-1}\)</span>, esto es lo que se llama Loopshaping, invirtiendo la función de transferencia de la planta. Observar que, como <span class="math notranslate nohighlight">\(L\)</span> contiene los polos y ceros en el semiplano derecho (RHP) de <span class="math notranslate nohighlight">\(G\)</span>, <span class="math notranslate nohighlight">\(K\)</span> hay que garantizar la estabilidad interna del sistema, si se plantea cancelar esta singularidades en RHP. Si <span class="math notranslate nohighlight">\(K\)</span> resulta impropio, se agregan polos de alta frecuencia (por encima de <span class="math notranslate nohighlight">\(\omega_2\)</span>).</p></li>
+<li><p>Se verifican las especificaciones sobre <span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(T\)</span> y <span class="math notranslate nohighlight">\(SK\)</span> (márgenes, picos de resonancia, anchos de banda y esfuerzo de control) en frecuencia y mediante simulación temporal. Si no se cumplen, se corrige la forma de <span class="math notranslate nohighlight">\(L\)</span> y se repite el procedimiento.</p></li>
+</ol>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id4">
+<div role="list" class="citation-list">
+<div class="citation" id="id6" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>SP05<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Sigurd Skogestad and Ian Postlethwaite. <em>Multivariable Feedback Control: Analysis and Design</em>. John Wiley &amp; Sons, 2nd edition, 2005. ISBN 978-0-470-01168-3.</p>
+</div>
+<div class="citation" id="id7" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>DepartamentodIngenieriadSyAutomatica<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Departamento de Ingeniería de Sistemas y Automática. Especificación de sistemas de control en el dominio de la frecuencia. Apuntes de cátedra, Escuela Técnica Superior de Ingenieros Industriales (ETSII), Universidad de Valladolid.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sources/notebooks_sources/modulo5/espec_frecuencial"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Estabilidad en Frecuencia</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../diseno_controladores_intro.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Diseño de controladores</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensibilidad-y-sensibilidad-complementaria">Sensibilidad y sensibilidad complementaria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-perfecto">Control «perfecto»</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-lazo-cerrado">Características de lazo cerrado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracteristicas-de-lazo-abierto">Características de lazo abierto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-de-un-sistema-de-control">Objetivos de un sistema de control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificaciones-sobre-las-sensibilidades">Especificaciones sobre las sensibilidades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificaciones-sobre-la-funcion-de-transferencia-a-lazo-abierto-l-s">Especificaciones sobre la función de transferencia a lazo abierto <span class="math notranslate nohighlight">\(L(s)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-de-controladores-en-el-dominio-frecuencial">Diseño de controladores en el dominio frecuencial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por G. Molina and J.P. Pierini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

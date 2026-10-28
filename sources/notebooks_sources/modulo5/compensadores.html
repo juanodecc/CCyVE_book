@@ -95,7 +95,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo5/compensadores';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo5/compensadores.html" />
@@ -255,6 +255,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="current nav bd-sidenav">
@@ -269,16 +270,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_ve/estimadores.html">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modulo_ve/ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modulo_ve/ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modulo_ve/ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modulo_ve/ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modulo_ve/ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modulo_ve/ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -585,7 +586,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <a class="reference internal image-reference" href="../../../_images/fig14.png"><img alt="Diagrama de bloques de sistema a lazo cerrado compensado" src="../../../_images/fig14.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 96 </span><span class="caption-text">Compensador polo-cero</span><a class="headerlink" href="#compensador1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 102 </span><span class="caption-text">Compensador polo-cero</span><a class="headerlink" href="#compensador1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Con estos presupuestos, se da por supuesto que el sistema se controla con un lazo de realimentación negativa unitaria. Sin embargo, en ocasiones pueden diseñarse compensadores que se coloquen en otras posiciones del lazo de control, resultando una realimentación negativa no unitaria. Este tipo de compensadores no se estudiarán en la presente asignatura.</p>
@@ -609,7 +610,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <a class="reference internal image-reference" href="../../../_images/fig22.png"><img alt="Compensación adelanto - Retraso" src="../../../_images/fig22.png" style="width: 450px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 97 </span><span class="caption-text">Compensador adelanto-atraso</span><a class="headerlink" href="#compensador-adelanto-atraso" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 103 </span><span class="caption-text">Compensador adelanto-atraso</span><a class="headerlink" href="#compensador-adelanto-atraso" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -629,7 +630,7 @@ es preferible cuando se trabaja en el lugar de las raíces.  En los siguientes a
 <a class="reference internal image-reference" href="../../../_images/fig32.png"><img alt="Sistema que se desea compensar" src="../../../_images/fig32.png" style="width: 250px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 98 </span><span class="caption-text">Sistema a compensar</span><a class="headerlink" href="#sistema-sin-compensar" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 104 </span><span class="caption-text">Sistema a compensar</span><a class="headerlink" href="#sistema-sin-compensar" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Se trata de un sistema mecánico en el que un actuador mueve una compuerta de masa <span class="math notranslate nohighlight">\(m\)</span> dentro de un medio con viscosidad <span class="math notranslate nohighlight">\(c\)</span>. El actuador debe colocar la compuerta siguiendo la referencia de posición que se le comande de tal forma que el tiempo de establecimiento sea menor o igual que 2 segundos y que el sobrevalor máximo respecto la referencia sea del 20% o menor. La masa de la compuerta es de 0.25 kg y el coeficiente viscoso es 0.5 Ns/m.</p>
@@ -645,7 +646,7 @@ es preferible cuando se trabaja en el lugar de las raíces.  En los siguientes a
 <a class="reference internal image-reference" href="../../../_images/fig43.png"><img alt="Efecto de la adición de un polo y un cero en el lugar de las raíces" src="../../../_images/fig43.png" style="width: 900px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 99 </span><span class="caption-text">Efecto de un polo en lugar de las raíces</span><a class="headerlink" href="#efecto-polo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 105 </span><span class="caption-text">Efecto de un polo en lugar de las raíces</span><a class="headerlink" href="#efecto-polo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Este efecto se muestra cualitativamente en la figura anterior justifica la definición del compensador de adelanto de fase donde se decía <span class="math notranslate nohighlight">\(a &lt; b\)</span>.
@@ -666,7 +667,7 @@ p_{\Delta}&amp;=-\zeta\omega_n\pm\omega_n\sqrt{1-\zeta^2}j&amp;=-2\pm 3.46j
 <a class="reference internal image-reference" href="../../../_images/fig53.png"><img alt="Ángulos y distancias vistas al polo objetivo" src="../../../_images/fig53.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 100 </span><span class="caption-text">Ángulos y distancias vistas al polo objetivo</span><a class="headerlink" href="#and-y-dist" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 106 </span><span class="caption-text">Ángulos y distancias vistas al polo objetivo</span><a class="headerlink" href="#and-y-dist" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="math notranslate nohighlight">
@@ -679,7 +680,7 @@ p_{\Delta}&amp;=-\zeta\omega_n\pm\omega_n\sqrt{1-\zeta^2}j&amp;=-2\pm 3.46j
 <a class="reference internal image-reference" href="../../../_images/fig63.png"><img alt="Posiciones del par polo-cero posibles del compensador" src="../../../_images/fig63.png" style="width: 800px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 101 </span><span class="caption-text">Posiciones del par polo-cero posibles del compensador</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 107 </span><span class="caption-text">Posiciones del par polo-cero posibles del compensador</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Sin embargo, la elección de la posición del par polo-cero no es absolutamente arbitraria. Efectivamente se puede conseguir que el lugar de las raíces pase por el polo objetivo, pero puede ser que en la configuración final del sistema, el polo dominante sea otro. Esta posibilidad hay que evitarla. Si se busca que el régimen transitorio lo caracterice la posición de los polos objetivo, éstos deben quedar como dominantes del sistema.</p>
@@ -697,7 +698,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <a class="reference internal image-reference" href="../../../_images/fig73.png"><img alt="Criterio de la bisectriz" src="../../../_images/fig73.png" style="width: 350px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 102 </span><span class="caption-text">Criterio de la bisectriz</span><a class="headerlink" href="#criterio-bisectriz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 108 </span><span class="caption-text">Criterio de la bisectriz</span><a class="headerlink" href="#criterio-bisectriz" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>En el ejemplo propuesto, el polo del compensador queda aproximadamente en −5.4 y el cero en −2.9. Al aplicar la condición del módulo en el polo objetivo, la ganancia del compensador resulta ser aproximadamente 4.7, por tanto, el compensador tiene la siguiente expresión:</p>
@@ -712,7 +713,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <a class="reference internal image-reference" href="../../../_images/fig83.png"><img alt="Criterio de anular le segundo polo dominante de la planta" src="../../../_images/fig83.png" style="width: 250px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 103 </span><span class="caption-text">Criterio segundo polo dominante</span><a class="headerlink" href="#segundo-polo" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 109 </span><span class="caption-text">Criterio segundo polo dominante</span><a class="headerlink" href="#segundo-polo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>En el ejemplo propuesto, el cero del compensador queda en −2 y el cero en −4. Al aplicar la condición del módulo en el polo objetivo, la ganancia del compensador resulta ser 4, por tanto, el compensador tiene la siguiente expresión:</p>
@@ -733,7 +734,7 @@ En conclusión, la posición del polo y del cero del compensador es libre mientr
 <a class="reference internal image-reference" href="../../../_images/fig93.png"><img alt="Criterio de un compensador proporcional-derivativo" src="../../../_images/fig93.png" style="width: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Figura 104 </span><span class="caption-text">Criterio de un compensador proporcional-derivativo</span><a class="headerlink" href="#criterio-pd" title="Link to this image">#</a></p>
+<p><span class="caption-number">Figura 110 </span><span class="caption-text">Criterio de un compensador proporcional-derivativo</span><a class="headerlink" href="#criterio-pd" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>El ángulo <span class="math notranslate nohighlight">\(\phi_c\)</span> coincide exactamente con el ángulo del que ve el cero al polo objetivo. En el ejemplo propuesto, el cero del compensador queda en −8 y la ganancia resulta ser 0.5, por tanto, el compensador tiene la siguiente expresión:</p>
@@ -950,11 +951,11 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 0.12012012012012012,
  'SettlingTime': 5.205205205205205,
- 'SettlingMin': 0.7521738729990605,
- 'SettlingMax': 1.0465819498526232,
- 'Overshoot': 8.645173841843743,
+ 'SettlingMin': 0.7521738729990619,
+ 'SettlingMax': 1.04658194985263,
+ 'Overshoot': 8.645173841844457,
  'Undershoot': 0.0,
- 'Peak': 1.0465819498526232,
+ 'Peak': 1.04658194985263,
  'PeakTime': 2.4324324324324325,
  'SteadyStateValue': 0.963302752293578}
 </pre></div>
@@ -972,14 +973,14 @@ $<span class="math notranslate nohighlight">\(D(s) = \frac{s+3}{s+20}\)</span>$<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 0.10277692351445898,
- 'SettlingTime': 4.815832987534649,
- 'SettlingMin': 0.7767298504310532,
- 'SettlingMax': 1.0395168591973891,
- 'Overshoot': 7.078052413565643,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 0.10277692351445952,
+ 'SettlingTime': 4.815832987534674,
+ 'SettlingMin': 0.7767298504310537,
+ 'SettlingMax': 1.0395168591973882,
+ 'Overshoot': 7.078052413565551,
  'Undershoot': 0.0,
- 'Peak': 1.0395168591973891,
- 'PeakTime': 2.3051395702528654,
+ 'Peak': 1.0395168591973882,
+ 'PeakTime': 2.3051395702528774,
  'SteadyStateValue': 0.9708029197080292}
 </pre></div>
 </div>
@@ -1013,7 +1014,7 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
 </pre></div>
 </div>
-<img alt="../../../_images/a41cce80a943386b417daa7c040c1f73f7eefff909cae9ba9357c47da0f01819.png" src="../../../_images/a41cce80a943386b417daa7c040c1f73f7eefff909cae9ba9357c47da0f01819.png" />
+<img alt="../../../_images/e4ce9c5d3974725ee714f399191f12d52e9b7798d694d86836aca5b4853d65ee.png" src="../../../_images/e4ce9c5d3974725ee714f399191f12d52e9b7798d694d86836aca5b4853d65ee.png" />
 </div>
 </div>
 <p>La segunda figura es la ampliación de lo que está sucediendo con los polos lentos. Podemos ver que están todos muy cerca de ceros por lo que la influencia neta que tendrán en la respuesta será muy pequeña.</p>
@@ -1062,14 +1063,14 @@ en las formas en que el lugar geométrico se pueda graficar. Por lo tanto, podem
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 2.5957216515746,
- 'SettlingTime': 23.11814595933628,
- 'SettlingMin': 0.9106676824507043,
- 'SettlingMax': 1.1159845187563322,
- 'Overshoot': 11.59845187563322,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'RiseTime': 2.595721651574568,
+ 'SettlingTime': 23.118145959335994,
+ 'SettlingMin': 0.910667682450698,
+ 'SettlingMax': 1.1159845187563286,
+ 'Overshoot': 11.598451875632865,
  'Undershoot': 0.0,
- 'Peak': 1.1159845187563322,
- 'PeakTime': 7.13823454183015,
+ 'Peak': 1.1159845187563286,
+ 'PeakTime': 7.1382345418300615,
  'SteadyStateValue': 1.0}
 </pre></div>
 </div>

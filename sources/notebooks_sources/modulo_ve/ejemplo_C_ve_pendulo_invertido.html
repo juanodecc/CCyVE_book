@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Diseño del sistema de control del pédulo invertido &#8212; Sistemas de Control</title>
+    <title>Diseño del sistema de control del péndulo &#8212; Sistemas de Control</title>
   
   
   
@@ -95,13 +95,13 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo_ve/ejemplo_C_ve_pendulo_invertido';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/ejemplo_C_ve_pendulo_invertido.html" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="prev" title="Diseño del sistema de control del atitud de un satélite" href="ejemplo_B_ve_atitud_satelite.html" />
+    <link rel="prev" title="Diseño del sistema de control de actitud de un satélite" href="ejemplo_B_ve_atitud_satelite.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -254,6 +254,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
@@ -268,16 +269,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estimadores.html">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -525,7 +526,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Diseño del sistema de control del pédulo invertido</h1>
+    <h1>Diseño del sistema de control del péndulo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -535,16 +536,12 @@ commentsRunWhenDOMLoaded(addUtterances);
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Diseño del sistema de control del pédulo invertido</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtencion-de-la-ley-de-control">Obtención de la ley de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-estimador-completo">Diseño del estimador completo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema-compensador-entrada-y-salida-u">Definimos el sistema compensador ( entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-completo">Sistema completo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema-compensador-entrada-y-salida-u">Definimos el sistema compensador (entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-completo">Sistema completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-optima-de-los-autovalores-del-estimador">Ubicación óptima de los autovalores del estimador</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-optima-de-los-autovalores-del-estimador">Ubicación óptima de los autovalores del estimador</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -555,8 +552,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="diseno-del-sistema-de-control-del-pedulo-invertido">
-<h1>Diseño del sistema de control del pédulo invertido<a class="headerlink" href="#diseno-del-sistema-de-control-del-pedulo-invertido" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="diseno-del-sistema-de-control-del-pendulo">
+<h1>Diseño del sistema de control del péndulo<a class="headerlink" href="#diseno-del-sistema-de-control-del-pendulo" title="Link to this heading">#</a></h1>
 <p>Seguimos con el ejemplo de teoría, pero con un pequeño cambio:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -584,15 +581,16 @@ $$</div></div>
 </div>
 <section id="obtencion-de-la-ley-de-control">
 <h2>Obtención de la ley de control<a class="headerlink" href="#obtencion-de-la-ley-de-control" title="Link to this heading">#</a></h2>
+<p>Ubicamos los dos polos de la ley de control en <span class="math notranslate nohighlight">\(-2\omega_0\)</span>. Como son polos repetidos usamos <code class="docutils literal notranslate"><span class="pre">acker</span></code>, que devuelve un vector 1-D; lo convertimos en matriz fila para poder operar con él:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="p">,</span><span class="n">pendulo</span><span class="o">.</span><span class="n">B</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">w0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="p">,</span><span class="n">pendulo</span><span class="o">.</span><span class="n">B</span><span class="p">,[</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span>
 <span class="n">K</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12.,  8.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[12.,  8.]])
 </pre></div>
 </div>
 </div>
@@ -600,25 +598,22 @@ $$</div></div>
 </section>
 <section id="diseno-del-estimador-completo">
 <h2>Diseño del estimador completo<a class="headerlink" href="#diseno-del-estimador-completo" title="Link to this heading">#</a></h2>
+<p>Ubicamos los polos del estimador en <span class="math notranslate nohighlight">\(-4\omega_0\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">pendulo</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,[</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">w0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">pendulo</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,[</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">w0</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">w0</span><span class="p">]))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">L</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16., 60.])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[16.],
+       [60.]])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Verificamos los autovalores de la ley de control y del estimador:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">pendulo</span><span class="o">.</span><span class="n">B</span><span class="nd">@K</span><span class="p">)</span>
@@ -626,12 +621,7 @@ $$</div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">pendulo</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">pendulo</span><span class="o">.</span><span class="n">B</span><span class="nd">@K</span><span class="p">)</span>
-
-<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 1)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.99999997, -4.00000003])
 </pre></div>
 </div>
 </div>
@@ -642,10 +632,15 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-7.99999993, -8.00000007])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="definimos-el-sistema-compensador-entrada-y-salida-u">
-<h2>Definimos el sistema compensador ( entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)<a class="headerlink" href="#definimos-el-sistema-compensador-entrada-y-salida-u" title="Link to this heading">#</a></h2>
+<h2>Definimos el sistema compensador (entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)<a class="headerlink" href="#definimos-el-sistema-compensador-entrada-y-salida-u" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="n">pendulo</span>
@@ -657,6 +652,16 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;StateSpace sys[1]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$
+\left[\begin{array}{rllrll|rll}
+-16\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&1\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&16\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}\\
+-76\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&-8\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&60\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}\\
+\hline
+-12\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&-8\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}&0\phantom{.}&\hspace{-1em}&\hspace{-1em}\phantom{\cdot}\\
+\end{array}\right]
+$$</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -664,11 +669,21 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-12.+7.74596669j, -12.-7.74596669j])
+</pre></div>
 </div>
-<p>Vemos que los polos del compensador son estables!</p>
+</div>
+</div>
+<p>Vemos que los polos del compensador son estables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">comp</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp</span><span class="o">.</span><span class="n">zeros</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.30952381+0.j])
 </pre></div>
 </div>
 </div>
@@ -677,18 +692,38 @@ $$</div></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_comp</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">feedback</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="o">*</span><span class="n">comp</span><span class="p">)</span>
-<span class="n">sys_comp</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
+<span class="n">sys_comp</span><span class="o">.</span><span class="n">poles</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-8.00000044+0.00000000e+00j, -7.99999956+0.00000000e+00j,
+       -4.        +2.65155119e-07j, -4.        -2.65155119e-07j])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Ahora verificamos que el sistema a lazo cerrado tiene efectivamente los polos donde se pretendía. Igualmente será necesario rediseñar para lograr un controlador que sea correcto.</p>
+<p>Los polos a lazo cerrado son la unión de los polos de la ley de control (<span class="math notranslate nohighlight">\(-2\omega_0\)</span>) y los del estimador (<span class="math notranslate nohighlight">\(-4\omega_0\)</span>), como predice el principio de separación.</p>
 </section>
 <section id="sistema-completo">
-<h2>Sistema completo.<a class="headerlink" href="#sistema-completo" title="Link to this heading">#</a></h2>
+<h2>Sistema completo<a class="headerlink" href="#sistema-completo" title="Link to this heading">#</a></h2>
+<p>Conectamos la planta y el compensador con <code class="docutils literal notranslate"><span class="pre">interconnect</span></code>, que une las señales que tienen el mismo nombre. La planta tiene entrada <code class="docutils literal notranslate"><span class="pre">u</span></code> y salida <code class="docutils literal notranslate"><span class="pre">y</span></code>; el compensador tiene entrada <code class="docutils literal notranslate"><span class="pre">y</span></code> y salida <code class="docutils literal notranslate"><span class="pre">uc</span></code>; y un sumador forma <code class="docutils literal notranslate"><span class="pre">u</span> <span class="pre">=</span> <span class="pre">uc</span> <span class="pre">+</span> <span class="pre">w</span></code>. Así el sistema conectado tiene una entrada auxiliar <code class="docutils literal notranslate"><span class="pre">w</span></code> (que en este caso dejamos en cero) y dos salidas: la salida de la planta <code class="docutils literal notranslate"><span class="pre">y</span></code> y el esfuerzo de control <code class="docutils literal notranslate"><span class="pre">uc</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_completo</span> <span class="o">=</span>  <span class="n">ctrl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">comp</span><span class="p">),[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lazo_cerrado</span><span class="p">(</span><span class="n">compensador</span><span class="p">):</span>
+    <span class="n">planta</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s1">'u'</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'planta'</span><span class="p">)</span>
+    <span class="n">comp_n</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">compensador</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">compensador</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">compensador</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">compensador</span><span class="o">.</span><span class="n">D</span><span class="p">,</span>
+                     <span class="n">inputs</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s1">'uc'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'compensador'</span><span class="p">)</span>
+    <span class="n">suma</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">summing_junction</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s1">'uc'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">],</span> <span class="n">output</span><span class="o">=</span><span class="s1">'u'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'suma'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">interconnect</span><span class="p">([</span><span class="n">planta</span><span class="p">,</span> <span class="n">comp_n</span><span class="p">,</span> <span class="n">suma</span><span class="p">],</span> <span class="n">inplist</span><span class="o">=</span><span class="s1">'w'</span><span class="p">,</span> <span class="n">outlist</span><span class="o">=</span><span class="p">[</span><span class="s1">'y'</span><span class="p">,</span> <span class="s1">'uc'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Simulamos la respuesta a una condición inicial en la posición del péndulo (los dos primeros estados son los de la planta y los dos últimos los del compensador):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_completo</span> <span class="o">=</span> <span class="n">lazo_cerrado</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
 <span class="n">t</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">initial_response</span><span class="p">(</span><span class="n">sys_completo</span><span class="p">,</span> <span class="n">X0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -702,21 +737,22 @@ $$</div></div>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón en la referencia'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta a condiciones iniciales'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida $y$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón en la referencia'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo [s]"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Esfuerzo de control $u$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../../../_images/68103b8d17c77c8f8fabaabba33c03ada75094d854c72ded6ab6036a5549bf2c.png" src="../../../_images/68103b8d17c77c8f8fabaabba33c03ada75094d854c72ded6ab6036a5549bf2c.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -724,11 +760,17 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-8.        +3.30072092e-07j, -8.        -3.30072092e-07j,
+       -4.00000025+0.00000000e+00j, -3.99999975+0.00000000e+00j])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="ubicacion-optima-de-los-autovalores-del-estimador">
-<h1>Ubicación óptima de los autovalores del estimador<a class="headerlink" href="#ubicacion-optima-de-los-autovalores-del-estimador" title="Link to this heading">#</a></h1>
+<section id="ubicacion-optima-de-los-autovalores-del-estimador">
+<h2>Ubicación óptima de los autovalores del estimador<a class="headerlink" href="#ubicacion-optima-de-los-autovalores-del-estimador" title="Link to this heading">#</a></h2>
+<p>Usamos el lugar simétrico de las raíces para el estimador. Para eso necesitamos la función de transferencia desde la entrada de ruido de proceso hasta la salida, <span class="math notranslate nohighlight">\(G_e(s) = \mathbf{C}(s\mathbf I - \mathbf A)^{-1}\mathbf B_1\)</span>. Suponemos que el ruido de proceso entra por el mismo lugar que la entrada de control, <span class="math notranslate nohighlight">\(\mathbf{B_1} = \mathbf{B}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B1</span><span class="o">=</span><span class="n">B</span>
@@ -739,11 +781,13 @@ $$</div></div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">conjugate_tf</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Devuelve G(-s) para un sistema SISO."""</span>
     <span class="n">num</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">den</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">den</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nume</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>+1-i)) for i in range(0, len(num))]
-    <span class="n">dene</span> <span class="o">=</span> <span class="p">[</span><span class="n">den</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">den</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>+1-i)) for i in range(0, len(den))]
-    <span class="k">return</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">nume</span><span class="p">,</span><span class="n">dene</span><span class="p">)</span>
+    <span class="c1"># el coeficiente i multiplica a s^(n-1-i)</span>
+    <span class="n">nume</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span>
+    <span class="n">dene</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">den</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">den</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">nume</span><span class="p">,</span> <span class="n">dene</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -753,23 +797,30 @@ $$</div></div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aux1</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B1</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
 <span class="n">aux2</span> <span class="o">=</span> <span class="n">conjugate_tf</span><span class="p">(</span><span class="n">aux1</span><span class="p">)</span>
 <span class="n">G_srle</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">aux1</span><span class="p">)</span><span class="o">*</span><span class="n">aux2</span>
-<span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G_srle</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span> <span class="c1">#aumento los límites para ver la zona donde quiero ubicar el polo</span>
+<span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G_srle</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>  <span class="c1"># aumentamos los límites para ver la zona donde queremos ubicar los polos</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div>
 </div>
+<img alt="../../../_images/a6376c69512581f0be9892407541a94d2a8a0b55823fe22ab0fd5806a0e69413.png" src="../../../_images/a6376c69512581f0be9892407541a94d2a8a0b55823fe22ab0fd5806a0e69413.png" />
+</div>
+</div>
+<p>Elegimos la ganancia del lugar simétrico (por ejemplo, haciendo clic sobre las ramas del gráfico interactivo) y obtenemos los polos estables correspondientes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">=</span><span class="mi">12000</span> <span class="c1"># lo busco haciendo clcik sobre las lineas del root locus simétrico</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">root_locus_map</span><span class="p">(</span><span class="n">G_srle</span><span class="p">,</span> <span class="n">gains</span><span class="o">=</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">.</span><span class="n">loci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">r</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G_srle</span><span class="p">,</span> <span class="n">kvect</span><span class="o">=</span><span class="p">[</span><span class="mi">8000</span><span class="p">],</span><span class="n">Plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">r</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-6.53957633-6.83857138j, -6.53957633+6.83857138j,
+        6.53957633-6.83857138j,  6.53957633+6.83857138j])
 </pre></div>
 </div>
 </div>
@@ -781,6 +832,11 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-6.53957633-6.83857138j, -6.53957633+6.83857138j])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -789,37 +845,35 @@ $$</div></div>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_srl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">s</span><span class="o">.</span><span class="n">B</span><span class="nd">@K</span><span class="o">-</span><span class="n">L</span><span class="nd">@s</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="o">-</span><span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">comp_srl</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[13.07915266],
+       [85.53211714]])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_completo_srl</span> <span class="o">=</span>  <span class="n">ctrl</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">comp_srl</span><span class="p">),[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]],[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comp_srl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">s</span><span class="o">.</span><span class="n">B</span><span class="nd">@K</span><span class="o">-</span><span class="n">L</span><span class="nd">@s</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="o">-</span><span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">comp_srl</span><span class="o">.</span><span class="n">poles</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-10.53957633+9.75103426j, -10.53957633-9.75103426j])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_completo_srl</span> <span class="o">=</span> <span class="n">lazo_cerrado</span><span class="p">(</span><span class="n">comp_srl</span><span class="p">)</span>
 <span class="n">t_srl</span><span class="p">,</span> <span class="n">y_srl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">initial_response</span><span class="p">(</span><span class="n">sys_completo_srl</span><span class="p">,</span> <span class="n">X0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">T</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1001</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Comparamos las respuestas de los dos diseños:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -828,24 +882,28 @@ $$</div></div>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo 2do orden dominante"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_srl</span><span class="p">,</span><span class="n">y_srl</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo SRL"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón en la referencia'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"estimador en $-4</span><span class="se">\\</span><span class="s2">omega_0$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_srl</span><span class="p">,</span><span class="n">y_srl</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"estimador por LSR"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta a condiciones iniciales'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida $y$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo 2do orden dominante"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_srl</span><span class="p">,</span><span class="n">y_srl</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"sys completo SRL"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Respuesta al escalón en la referencia'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Salida"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"estimador en $-4</span><span class="se">\\</span><span class="s2">omega_0$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_srl</span><span class="p">,</span><span class="n">y_srl</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="n">label</span><span class="o">=</span><span class="s2">"estimador por LSR"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Tiempo [s]"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Esfuerzo de control $u$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../../../_images/aaf81ab5b2c48bd39723d6050a3e43f1dc6538b088b3e96d9863d8b73f93a245.png" src="../../../_images/aaf81ab5b2c48bd39723d6050a3e43f1dc6538b088b3e96d9863d8b73f93a245.png" />
 </div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -884,7 +942,7 @@ $$</div></div>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Diseño del sistema de control del atitud de un satélite</p>
+        <p class="prev-next-title">Diseño del sistema de control de actitud de un satélite</p>
       </div>
     </a>
 </div>
@@ -904,16 +962,12 @@ $$</div></div>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Diseño del sistema de control del pédulo invertido</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtencion-de-la-ley-de-control">Obtención de la ley de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-estimador-completo">Diseño del estimador completo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema-compensador-entrada-y-salida-u">Definimos el sistema compensador ( entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-completo">Sistema completo.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema-compensador-entrada-y-salida-u">Definimos el sistema compensador (entrada <span class="math notranslate nohighlight">\(y\)</span>, salida <span class="math notranslate nohighlight">\(u\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-completo">Sistema completo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-optima-de-los-autovalores-del-estimador">Ubicación óptima de los autovalores del estimador</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicacion-optima-de-los-autovalores-del-estimador">Ubicación óptima de los autovalores del estimador</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

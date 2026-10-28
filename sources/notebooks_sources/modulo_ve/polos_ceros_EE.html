@@ -95,7 +95,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo_ve/polos_ceros_EE';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/polos_ceros_EE.html" />
@@ -255,6 +255,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
@@ -269,16 +270,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estimadores.html">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -573,22 +574,22 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h1>Polos y Ceros en los modelos de espacio de estados<a class="headerlink" href="#polos-y-ceros-en-los-modelos-de-espacio-de-estados" title="Link to this heading">#</a></h1>
 <section id="polos-de-un-sistema">
 <h2>Polos de un sistema<a class="headerlink" href="#polos-de-un-sistema" title="Link to this heading">#</a></h2>
-<p>Comenzaremos nuestro análisis tratando de respondernos ¿que es un polo en una función transferencia?¿Cómo identificamos un polo en el dominio temporal?</p>
+<p>Comenzaremos nuestro análisis tratando de responder: ¿qué es un polo en una función transferencia? ¿Cómo identificamos un polo en el dominio temporal?</p>
 <p>Del control clásico podemos recordar que un <strong>polo</strong> es un valor de frecuencia generalizada <span class="math notranslate nohighlight">\(s\)</span> tal que si <span class="math notranslate nohighlight">\(s=p_i\)</span> el sistema puede responder a ciertas condiciones iniciales <span class="math notranslate nohighlight">\(\mathbf{x_0}\)</span> como <span class="math notranslate nohighlight">\(Ke^{p_it}\)</span> si no se está excitando al sistema con ninguna <span class="math notranslate nohighlight">\(u(t)\)</span>. En este contexto a <span class="math notranslate nohighlight">\(p_i\)</span> se le llama <strong>frecuencia natural</strong> o <strong>modo natural</strong> del sistema.</p>
-<p>Para obtener los polos de un sistema en espacio de estados, vamos a escribir en forma de ecuaciones de estado lo que describí en el parrafo anterior. Esto sería:</p>
+<p>Para obtener los polos de un sistema en espacio de estados, vamos a escribir en forma de ecuaciones de estado lo que describimos en el párrafo anterior. Esto sería:</p>
 <div class="math notranslate nohighlight">
 \[u(t)=0,\qquad \mathbf{x}(t)=\mathbf{x}_0e^{p_it},\qquad y(t)=K_ye^{p_it},\]</div>
 <p>entonces se tiene que:</p>
 <div class="math notranslate nohighlight">
-\[\dot{\mathbf{x}}(t) = \mathbf{A}\mathbf{x}(t)+\mathbf{B}u(t) = \mathbf{A}e^{p_it}\mathbf{x}_0\]</div>
+\[\dot{\mathbf{x}}(t) = p_ie^{p_it}\mathbf{x}_0 = \mathbf{A}\mathbf{x}(t)+\mathbf{B}u(t) = \mathbf{A}e^{p_it}\mathbf{x}_0\]</div>
 <p>o escrito de otra forma:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{Ax}_0 = p_i\mathbf{x}_0.\]</div>
-<p>Donde sabemos que este es el problema de autovalores y autovectores de una matriz. Entonces aquí nuevamente vemos que los autovalores de la matriz <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> son los polos del sistema. Además, podemos ver que las condiciones iniciales correspondientes para que el sistema evolucione con todos sus estados unicamente con el modo natura <span class="math notranslate nohighlight">\(p_i\)</span> son las que se encuentran en la dirección del autovector correspondiente a ese autovalor <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
+<p>Donde sabemos que este es el problema de autovalores y autovectores de una matriz. Entonces aquí nuevamente vemos que los autovalores de la matriz <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> son los polos del sistema. Además, podemos ver que las condiciones iniciales correspondientes para que el sistema evolucione con todos sus estados únicamente con el modo natural <span class="math notranslate nohighlight">\(p_i\)</span> son las que se encuentran en la dirección del autovector correspondiente a ese autovalor <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
 </section>
 <section id="ejercicio-1">
 <h2>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Link to this heading">#</a></h2>
-<p>Dado un sistema descripto por las siguienter matrices del espacio de estados:</p>
+<p>Dado un sistema descripto por las siguientes matrices del espacio de estados:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{A}=
   \begin{bmatrix}
@@ -602,15 +603,15 @@ commentsRunWhenDOMLoaded(addUtterances);
   \end{bmatrix},\qquad
 \mathbf{C}=
   \begin{bmatrix}
-    -3 &amp; 2
+    1 &amp; -3
   \end{bmatrix},\qquad
 D = 0
 \end{split}\]</div>
-<p>Usando la teoría obtener los polos del sistema y condiciones iniciales a partir de las cuales todos los estados del sistema evolucionen solo con el mismo modo natural. Obtener una condición inicial para cada modo y verificar superponiendo graficas.</p>
+<p>Usando la teoría obtener los polos del sistema y condiciones iniciales a partir de las cuales todos los estados del sistema evolucionen solo con el mismo modo natural. Obtener una condición inicial para cada modo y verificar superponiendo gráficas.</p>
 </section>
 <section id="solucion">
 <h2>Solución<a class="headerlink" href="#solucion" title="Link to this heading">#</a></h2>
-<p>Para resolver esto vamos a usar <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, aunque facilmente se hubiera podido usar <code class="docutils literal notranslate"><span class="pre">numpy</span></code> ya que el problema de autovalores en general no dificultoso de resolver computacionalmente. Sin embargo, primero vamos a implementar el sistema usando el paquete de control de Python.</p>
+<p>Para resolver esto vamos a usar <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, aunque fácilmente se hubiera podido usar <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, ya que el problema de autovalores en general no es difícil de resolver computacionalmente. Sin embargo, primero vamos a implementar el sistema usando el paquete de control de Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
@@ -633,13 +634,13 @@ $$
 \end{array}\right]
 $$</div></div>
 </div>
-<p>Vamos a escribir en <code class="docutils literal notranslate"><span class="pre">sympy</span></code> el problema a resolver. Para eso primero defino los simbolos a utilizar:</p>
+<p>Vamos a escribir en <code class="docutils literal notranslate"><span class="pre">sympy</span></code> el problema a resolver. Para eso primero definimos los símbolos a utilizar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span><span class="p">,</span> <span class="n">x01</span><span class="p">,</span> <span class="n">x02</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'pi, x01, x02'</span><span class="p">)</span>
 <span class="n">x0</span><span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">x01</span><span class="p">,</span> <span class="n">x02</span><span class="p">])</span>
 <span class="n">Asp</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">polos</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">det</span><span class="p">((</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Asp</span><span class="p">)),</span> <span class="n">pi</span><span class="p">)</span> <span class="c1"># resuelvp det(piI-A)=0 variando pi</span>
+<span class="n">polos</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">det</span><span class="p">((</span><span class="n">pi</span><span class="o">*</span><span class="n">sp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Asp</span><span class="p">)),</span> <span class="n">pi</span><span class="p">)</span> <span class="c1"># resuelve det(pi*I-A)=0 en la variable pi</span>
 <span class="n">polos</span>
 </pre></div>
 </div>
@@ -663,7 +664,7 @@ $$</div></div>
 </div>
 </div>
 </div>
-<p>Esto quiere decir que <code class="docutils literal notranslate"><span class="pre">x01</span></code> tiene que ser 2 veces <code class="docutils literal notranslate"><span class="pre">x02</span></code>. Bien! tenemos el conjunto completo de autectores para ese autovalor en forma simbólica.</p>
+<p>Esto quiere decir que <code class="docutils literal notranslate"><span class="pre">x01</span></code> tiene que ser 2 veces <code class="docutils literal notranslate"><span class="pre">x02</span></code>. Tenemos así el conjunto completo de autovectores para ese autovalor en forma simbólica.</p>
 <p>Haciendo lo mismo para el polo en -1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -677,7 +678,7 @@ $$</div></div>
 </div>
 </div>
 </div>
-<p>Esto se traduce como que el conjunto de autovectores válidos para ese autovalor es <code class="docutils literal notranslate"><span class="pre">x01</span></code>=<code class="docutils literal notranslate"><span class="pre">x02</span></code>. Con los autovalores y autovectores tenemos entonces el problema podemos corroborar lo dicho en teoría haciendo una simulación del sistema frente a las condiciones iniciales dadas por un autovalor y verificar que responde según la dinámica del modo del autovalor asociado.</p>
+<p>Esto se traduce como que el conjunto de autovectores válidos para ese autovalor es <code class="docutils literal notranslate"><span class="pre">x01</span></code>=<code class="docutils literal notranslate"><span class="pre">x02</span></code>. Con los autovalores y autovectores podemos corroborar lo dicho en teoría: simulamos el sistema con condiciones iniciales en la dirección de un autovector y verificamos que responde según la dinámica del modo del autovalor asociado.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span><span class="o">=-</span><span class="mi">2</span>
@@ -701,17 +702,19 @@ $$</div></div>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 2'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 2'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Verificación del polo en -2'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/6dbfb3abd4fa6f1bb0c627a012e02f30b701e18e19ecb0978c8e1d7db06477a9.png" src="../../../_images/6dbfb3abd4fa6f1bb0c627a012e02f30b701e18e19ecb0978c8e1d7db06477a9.png" />
+<img alt="../../../_images/c06145e5bda1cd58c9c08205288f4276945ac4b1e0806237e1ab6735c0645602.png" src="../../../_images/c06145e5bda1cd58c9c08205288f4276945ac4b1e0806237e1ab6735c0645602.png" />
 </div>
 </div>
-<p>Podemos ver que la respuesta de los estados (y por ende la salida) se corrsponden con una dinámica en el modo -2.</p>
+<p>Podemos ver que la respuesta de los estados (y por ende la salida) se corresponden con una dinámica en el modo -2.</p>
 <p>Repetimos el procedimiento para el otro polo:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -730,17 +733,19 @@ $$</div></div>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">xp1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'estado 2'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tp1</span><span class="p">,</span> <span class="n">x02</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">tp1</span><span class="p">),</span> <span class="s1">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'verificación estado 2'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Verificación del polo en -1'</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/1132a755e057f3ef9b0b551dfd36e48d8b2fd1b7fb5ff70311a7550da1d85b77.png" src="../../../_images/1132a755e057f3ef9b0b551dfd36e48d8b2fd1b7fb5ff70311a7550da1d85b77.png" />
+<img alt="../../../_images/0fbdf45489e8009d20e5951da4865f120950fd9a11137d0341855c1c6d5b44c8.png" src="../../../_images/0fbdf45489e8009d20e5951da4865f120950fd9a11137d0341855c1c6d5b44c8.png" />
 </div>
 </div>
-<p>Notar que el problema de autovalores y autovectores lo hemos resuleto usando <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Sin embargo, en la práctica es más sencillo resolver este problema numericamente usando <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Es decir:</p>
+<p>Notar que el problema de autovalores y autovectores lo hemos resuelto usando <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Sin embargo, en la práctica es más sencillo resolver este problema numéricamente usando <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Es decir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aval</span><span class="p">,</span> <span class="n">avec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -756,7 +761,7 @@ $$</div></div>
 </div>
 </div>
 </div>
-<p>La solución numérica del autovalor dada por <code class="docutils literal notranslate"><span class="pre">numpy</span></code> es la que se corresponde con módulo 1. Es decir me devuelve un autovector de módulo 1 por cada autovalor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> devuelve los autovectores normalizados (de norma 1), uno por columna para cada autovalor. Son múltiplos de los que obtuvimos con <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
 </section>
 <section id="cero-del-sistema">
 <h2>Cero del sistema<a class="headerlink" href="#cero-del-sistema" title="Link to this heading">#</a></h2>
@@ -791,13 +796,13 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 \begin{bmatrix}
   \mathbf{x}_0\\
   u_0
-  \end{bmatrix} = 
+  \end{bmatrix} =
 \begin{bmatrix}
   \mathbf{0}\\
   0
 \end{bmatrix}
 \end{split}\]</div>
-<p>Vemos que este sistema tiene solución más allá de la trivial, unicamente si el determinante de la matriz de la izquierda anterior es 0. Es decir:</p>
+<p>Vemos que este sistema tiene solución más allá de la trivial únicamente si el determinante de la matriz de la izquierda anterior es 0. Es decir:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\det{\begin{bmatrix}
   z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\\
@@ -807,11 +812,11 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 </section>
 <section id="ejercicio-2">
 <h2>Ejercicio 2<a class="headerlink" href="#ejercicio-2" title="Link to this heading">#</a></h2>
-<p>Obtener los ceros de transferencia para el sistema del ejercicio anterior mediante la formula recien obtenida.</p>
+<p>Obtener los ceros de transferencia para el sistema del ejercicio anterior mediante la fórmula recién obtenida.</p>
 </section>
 <section id="solucion-ejercicio-2">
 <h2>Solución ejercicio 2<a class="headerlink" href="#solucion-ejercicio-2" title="Link to this heading">#</a></h2>
-<p>Para resolver este problema de forma simbólica utilizaré <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Por lo tanto lo primer que haré será escribir todas las matrices en en modulo de <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
+<p>Para resolver este problema de forma simbólica utilizaremos <code class="docutils literal notranslate"><span class="pre">sympy</span></code>. Por lo tanto, lo primero que haremos será escribir todas las matrices con <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'zi'</span><span class="p">)</span>
@@ -838,8 +843,8 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zi</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">abcd</span><span class="p">),</span><span class="n">zi</span><span class="p">)</span>
-<span class="n">zi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ceros</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">abcd</span><span class="p">),</span> <span class="n">zi</span><span class="p">)</span>
+<span class="n">ceros</span>
 </pre></div>
 </div>
 </div>
@@ -851,32 +856,41 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 </div>
 <p>Vemos que entonces el determinante de la matriz armada tiene un solo cero en <span class="math notranslate nohighlight">\(z_i=-3\)</span>. Por lo que el sistema tiene un solo cero en -3.</p>
 <p>Vamos a obtener ahora las condiciones iniciales <span class="math notranslate nohighlight">\(\mathbf{x_0}\)</span> y <span class="math notranslate nohighlight">\(u_0\)</span> para las cuales el sistema tiene salida nula por más que se lo excite con una señal <span class="math notranslate nohighlight">\(u(t)\)</span> tal que <span class="math notranslate nohighlight">\(u(t)=u_0e^{-3t}\)</span>.</p>
-<p>Sabemos que la matriz <code class="docutils literal notranslate"><span class="pre">abcd</span></code> anterior es de determinante 0, <span class="math notranslate nohighlight">\(z_i=-3\)</span>. Por lo que existen inifinitas soluciones para <span class="math notranslate nohighlight">\(\mathbf x_0, u_0\)</span> que cumplen con:</p>
+<p>Sabemos que la matriz <code class="docutils literal notranslate"><span class="pre">abcd</span></code> anterior es de determinante 0, <span class="math notranslate nohighlight">\(z_i=-3\)</span>. Por lo que existen infinitas soluciones para <span class="math notranslate nohighlight">\(\mathbf x_0, u_0\)</span> que cumplen con:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix}
-z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0\\u_0\end{bmatrix}=\mathbf{0}.
+  z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\\
+  \mathbf{C}&amp;D
+\end{bmatrix}
+\begin{bmatrix}\mathbf{x}_0\\u_0\end{bmatrix}=\mathbf{0}.
 \end{split}\]</div>
 <p>Asumimos <span class="math notranslate nohighlight">\(u_0=1\)</span> y resolvemos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'x10, x20'</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([</span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">abcd</span><span class="o">*</span><span class="n">x0</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="s1">'zi'</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">},</span> <span class="n">x0</span><span class="p">))</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">((</span><span class="n">abcd</span><span class="o">*</span><span class="n">x0</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">zi</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="n">x10</span><span class="p">,</span> <span class="n">x20</span><span class="p">])</span>
 <span class="n">sol</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{x10: -3/2, x20: -1/2, zi: -3}]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{x10: -3/2, x20: -1/2}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Vamos a poner las condiciones iniciales en formato numérico, ya que por más que tenga un valor, siguen siendo datos del tipo de <code class="docutils literal notranslate"><span class="pre">sympy</span></code> es decir, simbólicos.</p>
+<p>Vamos a poner las condiciones iniciales en formato numérico, ya que por más que tengan un valor, siguen siendo datos del tipo de <code class="docutils literal notranslate"><span class="pre">sympy</span></code>, es decir, simbólicos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">x10</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">x20</span><span class="p">])]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">x10</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="n">x20</span><span class="p">])]</span>
+<span class="n">x0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.5, -0.5]
 </pre></div>
 </div>
 </div>
@@ -885,7 +899,7 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20001</span><span class="p">)</span>
-<span class="n">tz</span><span class="p">,</span><span class="n">yz</span><span class="p">,</span><span class="n">xz</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">forced_response</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">X0</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">x10</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="n">sol</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">x20</span><span class="p">])],</span> <span class="n">return_x</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tz</span><span class="p">,</span><span class="n">yz</span><span class="p">,</span><span class="n">xz</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">forced_response</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">U</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">X0</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">return_x</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -893,9 +907,9 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <p>Voy a graficar la salida en dos escalas:</p>
 <ul class="simple">
 <li><p>en la primera la que por default muestra la librería <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
-<li><p>la segunda una escala más normal para los valroes que estamos manejando en el sistema.</p></li>
+<li><p>la segunda, una escala más adecuada para los valores que estamos manejando en el sistema.</p></li>
 </ul>
-<p>Podemos ver que la salida se mantiene muy cercana a cero. El alejamiento de cero se debe a errores numéricos presentes sobre todo en la aproximación de la entrada (para el módulo de control cuando la simula la entrada será escalonada).</p>
+<p>Podemos ver que la salida se mantiene muy cercana a cero. El alejamiento de cero se debe a errores numéricos, sobre todo en la aproximación de la entrada: el módulo de control la interpola linealmente entre los instantes de simulación.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -909,16 +923,16 @@ z_i\mathbf{I}-\mathbf{A}&amp;-\mathbf{B}\end{bmatrix}\begin{bmatrix}\mathbf{x}_0
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tz</span><span class="p">,</span><span class="n">yz</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.01</span><span class="p">,</span><span class="mf">0.01</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo[s]'</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [s]'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../../_images/25bdc7aa26e1e42e3fd9c9df7e134840ebd9a4bea5960413e1c34289e28e2708.png" src="../../../_images/25bdc7aa26e1e42e3fd9c9df7e134840ebd9a4bea5960413e1c34289e28e2708.png" />
+<img alt="../../../_images/463f3fc9a5395a11295a02daf88e621af53ba98026b5baaa1af6e14c1bf6e9b5.png" src="../../../_images/463f3fc9a5395a11295a02daf88e621af53ba98026b5baaa1af6e14c1bf6e9b5.png" />
 </div>
 </div>
-<p>Finalmente, para verificar que todos los cáculos realizados son correctos podemos obtener la función transferencia del sistema en espacio de estados.</p>
+<p>Finalmente, para verificar que todos los cálculos realizados son correctos podemos obtener la función transferencia del sistema en espacio de estados.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -943,18 +957,13 @@ $$\dfrac{s + 3}{s^2 + 3 s + 2}$$</div></div>
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">pole</span><span class="p">(),</span> <span class="n">sys</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">poles</span><span class="p">(),</span> <span class="n">sys</span><span class="o">.</span><span class="n">zeros</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sys</span><span class="o">.</span><span class="n">pole</span><span class="p">(),</span> <span class="n">sys</span><span class="o">.</span><span class="n">zero</span><span class="p">()</span>
-
-<span class="ne">AttributeError</span>: 'StateSpace' object has no attribute 'pole'
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-2.+0.j, -1.+0.j]), array([-3.+0.j]))
 </pre></div>
 </div>
 </div>

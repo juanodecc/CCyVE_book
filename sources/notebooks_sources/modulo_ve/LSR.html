@@ -95,7 +95,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo_ve/LSR';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/LSR.html" />
@@ -255,6 +255,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
@@ -269,16 +270,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estimadores.html">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_B_ve_atitud_satelite.html">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -538,11 +539,11 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-segundo-orden-dominante">Sistema de segundo orden dominante</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lugar-simetrico-de-las-raices">Lugar simétrico de las raíces</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-modos-para-la-ley-de-control">Ejemplo de modos para la ley de control</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-eleccion-de-los-polos-de-la-ley-de-control">Ejemplo: elección de los polos de la ley de control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicando-los-polos-con-el-criterio-de-2do-orden-dominante">Ubicando los polos con el criterio de 2do orden dominante</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-el-criterio-del-lugar-simetrico-de-las-raices">Utilizando el criterio del lugar simétrico de las raíces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control-usando-un-rho-10-veces-mas-grande">Ley de control usando un <span class="math notranslate nohighlight">\(\rho\)</span> 10 veces más grande.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-usando-de-los-3-sistemas-controlados">Comparación usando de los 3 sistemas controlados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-los-3-sistemas-controlados">Comparación de los 3 sistemas controlados</a></li>
 </ul>
 </li>
 </ul>
@@ -561,12 +562,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <section id="sistema-de-segundo-orden-dominante">
 <h2>Sistema de segundo orden dominante<a class="headerlink" href="#sistema-de-segundo-orden-dominante" title="Link to this heading">#</a></h2>
 <p>Una forma de seleccionar la ubicación de los polos es hacer lo mismo que se hacía en control clásico, es decir buscar que el sistema sea parecido a un segundo orden dominante.</p>
-<p>Esto es perfectamente factible en control moderno. Sin embargo, tiene la desventaja que no sabemos para nada que sucederá con el esfuerzo de control <span class="math notranslate nohighlight">\(u\)</span>. Ubicando los polos de esta manera podemos obtener esfuerzos de control imposibles de realizar por nuestros actuadores, o que lleven a consumos de energías demasiado altos para nuestro sistema.</p>
+<p>Esto es perfectamente factible en control moderno. Sin embargo, tiene la desventaja de que no sabemos qué sucederá con el esfuerzo de control <span class="math notranslate nohighlight">\(u\)</span>. Ubicando los polos de esta manera podemos obtener esfuerzos de control imposibles de realizar por nuestros actuadores, o que lleven a consumos de energías demasiado altos para nuestro sistema.</p>
 <p>Por esto, lo más recomendable es usar técnicas de control óptimo para seleccionar los polos del sistema a lazo cerrado.</p>
 </section>
 <section id="lugar-simetrico-de-las-raices">
 <h2>Lugar simétrico de las raíces<a class="headerlink" href="#lugar-simetrico-de-las-raices" title="Link to this heading">#</a></h2>
-<p>Una técnica de control óptimo ampliamente usado es el control <code class="docutils literal notranslate"><span class="pre">regulador</span> <span class="pre">cuadrático</span> <span class="pre">lineal</span> <span class="pre">(LQR)</span></code>. En este curso veremos una versión simplificada que se conoce como <strong>Lugar de las Raíces Simétrico</strong>. Esta versión simplificada consiste en resolver el problema de minimización del siguiente índice de costo:</p>
+<p>Una técnica de control óptimo ampliamente usada es el regulador cuadrático lineal (LQR, por sus siglas en inglés). En este curso veremos una versión simplificada que se conoce como <strong>Lugar de las Raíces Simétrico</strong>. Esta versión simplificada consiste en resolver el problema de minimización del siguiente índice de costo:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal J = \int_0^{\infty}\left[\rho z^2(t)+u^2(t)\right]dt\]</div>
 <p>donde:</p>
@@ -578,26 +579,26 @@ z =  \mathbf{C_1x}\\
 <p>mediante la ley de control:</p>
 <div class="math notranslate nohighlight">
 \[ u =-\mathbf{Kx}\]</div>
-<p>Se puede demostrar que la ubicación de los polos a lazo cerrado que minimizan el funcional de costo anterior, son los polos estables del lugar simétrico de las raíces dado por la ecuación:</p>
+<p>Se puede demostrar que los polos a lazo cerrado que minimizan el funcional de costo anterior son los polos estables del lugar simétrico de las raíces dado por la ecuación:</p>
 <div class="math notranslate nohighlight">
 \[1+\rho G_0(-s)G_0(s)=0\]</div>
 <p>donde <span class="math notranslate nohighlight">\(G_0(s)\)</span> es:</p>
 <div class="math notranslate nohighlight">
 \[G_0(s) = \frac{Z(s)}{U(s)}=\mathbf{C_1}(s\mathbf I -\mathbf A)^{-1}\mathbf B\]</div>
-<p>Por lo tanto el problema lo podemos resolver para todo <span class="math notranslate nohighlight">\(\rho\)</span> haciendo un lugar simétrico de las raíces de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span>. El lugar dará simétrico respecto del eje <span class="math notranslate nohighlight">\(j\omega\)</span> ya que los polos y ceros de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span> también estarán ubicados de forma simétrica.</p>
+<p>Por lo tanto el problema lo podemos resolver para todo <span class="math notranslate nohighlight">\(\rho\)</span> haciendo un lugar de las raíces de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span>. El lugar será simétrico respecto del eje <span class="math notranslate nohighlight">\(j\omega\)</span>, ya que los polos y ceros de <span class="math notranslate nohighlight">\(G_0(-s)G_0(s)\)</span> también están ubicados de forma simétrica.</p>
 </section>
-<section id="ejemplo-de-modos-para-la-ley-de-control">
-<h2>Ejemplo de modos para la ley de control<a class="headerlink" href="#ejemplo-de-modos-para-la-ley-de-control" title="Link to this heading">#</a></h2>
+<section id="ejemplo-eleccion-de-los-polos-de-la-ley-de-control">
+<h2>Ejemplo: elección de los polos de la ley de control<a class="headerlink" href="#ejemplo-eleccion-de-los-polos-de-la-ley-de-control" title="Link to this heading">#</a></h2>
 <p>Dado el sistema con las siguientes ecuaciones de estado:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\dot{\mathbf{x}}(t) = \begin{bmatrix} -3 &amp; 2 \\ -1 &amp; 0 \end{bmatrix} \mathbf{x}(t) + \begin{bmatrix} 1 \\ 0 \end{bmatrix} u(t) \end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[ y(t) = \begin{bmatrix} 1&amp; -3 \end{bmatrix} \mathbf{x}(t) \]</div>
-<p>Obtener leyes de control (una por cada item) que cumplan con las siguientes especificaciones:</p>
+<p>Obtener leyes de control (una por cada ítem) que cumplan con las siguientes especificaciones:</p>
 <ul class="simple">
-<li><p>que el tiempo de asentamiento sea menos a 8 segundos y que el sobrevalor sea menor a 10%</p></li>
-<li><p>igual que el anterior pero diseñar utilizando el lugar simétrico de las raíces</p></li>
-<li><p>utilizando también el lugar simétrico de las raíces utilizar un <span class="math notranslate nohighlight">\(\rho\)</span> 10 veces más grande que el anterior</p></li>
+<li><p>que el tiempo de establecimiento sea menor a 0.8 segundos y que el sobrevalor sea menor a 10%,</p></li>
+<li><p>igual que el anterior, pero diseñando con el lugar simétrico de las raíces,</p></li>
+<li><p>también con el lugar simétrico de las raíces, pero con un <span class="math notranslate nohighlight">\(\rho\)</span> 10 veces más grande que el anterior.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,7 +624,6 @@ z =  \mathbf{C_1x}\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
-<span class="n">sys</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -634,8 +634,7 @@ $$\dfrac{s + 3}{s^2 + 3 s + 2}$$</div></div>
 </div>
 <section id="ubicando-los-polos-con-el-criterio-de-2do-orden-dominante">
 <h3>Ubicando los polos con el criterio de 2do orden dominante<a class="headerlink" href="#ubicando-los-polos-con-el-criterio-de-2do-orden-dominante" title="Link to this heading">#</a></h3>
-<p>Usando el criterio de hacer el sistema de segundo orden dominante, pondremos los polos en la posición que correspondería a ese segundo orden dominante. Para eso vemos la zona del plano <span class="math notranslate nohighlight">\(s\)</span> que cumple con el
-tiempo de establecimiento solicitado (se asume al 2%)</p>
+<p>Usando el criterio de hacer el sistema de segundo orden dominante, pondremos los polos en la posición que correspondería a ese segundo orden. Para eso buscamos la zona del plano <span class="math notranslate nohighlight">\(s\)</span> que cumple con el tiempo de establecimiento solicitado (se asume al 2%):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="mf">0.8</span>
@@ -683,13 +682,13 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K1</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="p">[</span><span class="n">pobj</span><span class="p">,</span> <span class="n">pobj</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="p">[</span><span class="n">pobj</span><span class="p">,</span> <span class="n">pobj</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()]))</span>
 <span class="n">K1</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  7.        , -67.44444444])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  7.        , -67.44444444]])
 </pre></div>
 </div>
 </div>
@@ -697,18 +696,12 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_ley_control1</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="nd">@K1</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
+<span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">poles</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sys_ley_control1</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="nd">@K1</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
-
-<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 1)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-5.+6.66666667j, -5.-6.66666667j])
 </pre></div>
 </div>
 </div>
@@ -720,11 +713,16 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-5.+6.66666667j, -5.-6.66666667j])
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="utilizando-el-criterio-del-lugar-simetrico-de-las-raices">
 <h3>Utilizando el criterio del lugar simétrico de las raíces<a class="headerlink" href="#utilizando-el-criterio-del-lugar-simetrico-de-las-raices" title="Link to this heading">#</a></h3>
-<p>Como en el enunciado no se nos da ningún indicio de como tomar <span class="math notranslate nohighlight">\(z(t)\)</span> para utilizar en el criterio, lo que utilizaremos es <span class="math notranslate nohighlight">\(z(t)=y(t)\)</span>, por lo que <span class="math notranslate nohighlight">\(\mathbf{C}_1=\mathbf{C}\)</span>, y por ende <span class="math notranslate nohighlight">\(G(s) = G_o(s)\)</span>. Entonces podemos obtenemos <span class="math notranslate nohighlight">\(G(s)\)</span>:</p>
+<p>Como en el enunciado no se nos da ningún indicio de cómo tomar <span class="math notranslate nohighlight">\(z(t)\)</span> para utilizar en el criterio, utilizaremos <span class="math notranslate nohighlight">\(z(t)=y(t)\)</span>, por lo que <span class="math notranslate nohighlight">\(\mathbf{C}_1=\mathbf{C}\)</span>, y por ende <span class="math notranslate nohighlight">\(G_0(s) = G(s)\)</span>. Entonces obtenemos <span class="math notranslate nohighlight">\(G(s)\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
@@ -732,6 +730,9 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;TransferFunction sys[3]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$\dfrac{s + 3}{s^2 + 3 s + 2}$$</div></div>
 </div>
 <p>Por inspección podemos obtener el <span class="math notranslate nohighlight">\(G(-s)\)</span>:</p>
 <div class="cell docutils container">
@@ -741,16 +742,20 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;TransferFunction sys[4]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$\dfrac{-s + 3}{s^2 - 3 s + 2}$$</div></div>
 </div>
-<p>A continuación se presenta una función que obtiene <span class="math notranslate nohighlight">\(G(-s)\)</span> de un sistema SISO del módulo de <code class="docutils literal notranslate"><span class="pre">control</span></code> de Python.</p>
+<p>A continuación se presenta una función que obtiene <span class="math notranslate nohighlight">\(G(-s)\)</span> de un sistema SISO del módulo de <code class="docutils literal notranslate"><span class="pre">control</span></code> de Python. Reemplazar <span class="math notranslate nohighlight">\(s\)</span> por <span class="math notranslate nohighlight">\(-s\)</span> equivale a cambiar el signo de los coeficientes de las potencias impares de <span class="math notranslate nohighlight">\(s\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">conjugate_tf</span><span class="p">(</span><span class="n">G</span><span class="p">):</span>
     <span class="n">num</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">den</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">G</span><span class="p">)</span><span class="o">.</span><span class="n">den</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nume</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>+1-i)) for i in range(0, len(num))]
-    <span class="n">dene</span> <span class="o">=</span> <span class="p">[</span><span class="n">den</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">den</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>+1-i)) for i in range(0, len(den))]
-    <span class="k">return</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">nume</span><span class="p">,</span><span class="n">dene</span><span class="p">)</span>
+    <span class="c1"># el coeficiente i multiplica a s^(n-1-i)</span>
+    <span class="n">nume</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span>
+    <span class="n">dene</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">den</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">den</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">nume</span><span class="p">,</span> <span class="n">dene</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -763,21 +768,36 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;TransferFunction sys[5]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$\dfrac{-s + 3}{s^2 - 3 s + 2}$$</div></div>
 </div>
-<p>Ahora podemos hacer el LSR de las raíces.</p>
+<p>Ahora podemos trazar el lugar simétrico de las raíces (LSR).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">Gm</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div>
 </div>
-<p>Podemos ver en la figura, que se logran los objetivos seleccionados usando polos objetivos reales, uno lo podemos ibcar cerca de 5 y el otro queda cerca del cero, por lo que es esperable que no afecte demasiado el comportamiento.</p>
+<img alt="../../../_images/ee9f600695df0a24275f55d18185d04f1d05ded0dc31f846970b5fddd27d901f.png" src="../../../_images/ee9f600695df0a24275f55d18185d04f1d05ded0dc31f846970b5fddd27d901f.png" />
+</div>
+</div>
+<p>Podemos ver en la figura que los objetivos se logran usando polos reales: uno lo podemos ubicar cerca de <span class="math notranslate nohighlight">\(-5\)</span> y el otro queda cerca del cero del sistema en <span class="math notranslate nohighlight">\(-3\)</span>, por lo que es esperable que no afecte demasiado el comportamiento.</p>
+<p>Para obtener los polos del lugar para un valor dado de <span class="math notranslate nohighlight">\(\rho\)</span> usamos <code class="docutils literal notranslate"><span class="pre">root_locus_map</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">Gm</span><span class="p">,</span> <span class="n">kvect</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">root_locus_map</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">Gm</span><span class="p">,</span> <span class="n">gains</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">])</span><span class="o">.</span><span class="n">loci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pobj</span><span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pobj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-5.05852977, -3.3780581 ])
 </pre></div>
 </div>
 </div>
@@ -789,28 +809,43 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  5.43658788, -15.08800749]])
+</pre></div>
+</div>
+</div>
 </div>
 <p>Finalmente cerramos el lazo con esta ley de control</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_ley_control2</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="nd">@K2</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
+<span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">poles</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-5.05852977+0.j, -3.3780581 +0.j])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Podemos ver que el resutlado de esta ley de control tiene ganancias muy menores a la obtenida anteriormente.</p>
+<p>Podemos ver que esta ley de control tiene ganancias mucho menores que la obtenida anteriormente.</p>
 </section>
 <section id="ley-de-control-usando-un-rho-10-veces-mas-grande">
 <h3>Ley de control usando un <span class="math notranslate nohighlight">\(\rho\)</span> 10 veces más grande.<a class="headerlink" href="#ley-de-control-usando-un-rho-10-veces-mas-grande" title="Link to this heading">#</a></h3>
 <p>Al hacer más grande a <span class="math notranslate nohighlight">\(\rho\)</span> se está pesando más las desviaciones del sistema medidas en <span class="math notranslate nohighlight">\(z(t)\)</span> que el esfuerzo de control <span class="math notranslate nohighlight">\(u(t)\)</span>, por lo que es de esperar que este sistema sea bastante más rápido que el obtenido anteriormente. También es de esperar que los movimientos en <span class="math notranslate nohighlight">\(u(t)\)</span> sean mayores.</p>
-<p>De lo dicho en la teoría, aumentar 10 veces el <span class="math notranslate nohighlight">\(\rho\)</span> es aumenta 10 veces el <span class="math notranslate nohighlight">\(k\)</span> para cual se obtienen los polos del lugar simétrico de las raíces.</p>
+<p>De lo dicho en la teoría, aumentar 10 veces <span class="math notranslate nohighlight">\(\rho\)</span> es aumentar 10 veces la ganancia <span class="math notranslate nohighlight">\(k\)</span> para la cual se obtienen los polos del lugar simétrico de las raíces.</p>
 <p>El <span class="math notranslate nohighlight">\(\rho\)</span> obtenido en el punto anterior fue de 32. Entonces ahora usaremos un <span class="math notranslate nohighlight">\(\rho\)</span> de 320.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">rlocus</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">Gm</span><span class="p">,</span> <span class="n">kvect</span><span class="o">=</span><span class="p">[</span><span class="mi">320</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">root_locus_map</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">Gm</span><span class="p">,</span> <span class="n">gains</span><span class="o">=</span><span class="p">[</span><span class="mi">320</span><span class="p">])</span><span class="o">.</span><span class="n">loci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pobj</span><span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pobj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-17.77272212,  -3.02164665])
 </pre></div>
 </div>
 </div>
@@ -822,42 +857,51 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 17.79436877, -51.70288633]])
+</pre></div>
 </div>
-<p>Y definmos el sistema controlado:</p>
+</div>
+</div>
+<p>Y definimos el sistema controlado:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys_ley_control3</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="nd">@K3</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">pole</span><span class="p">()</span>
+<span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">poles</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-17.77272212+0.j,  -3.02164665+0.j])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="comparacion-usando-de-los-3-sistemas-controlados">
-<h3>Comparación usando de los 3 sistemas controlados<a class="headerlink" href="#comparacion-usando-de-los-3-sistemas-controlados" title="Link to this heading">#</a></h3>
-<p>Voy a redifinir los 3 sistemas controlados, para tener a la salida también la variable <span class="math notranslate nohighlight">\(u(t)\)</span>. Sabemos que la varaible <span class="math notranslate nohighlight">\(u(t)\)</span> es <span class="math notranslate nohighlight">\(-\mathbf{Kx}(t)\)</span>. Si quiero eso verlo en la salida, deberé redefinir la matriz <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> de forma que tenga una fila más que sea <span class="math notranslate nohighlight">\(-\mathbf{K}\)</span>. Por lo que la matriz <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> será:</p>
+<section id="comparacion-de-los-3-sistemas-controlados">
+<h3>Comparación de los 3 sistemas controlados<a class="headerlink" href="#comparacion-de-los-3-sistemas-controlados" title="Link to this heading">#</a></h3>
+<p>Vamos a redefinir los 3 sistemas controlados para tener a la salida también la variable <span class="math notranslate nohighlight">\(u(t)\)</span>. Sabemos que <span class="math notranslate nohighlight">\(u(t) = -\mathbf{Kx}(t)\)</span>. Para verla en la salida, redefinimos la matriz <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> de forma que tenga una fila más igual a <span class="math notranslate nohighlight">\(-\mathbf{K}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">C</span><span class="p">,</span><span class="o">-</span><span class="n">K1</span><span class="p">))</span>
-<span class="n">sysf1</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> 
+<span class="n">sysf1</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">A</span><span class="p">,</span>
                 <span class="n">sys_ley_control1</span><span class="o">.</span><span class="n">B</span><span class="p">,</span>
                 <span class="n">C1</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
 
 <span class="n">C2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">C</span><span class="p">,</span><span class="o">-</span><span class="n">K2</span><span class="p">))</span>
-<span class="n">sysf2</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> 
+<span class="n">sysf2</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">A</span><span class="p">,</span>
                 <span class="n">sys_ley_control2</span><span class="o">.</span><span class="n">B</span><span class="p">,</span>
                 <span class="n">C2</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
 
-
 <span class="n">C3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">C</span><span class="p">,</span><span class="o">-</span><span class="n">K3</span><span class="p">))</span>
-<span class="n">sysf3</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> 
+<span class="n">sysf3</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">A</span><span class="p">,</span>
                 <span class="n">sys_ley_control3</span><span class="o">.</span><span class="n">B</span><span class="p">,</span>
                 <span class="n">C3</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Ahora entonces podemos simular a condicones iniciales no nulas:</p>
+<p>Ahora podemos simular la respuesta a condiciones iniciales no nulas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">501</span><span class="p">)</span>
@@ -878,15 +922,15 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">y1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"2do orden dominante"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"SRL criterio 1"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">y3</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"SRL criterio 2"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"LSR $\rho=32$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">y3</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"LSR $\rho=320$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [seg]'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'y(t)'</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">y1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"2do orden dominante"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"SRL criterio 1"</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">y3</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"SRL criterio 2"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">y2</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"LSR $\rho=32$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">y3</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">"LSR $\rho=320$"</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Tiempo [seg]'</span><span class="p">)</span>
@@ -895,10 +939,13 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../../../_images/6c9c6828f84b7e29abb9ed972c2f776fcc074f711aa1f01374fc8315d6d9ff6e.png" src="../../../_images/6c9c6828f84b7e29abb9ed972c2f776fcc074f711aa1f01374fc8315d6d9ff6e.png" />
 </div>
-<p>Podemos ver, que el sistema al tener un cero nos arruinó lo que esperabamos del lazo segundo orden dominante.</p>
-<p>Por otro lado, el sistema obtenido con el primer criterio de SRL  no tiene sobrevalor, cumple (o está muy cerca de cumplir) con todas las especificaciones y usa una <span class="math notranslate nohighlight">\(u(t)\)</span> significativamente menor que los otros dos casos.</p>
-<p>Para el segundo caso del criterio SRL vemos que el sistema converge mucho más rápido que los casos anteriores. Aún así tiene menores movimientos de <span class="math notranslate nohighlight">\(u(t)\)</span> que el caso 1. Esto es por que la posición de los polos objetivos fué elegida siguiendo criterios de optimización. En cambio el caso 1, la posición de los polos fué elegida para que cumpla una respuesta transitoria (o especificaciones) arbitrarias.</p>
+</div>
+<p>Podemos ver que el cero del sistema arruina lo que esperábamos del criterio de segundo orden dominante.</p>
+<p>Por otro lado, el sistema obtenido con el primer criterio de LSR no tiene sobrevalor, cumple (o está muy cerca de cumplir) con todas las especificaciones y usa una <span class="math notranslate nohighlight">\(u(t)\)</span> significativamente menor que los otros dos casos.</p>
+<p>Para el segundo caso del criterio LSR vemos que el sistema converge mucho más rápido que los casos anteriores. Aun así tiene menores movimientos de <span class="math notranslate nohighlight">\(u(t)\)</span> que el caso 1. Esto es porque la posición de los polos objetivo fue elegida siguiendo criterios de optimización. En cambio, en el caso 1 la posición de los polos fue elegida para que cumpla con una respuesta transitoria (o especificaciones) arbitraria.</p>
 </section>
 </section>
 </section>
@@ -970,11 +1017,11 @@ tiempo de establecimiento solicitado (se asume al 2%)</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-segundo-orden-dominante">Sistema de segundo orden dominante</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lugar-simetrico-de-las-raices">Lugar simétrico de las raíces</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-modos-para-la-ley-de-control">Ejemplo de modos para la ley de control</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-eleccion-de-los-polos-de-la-ley-de-control">Ejemplo: elección de los polos de la ley de control</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubicando-los-polos-con-el-criterio-de-2do-orden-dominante">Ubicando los polos con el criterio de 2do orden dominante</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilizando-el-criterio-del-lugar-simetrico-de-las-raices">Utilizando el criterio del lugar simétrico de las raíces</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control-usando-un-rho-10-veces-mas-grande">Ley de control usando un <span class="math notranslate nohighlight">\(\rho\)</span> 10 veces más grande.</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-usando-de-los-3-sistemas-controlados">Comparación usando de los 3 sistemas controlados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-los-3-sistemas-controlados">Comparación de los 3 sistemas controlados</a></li>
 </ul>
 </li>
 </ul>

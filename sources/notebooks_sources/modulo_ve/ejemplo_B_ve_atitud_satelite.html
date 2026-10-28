@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Diseño del sistema de control del atitud de un satélite &#8212; Sistemas de Control</title>
+    <title>Diseño del sistema de control de actitud de un satélite &#8212; Sistemas de Control</title>
   
   
   
@@ -95,14 +95,14 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|text_html"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/notebooks_sources/modulo_ve/ejemplo_B_ve_atitud_satelite';</script>
     <link rel="canonical" href="https://juanodecc.github.io/CCyVE_book/sources/notebooks_sources/modulo_ve/ejemplo_B_ve_atitud_satelite.html" />
     <link rel="index" title="Índice" href="../../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../../search.html" />
-    <link rel="next" title="Diseño del sistema de control del pédulo invertido" href="ejemplo_C_ve_pendulo_invertido.html" />
-    <link rel="prev" title="Diseño para un motor de continua" href="ejemplo_A_ve_motor_cc.html" />
+    <link rel="next" title="Diseño del sistema de control del péndulo" href="ejemplo_C_ve_pendulo_invertido.html" />
+    <link rel="prev" title="Diseño para un motor de corriente continua" href="ejemplo_A_ve_motor_cc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   <meta name="docsearch:version" content="" />
@@ -255,6 +255,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/respuesta_frecuencial.html">Respuesta Frecuencial de Sistemas lineales y SISO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia.html">Estabilidad en Frecuencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulo5/espec_frecuencial/espec_frec.html">Especificaciones de sistemas de control en el dominio de la frecuencia y otras yerbas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diseño de compensadores</span></p>
 <ul class="nav bd-sidenav">
@@ -269,16 +270,16 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="polos_ceros_EE.html">Polos y Ceros en los modelos de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="formas_canonicas.html">Formas canónicas de un espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformacion_formas_canonicas.html">Transformación lineal del espacio de estado</a></li>
-
-
 <li class="toctree-l1"><a class="reference internal" href="ctrb_obsv.html">Análisis de los sistemas en su forma de espacio de estados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencia.html">Inserción de referencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LSR.html">Elección de la ubicación de los polos a lazo cerrado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="estimadores.html">Diseño de estimadores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de continua</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Diseño del sistema de control del atitud de un satélite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del pédulo invertido</a></li>
-
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../ccyve_sources/ejemplos_ve.html">Ejemplos VE</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_A_ve_motor_cc.html">Diseño para un motor de corriente continua</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Diseño del sistema de control de actitud de un satélite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ejemplo_C_ve_pendulo_invertido.html">Diseño del sistema de control del péndulo</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -526,7 +527,7 @@ commentsRunWhenDOMLoaded(addUtterances);
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Diseño del sistema de control del atitud de un satélite</h1>
+    <h1>Diseño del sistema de control de actitud de un satélite</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -536,13 +537,13 @@ commentsRunWhenDOMLoaded(addUtterances);
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema">Definimos el sistema:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-controlalibidad-y-observabilidad">Análisis de Controlalibidad y Observabilidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control">Ley de Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema">Definición del sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-controlabilidad-y-observabilidad">Análisis de controlabilidad y observabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control">Ley de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-estimador">Diseño del estimador</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-de-control">Definición del sistema de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#con-estimador-reducido">Con estimador reducido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido">Definición del sistema  controlador con estimador de orden reducido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido">Definición del sistema controlador con estimador de orden reducido</a></li>
 </ul>
             </nav>
         </div>
@@ -554,20 +555,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="diseno-del-sistema-de-control-del-atitud-de-un-satelite">
-<h1>Diseño del sistema de control del atitud de un satélite<a class="headerlink" href="#diseno-del-sistema-de-control-del-atitud-de-un-satelite" title="Link to this heading">#</a></h1>
-<section id="definimos-el-sistema">
-<h2>Definimos el sistema:<a class="headerlink" href="#definimos-el-sistema" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">control</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ctrl</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="diseno-del-sistema-de-control-de-actitud-de-un-satelite">
+<h1>Diseño del sistema de control de actitud de un satélite<a class="headerlink" href="#diseno-del-sistema-de-control-de-actitud-de-un-satelite" title="Link to this heading">#</a></h1>
+<section id="definicion-del-sistema">
+<h2>Definición del sistema<a class="headerlink" href="#definicion-del-sistema" title="Link to this heading">#</a></h2>
 <p>Diseñar un compensador para la planta:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \dot{\mathbf{x}}=\begin{bmatrix}
@@ -580,7 +571,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="math notranslate nohighlight">
 \[ y=\begin{bmatrix}
 1&amp;0\end{bmatrix}\mathbf{x}.\]</div>
-<p>que ubique los polos tal que <span class="math notranslate nohighlight">\(\omega_n =1\)</span> y <span class="math notranslate nohighlight">\(\zeta=0.707\)</span>:</p>
+<p>que ubique los polos de lazo cerrado tal que <span class="math notranslate nohighlight">\(\omega_n =1\)</span> y <span class="math notranslate nohighlight">\(\zeta=0.707\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
@@ -593,34 +584,31 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </section>
-<section id="analisis-de-controlalibidad-y-observabilidad">
-<h2>Análisis de Controlalibidad y Observabilidad<a class="headerlink" href="#analisis-de-controlalibidad-y-observabilidad" title="Link to this heading">#</a></h2>
-<p>Vemos que el sistema es controlable usando las matrices C y B  dadas. Aunque no lo sería se fuesen diferentes (es decir se actuara o se midiera diferente).</p>
+<section id="analisis-de-controlabilidad-y-observabilidad">
+<h2>Análisis de controlabilidad y observabilidad<a class="headerlink" href="#analisis-de-controlabilidad-y-observabilidad" title="Link to this heading">#</a></h2>
+<p>Calculamos el rango de las matrices de observabilidad y de controlabilidad. Con las matrices <span class="math notranslate nohighlight">\(\mathbf B\)</span> y <span class="math notranslate nohighlight">\(\mathbf C\)</span> dadas, el sistema es observable y controlable (rango 2). Sin embargo, no lo sería si se midiera la velocidad en lugar de la posición, <span class="math notranslate nohighlight">\(\mathbf C = [0\;\;1]\)</span>, o si se actuara sobre la posición en lugar de la aceleración, <span class="math notranslate nohighlight">\(\mathbf B = [1\;\;0]^T\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">obsv</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">obsv</span><span class="p">(</span><span class="n">A</span><span class="p">,[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ctrb</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ctrb</span><span class="p">(</span><span class="n">A</span><span class="p">,[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Observabilidad con C dada:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">obsv</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">C</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Observabilidad midiendo la velocidad:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">obsv</span><span class="p">(</span><span class="n">A</span><span class="p">,[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Controlabilidad con B dada:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ctrb</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Controlabilidad con B=[1 0]':"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ctrb</span><span class="p">(</span><span class="n">A</span><span class="p">,[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-1
-2
-1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observabilidad con C dada: 2
+Observabilidad midiendo la velocidad: 1
+Controlabilidad con B dada: 2
+Controlabilidad con B=[1 0]': 1
 </pre></div>
 </div>
 </div>
 </div>
-<p>Para cumplir con los requerimientos debemos ubicar los polos en <span class="math notranslate nohighlight">\(\alpha_c = -0.7070 \pm 0.0707j\)</span>.</p>
+<p>Para cumplir con los requerimientos debemos ubicar los polos en <span class="math notranslate nohighlight">\(\alpha_c = -0.707 \pm 0.707j\)</span>.</p>
 </section>
 <section id="ley-de-control">
-<h2>Ley de Control<a class="headerlink" href="#ley-de-control" title="Link to this heading">#</a></h2>
+<h2>Ley de control<a class="headerlink" href="#ley-de-control" title="Link to this heading">#</a></h2>
 <p>Usando el comando <code class="docutils literal notranslate"><span class="pre">acker</span></code> o <code class="docutils literal notranslate"><span class="pre">place</span></code> obtenemos la ley de control que ubica los polos del sistema donde queremos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,21 +639,21 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Usando <code class="docutils literal notranslate"><span class="pre">acker</span></code></p>
+<p>Usando <code class="docutils literal notranslate"><span class="pre">acker</span></code> obtenemos el mismo resultado. Notar que <code class="docutils literal notranslate"><span class="pre">acker</span></code> devuelve un vector 1-D, por lo que lo convertimos en una matriz fila para poder operar con él:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">alpha_c</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">alpha_c</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.         1.41421356]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.         1.41421356]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Controlamos que las cuentas esten bien hechas, viendo que los autovalores de <span class="math notranslate nohighlight">\(\mathbf{A}-\mathbf{BK}\)</span> den donde tienen que dar:</p>
+<p>Controlamos que las cuentas estén bien hechas, verificando que los autovalores de <span class="math notranslate nohighlight">\(\mathbf{A}-\mathbf{BK}\)</span> den donde tienen que dar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="nd">@K</span><span class="p">)</span>
@@ -674,13 +662,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">l</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="nd">@K</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-
-<span class="nn">ValueError: matmul: Input operand 1 has a mismatch</span> in <span class="ni">its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) </span><span class="nt">(size 2 is different from 1)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.70710678+0.70710678j -0.70710678-0.70710678j]
 </pre></div>
 </div>
 </div>
@@ -688,7 +670,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </section>
 <section id="diseno-del-estimador">
 <h2>Diseño del estimador<a class="headerlink" href="#diseno-del-estimador" title="Link to this heading">#</a></h2>
-<p>Ahora ubicamos los polos del estimador 5 veces más rápido, pero con un <span class="math notranslate nohighlight">\(\zeta\)</span> que haga que no oscile (<span class="math notranslate nohighlight">\(\zeta=0.5\)</span>).</p>
+<p>Ahora ubicamos los polos del estimador 5 veces más rápidos (<span class="math notranslate nohighlight">\(\omega_n=5\)</span>) y con <span class="math notranslate nohighlight">\(\zeta=0.5\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wne</span><span class="o">=</span><span class="mi">5</span>
@@ -696,6 +678,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">polye</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">zetae</span><span class="o">*</span><span class="n">wne</span><span class="p">,</span><span class="n">wne</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">rootse</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">polye</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rootse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2.5+4.33012702j -2.5-4.33012702j]
 </pre></div>
 </div>
 </div>
@@ -707,15 +694,21 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 5.]
+ [25.]]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="definicion-del-sistema-de-control">
 <h2>Definición del sistema de control<a class="headerlink" href="#definicion-del-sistema-de-control" title="Link to this heading">#</a></h2>
 <p>Expresando las ecuaciones de estado del controlador <span class="math notranslate nohighlight">\(D_c\)</span> nos queda:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray}
-\mathbf{\dot{\hat{x}}}&amp;=&amp;(\mathbf{A-BK-LC}) \mathbf{\hat {x}}+\mathbf{L}y\\
-u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
+\[\begin{split}\begin{align*}
+\mathbf{\dot{\hat{x}}}&amp;=(\mathbf{A-BK-LC}) \mathbf{\hat {x}}+\mathbf{L}y\\
+u&amp;=-\mathbf{K}\mathbf{\hat{x}}\end{align*}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dc</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">B</span><span class="nd">@K</span><span class="o">-</span><span class="n">Lt</span><span class="nd">@C</span><span class="p">,</span><span class="n">Lt</span><span class="p">,</span><span class="o">-</span><span class="n">K</span><span class="p">,[</span><span class="mi">0</span><span class="p">])</span>
@@ -723,8 +716,11 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;TransferFunction sys[2]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$\dfrac{-40.36 s - 25}{s^2 + 6.414 s + 33.07}$$</div></div>
 </div>
-<p>Con este controlador podemos hacer un análisis de sistema igual que lo hacíamos con control clásico.</p>
+<p>Con este controlador podemos hacer un análisis del sistema igual que lo hacíamos en control clásico. La función de transferencia de lazo es <span class="math notranslate nohighlight">\(-D_c(s)G(s)\)</span>, porque el signo de la realimentación ya está incluido en <span class="math notranslate nohighlight">\(D_c\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">=</span><span class="n">ctrl</span><span class="o">.</span><span class="n">bode</span><span class="p">(</span><span class="n">sys</span><span class="o">*-</span><span class="n">Dc</span><span class="p">,</span><span class="n">dB</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -732,10 +728,19 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/f81c1b24eaac89b42dcb5d109dcb283b646cb844685b4839a0a1f4f2a0acb8fe.png" src="../../../_images/f81c1b24eaac89b42dcb5d109dcb283b646cb844685b4839a0a1f4f2a0acb8fe.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="n">sys</span><span class="o">*-</span><span class="n">Dc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="p">,</span> <span class="n">pm</span><span class="p">,</span> <span class="n">wcg</span><span class="p">,</span> <span class="n">wcp</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="n">sys</span><span class="o">*-</span><span class="n">Dc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Margen de ganancia: </span><span class="si">{</span><span class="n">ctrl</span><span class="o">.</span><span class="n">mag2db</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> dB, margen de fase: </span><span class="si">{</span><span class="n">pm</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">°"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Margen de ganancia: 13.3 dB, margen de fase: 49.9°
 </pre></div>
 </div>
 </div>
@@ -747,12 +752,18 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed x limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div>
 </div>
-<p>Podemos ver que este diseño tiene un margen de fase de 50 grados aproximadamente.</p>
+<img alt="../../../_images/57d7ae6767e9408862a17fa9d9c56d6f73d4d32c11a989cc0ea1b534f7e7170f.png" src="../../../_images/57d7ae6767e9408862a17fa9d9c56d6f73d4d32c11a989cc0ea1b534f7e7170f.png" />
+</div>
+</div>
+<p>Podemos ver que este diseño tiene un margen de fase de aproximadamente 50°.</p>
 </section>
 <section id="con-estimador-reducido">
 <h2>Con estimador reducido<a class="headerlink" href="#con-estimador-reducido" title="Link to this heading">#</a></h2>
-<p>Pondremos ahora el polo del estimador en -5rad/seg.</p>
+<p>Pondremos ahora el polo del estimador en <span class="math notranslate nohighlight">\(-5\)</span> rad/s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">polesered</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
@@ -761,31 +772,35 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 <span class="n">Aba</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">Abb</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:]</span>
 
-<span class="n">Ba</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">Bb</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Ba</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">Bb</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ltred</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">Abb</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Aab</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">polesered</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ltred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">ctrl</span><span class="o">.</span><span class="n">acker</span><span class="p">(</span><span class="n">Abb</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Aab</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">polesered</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 <span class="n">Ltred</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5.]])
+</pre></div>
 </div>
-<p>Ahora podemos obtener la ley de control igualmente mediante estas ecuaciones del controlador para un sistema con un estimador reducido.</p>
-<p>Para esto necesitamos devidir las <span class="math notranslate nohighlight">\(\mathbf K\)</span> que multiplican a la parte medida de los esatados (<span class="math notranslate nohighlight">\(\mathbf{K_a}\)</span>) de la no medida (<span class="math notranslate nohighlight">\(\mathbf{K_b}\)</span>).</p>
+</div>
+</div>
+<p>Ahora podemos obtener el controlador con estimador reducido mediante las ecuaciones vistas en teoría. Para esto necesitamos separar la parte de <span class="math notranslate nohighlight">\(\mathbf K\)</span> que multiplica al estado medido (<span class="math notranslate nohighlight">\(K_a\)</span>) de la que multiplica a los no medidos (<span class="math notranslate nohighlight">\(\mathbf{K_b}\)</span>).</p>
 </section>
 <section id="definicion-del-sistema-controlador-con-estimador-de-orden-reducido">
-<h2>Definición del sistema  controlador con estimador de orden reducido<a class="headerlink" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido" title="Link to this heading">#</a></h2>
+<h2>Definición del sistema controlador con estimador de orden reducido<a class="headerlink" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ka</span><span class="o">=</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">Kb</span><span class="o">=</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ka</span><span class="o">=</span><span class="n">K</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">Kb</span><span class="o">=</span><span class="n">K</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
 
-<span class="n">Ar</span> <span class="o">=</span> <span class="n">Abb</span><span class="o">-</span><span class="n">Ltred</span><span class="nd">@Aab</span><span class="o">-</span><span class="p">(</span><span class="n">Bb</span><span class="o">-</span><span class="n">Ltred</span><span class="nd">@Ba</span><span class="p">)</span><span class="o">*</span><span class="n">Kb</span>
+<span class="n">Ar</span> <span class="o">=</span> <span class="n">Abb</span><span class="o">-</span><span class="n">Ltred</span><span class="nd">@Aab</span><span class="o">-</span><span class="p">(</span><span class="n">Bb</span><span class="o">-</span><span class="n">Ltred</span><span class="nd">@Ba</span><span class="p">)</span><span class="nd">@Kb</span>
 <span class="n">Br</span> <span class="o">=</span> <span class="n">Ar</span><span class="nd">@Ltred</span> <span class="o">+</span> <span class="n">Aba</span> <span class="o">-</span> <span class="n">Ltred</span><span class="nd">@Aaa</span> <span class="o">-</span> <span class="p">(</span><span class="n">Bb</span><span class="o">-</span><span class="n">Ltred</span><span class="nd">@Ba</span><span class="p">)</span><span class="nd">@Ka</span>
 <span class="n">Cr</span> <span class="o">=</span> <span class="o">-</span><span class="n">Kb</span>
 <span class="n">Dr</span> <span class="o">=</span> <span class="o">-</span><span class="n">Ka</span><span class="o">-</span><span class="n">Kb</span><span class="nd">@Ltred</span>
@@ -796,16 +811,13 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Dcr</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">ss</span><span class="p">(</span><span class="n">Ar</span><span class="p">,</span><span class="n">Br</span><span class="p">,</span><span class="n">Cr</span><span class="p">,</span><span class="n">Dr</span><span class="p">)</span>
+<span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="o">-</span><span class="n">Dcr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="o">-</span><span class="n">Dcr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell_output docutils container">
+<div class="output text_html">&lt;TransferFunction sys[15]: ['u[0]'] -&gt; ['y[0]']&gt;
+$$\dfrac{8.071 s + 5}{s + 6.414}$$</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,10 +826,19 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/151aa55b5610fa951559b4a5416a977664a9cd2de3ba1be1b36cad693c215827.png" src="../../../_images/151aa55b5610fa951559b4a5416a977664a9cd2de3ba1be1b36cad693c215827.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ctrl</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="o">-</span><span class="n">Dcr</span><span class="o">*</span><span class="n">sys</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="p">,</span> <span class="n">pm</span><span class="p">,</span> <span class="n">wcg</span><span class="p">,</span> <span class="n">wcp</span> <span class="o">=</span> <span class="n">ctrl</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="o">-</span><span class="n">Dcr</span><span class="o">*</span><span class="n">sys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Margen de fase: </span><span class="si">{</span><span class="n">pm</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">°"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Margen de fase: 53.5°
 </pre></div>
 </div>
 </div>
@@ -829,7 +850,14 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+</pre></div>
 </div>
+<img alt="../../../_images/925b7da6a5f382a3c83dafad8d40338474860c96b0a2d25a026e357a10a675bc.png" src="../../../_images/925b7da6a5f382a3c83dafad8d40338474860c96b0a2d25a026e357a10a675bc.png" />
+</div>
+</div>
+<p>Con el estimador reducido el controlador es de primer orden y el margen de fase es algo mayor, de aproximadamente 53°. En este caso no tiene sentido hablar de margen de ganancia: la fase de la función de lazo sólo vale <span class="math notranslate nohighlight">\(-180°\)</span> en <span class="math notranslate nohighlight">\(\omega \rightarrow 0\)</span>, y el lugar de las raíces muestra que el lazo cerrado es estable para cualquier ganancia positiva.</p>
 </section>
 </section>
 
@@ -869,7 +897,7 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Diseño para un motor de continua</p>
+        <p class="prev-next-title">Diseño para un motor de corriente continua</p>
       </div>
     </a>
     <a class="right-next"
@@ -877,7 +905,7 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Diseño del sistema de control del pédulo invertido</p>
+        <p class="prev-next-title">Diseño del sistema de control del péndulo</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -898,13 +926,13 @@ u&amp;=&amp;-\mathbf{K}\mathbf{\hat{x}}\end{eqnarray}\end{split}\]</div>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definimos-el-sistema">Definimos el sistema:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-controlalibidad-y-observabilidad">Análisis de Controlalibidad y Observabilidad</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control">Ley de Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema">Definición del sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-controlabilidad-y-observabilidad">Análisis de controlabilidad y observabilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ley-de-control">Ley de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diseno-del-estimador">Diseño del estimador</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-de-control">Definición del sistema de control</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#con-estimador-reducido">Con estimador reducido</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido">Definición del sistema  controlador con estimador de orden reducido</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-del-sistema-controlador-con-estimador-de-orden-reducido">Definición del sistema controlador con estimador de orden reducido</a></li>
 </ul>
   </nav></div>
 
