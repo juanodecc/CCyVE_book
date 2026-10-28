@@ -11,8 +11,8 @@ latex:
     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
-#bibtex_bibfiles:
-#  - references.bib
+bibtex_bibfiles:
+  - references.bib
 
 launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"
@@ -40,6 +40,9 @@ html:
     utterances:
       repo: "juanodecc/CCyVE_book"
 
+exclude_patterns:
+  - sources/notebooks_sources/modulo5/espec_frecuencial/*.py
+
 execute:
   execute_notebooks: cache
 
@@ -65,6 +68,7 @@ sphinx:
   config:
     language: es
     mermaid_d3_zoom: true
+    myst_mathjax_classes: "tex2jax_process|mathjax_process|math|output_area|text_html"
     mermaid_init_js: |
       mermaid.initialize({
         startOnLoad: true,

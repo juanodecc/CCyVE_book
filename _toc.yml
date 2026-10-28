@@ -43,6 +43,7 @@ parts:
   chapters:
   - file: sources/notebooks_sources/modulo_frec/respuesta_frecuencial
   - file: sources/notebooks_sources/modulo_frec/estabilidad_nyquist/estabilidad_en_frecuencia
+  - file: sources/notebooks_sources/modulo5/espec_frecuencial/espec_frec
 - caption: "Dise\xF1o de compensadores"
   chapters:
   - file: sources/notebooks_sources/modulo5/diseno_controladores_intro
@@ -59,6 +60,8 @@ parts:
   - file: sources/notebooks_sources/modulo_ve/referencia
   - file: sources/notebooks_sources/modulo_ve/LSR
   - file: sources/notebooks_sources/modulo_ve/estimadores
-  - file: sources/notebooks_sources/modulo_ve/ejemplo_A_ve_motor_cc
-  - file: sources/notebooks_sources/modulo_ve/ejemplo_B_ve_atitud_satelite
-  - file: sources/notebooks_sources/modulo_ve/ejemplo_C_ve_pendulo_invertido
+  - file: ccyve_sources/ejemplos_ve
+    sections:
+    - file: sources/notebooks_sources/modulo_ve/ejemplo_A_ve_motor_cc
+    - file: sources/notebooks_sources/modulo_ve/ejemplo_B_ve_atitud_satelite
+    - file: sources/notebooks_sources/modulo_ve/ejemplo_C_ve_pendulo_invertido
